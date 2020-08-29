@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -44,9 +46,9 @@ public class BienImmobilier {
 	// @JoinColumn(name="adresse_id", referencedColumnName="id_adresse")
 	// private Adresse adresse;
 
-	// @ManyToOne
-	// @JoinColumn(name="classe_standard_id", referencedColumnName="id_classe_standard")
-	// private ClasseStandard classeStandard;
+	@ManyToOne
+	@JoinColumn(name="classe_standard_id", referencedColumnName="id_classe_standard")
+	private ClasseStandard classeStandard;
 
 	// Permet de faire le lien entre le bien immobilier, l'agent qui gère la visite
 	// et le client qui visite
