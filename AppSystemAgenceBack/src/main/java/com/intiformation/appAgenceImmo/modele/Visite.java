@@ -35,7 +35,7 @@ public class Visite {
 	/*--------------- ASSOCIATIONS ---------------*/
 
 	/**
-	 * Association entre visite en client
+	 * Association entre visite et client
 	 * Many visites to One client
 	 */
 	/*
@@ -45,7 +45,7 @@ public class Visite {
 	 */
 	
 	/**
-	 * Association entre visite en agent immobilier
+	 * Association entre visite et agent immobilier
 	 * Many visites to One agent immobilier
 	 */
 	/*

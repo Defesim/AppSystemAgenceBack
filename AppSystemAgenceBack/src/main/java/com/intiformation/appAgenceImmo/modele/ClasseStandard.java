@@ -8,8 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 
 /**
@@ -34,8 +38,13 @@ public class ClasseStandard {
 	@Column(name = "libelle")
 	private String libelle; 
 	
+	// Type de bien : appartement, bureau, maison, terrain
 	@Column(name = "type_de_bien")
 	private String typeDeBien; 
+	
+	// Usage du bien : commercial ou habitation
+	@Column(name = "usage_de_bien")
+	private String usageDuBien;
 	
 	@Column(name = "description")
 	private String description; 
@@ -72,15 +81,11 @@ public class ClasseStandard {
 	
 	/**
 	 * Association entre classe standard et mode d'offre 
-	 * Many classe standard pour many modes d'offre 
+	 * Many classes standards pour one mode d'offre
 	 */
-	/*
-	 @ManyToMany (cascade= CascadeType.ALL)
-   	 @JoinTable (name="classe_standard_mode_offre_assos",
-			joinColumns=@JoinColumn(name="classe_standard_id"),
-			inverseJoinColumns= @JoinColumn(name="mode_offre_id"))
-	 private List<ModeOffre> modesOffre;
-	 */
+	@ManyToOne
+	@JoinColumn(name="mode_offre_id", referencedColumnName="id_mode_offre")
+	private ModeOffre modesOffre;
 	
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**
