@@ -1,7 +1,9 @@
 package com.intiformation.appAgenceImmo.modele;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 
 /**
  * Modèle de données pour un bien immobilier
@@ -39,7 +42,7 @@ public class BienImmobilier {
 
 	@Column(name = "revenu_cadastral")
 	private double revenuCadastral;
-	
+
 	/*--------------- ASSOCIATIONS ---------------*/
 
 	// @OneToOne
@@ -47,60 +50,35 @@ public class BienImmobilier {
 	// private Adresse adresse;
 
 	@ManyToOne
-	@JoinColumn(name="classe_standard_id", referencedColumnName="id_classe_standard")
+	@JoinColumn(name = "classe_standard_id", referencedColumnName = "id_classe_standard")
 	private ClasseStandard classeStandard;
 
-	// Permet de faire le lien entre le bien immobilier, l'agent qui gère la visite
-	// et le client qui visite
-	// @OneToMany(cascade=CascadeType.ALL, mappedBy="bienImmobilier")
-	// private List<Visite> visites;
+	/**
+	 * Association entre bien immobilier et visite 
+	 * One bien Immobilier to Many visites
+	 * 
+	 * Permet de faire le lien entre le bien immobilier, l'agent qui gère la visite
+	 * et le client qui visite
+	 */
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "bienImmobilier")
+	private List<Visite> visites;
 
-	// Permet de faire le lien entre l'agent responsable du contrat d'acquisition,
-	// le client acheteur et le bien immobilier acquis
-	// @OneToOne
-	// @JoinColumn(name="acquisition_id", referencedColumnName="id_acquisition")
-	// private Acquisition acquisition
+	/**
+	 * Association entre acquisition et bien immobilier 
+	 * One acquisition to One bien immobilier
+	 * 
+	 * Permet de faire le lien entre l'agent responsable du contrat d'acquisition,
+	 * le client acheteur/locataire et le bien immobilier acquis/loué
+	 */
+	@OneToOne
+	@JoinColumn(name = "acquisition_id", referencedColumnName = "id_acquisition")
+	private Acquisition acquisition;
 
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**
 	 * Constructeur vide
 	 */
 	public BienImmobilier() {
-	}// end constructeur
-
-	/**
-	 * Constructeur chargé
-	 * 
-	 * @param idBienImmobilier
-	 * @param statut
-	 * @param dateDeSoumission
-	 * @param dateDeMiseADisposition
-	 * @param revenuCadastral
-	 */
-	public BienImmobilier(Long idBienImmobilier, String statut, Date dateDeSoumission, Date dateDeMiseADisposition,
-			double revenuCadastral) {
-		super();
-		this.idBienImmobilier = idBienImmobilier;
-		this.statut = statut;
-		this.dateDeSoumission = dateDeSoumission;
-		this.dateDeMiseADisposition = dateDeMiseADisposition;
-		this.revenuCadastral = revenuCadastral;
-	}// end constructeur
-
-	/**
-	 * Constructeur chargé sans l'id
-	 * 
-	 * @param statut
-	 * @param dateDeSoumission
-	 * @param dateDeMiseADisposition
-	 * @param revenuCadastral
-	 */
-	public BienImmobilier(String statut, Date dateDeSoumission, Date dateDeMiseADisposition, double revenuCadastral) {
-		super();
-		this.statut = statut;
-		this.dateDeSoumission = dateDeSoumission;
-		this.dateDeMiseADisposition = dateDeMiseADisposition;
-		this.revenuCadastral = revenuCadastral;
 	}// end constructeur
 
 	/*--------------- GETTER / SETTER ---------------*/
@@ -142,6 +120,30 @@ public class BienImmobilier {
 
 	public void setRevenuCadastral(double revenuCadastral) {
 		this.revenuCadastral = revenuCadastral;
+	}
+
+	public ClasseStandard getClasseStandard() {
+		return classeStandard;
+	}
+
+	public void setClasseStandard(ClasseStandard classeStandard) {
+		this.classeStandard = classeStandard;
+	}
+
+	public List<Visite> getVisites() {
+		return visites;
+	}
+
+	public void setVisites(List<Visite> visites) {
+		this.visites = visites;
+	}
+
+	public Acquisition getAcquisition() {
+		return acquisition;
+	}
+
+	public void setAcquisition(Acquisition acquisition) {
+		this.acquisition = acquisition;
 	}
 
 }// end class

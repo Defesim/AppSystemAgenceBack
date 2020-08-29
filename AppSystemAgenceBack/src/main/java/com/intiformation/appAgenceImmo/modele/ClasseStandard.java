@@ -89,48 +89,7 @@ public class ClasseStandard {
 	public ClasseStandard() {
 	}// end constructeur
 
-	/**
-	 * Constructeur chargé
-	 * @param idClasseStandard
-	 * @param libelle
-	 * @param typeDeBien
-	 * @param description
-	 * @param prixMaximum
-	 * @param superficieMinimum
-	 * @param biensImmobiliers
-	 */
-	public ClasseStandard(Long idClasseStandard, String libelle, String typeDeBien, String description,
-			double prixMaximum, int superficieMinimum, List<BienImmobilier> biensImmobiliers) {
-		super();
-		this.idClasseStandard = idClasseStandard;
-		this.libelle = libelle;
-		this.typeDeBien = typeDeBien;
-		this.description = description;
-		this.prixMaximum = prixMaximum;
-		this.superficieMinimum = superficieMinimum;
-		this.biensImmobiliers = biensImmobiliers;
-	}// end constructeur
-
-	/**
-	 * Constructeur chargé sans l'id
-	 * @param libelle
-	 * @param typeDeBien
-	 * @param description
-	 * @param prixMaximum
-	 * @param superficieMinimum
-	 * @param biensImmobiliers
-	 */
-	public ClasseStandard(String libelle, String typeDeBien, String description, double prixMaximum,
-			int superficieMinimum, List<BienImmobilier> biensImmobiliers) {
-		super();
-		this.libelle = libelle;
-		this.typeDeBien = typeDeBien;
-		this.description = description;
-		this.prixMaximum = prixMaximum;
-		this.superficieMinimum = superficieMinimum;
-		this.biensImmobiliers = biensImmobiliers;
-	}// end constructeur
-
+	
 	/*--------------- GETTER / SETTER ---------------*/
 
 	public Long getIdClasseStandard() {
