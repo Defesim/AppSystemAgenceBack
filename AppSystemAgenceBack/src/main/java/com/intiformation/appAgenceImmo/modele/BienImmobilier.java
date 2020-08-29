@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 /**
  * Modèle de données pour un bien immobilier
  * 
@@ -40,19 +41,22 @@ public class BienImmobilier {
 	/*--------------- ASSOCIATIONS ---------------*/
 
 	// @OneToOne
+	// @JoinColumn(name="adresse_id", referencedColumnName="id_adresse")
 	// private Adresse adresse;
 
 	// @ManyToOne
+	// @JoinColumn(name="classe_standard_id", referencedColumnName="id_classe_standard")
 	// private ClasseStandard classeStandard;
 
 	// Permet de faire le lien entre le bien immobilier, l'agent qui gère la visite
 	// et le client qui visite
-	// @OneToMany
+	// @OneToMany(cascade=CascadeType.ALL, mappedBy="bienImmobilier")
 	// private List<Visite> visites;
 
 	// Permet de faire le lien entre l'agent responsable du contrat d'acquisition,
 	// le client acheteur et le bien immobilier acquis
 	// @OneToOne
+	// @JoinColumn(name="acquisition_id", referencedColumnName="id_acquisition")
 	// private Acquisition acquisition
 
 	/*--------------- CONSTRUCTEURS ---------------*/
