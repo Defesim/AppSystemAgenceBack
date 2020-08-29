@@ -67,6 +67,14 @@ public class Acquisition {
 	@JoinColumn(name = "client_id", referencedColumnName = "id_client")
 	private Client client; 
 	*/
+	
+	/**
+	 * Association entre un contrat et un acquisition
+	 * One contrat to One acquisition
+	 */
+	@OneToOne
+	@JoinColumn(name = "contrat_id", referencedColumnName = "id_contrat")
+	private Contrat contrat; 
 
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**
