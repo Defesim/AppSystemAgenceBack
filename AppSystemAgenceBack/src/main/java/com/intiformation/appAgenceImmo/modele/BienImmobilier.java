@@ -36,6 +36,8 @@ public class BienImmobilier {
 
 	@Column(name = "revenu_cadastral")
 	private double revenuCadastral;
+	
+	/*--------------- ASSOCIATIONS ---------------*/
 
 	// @OneToOne
 	// private Adresse adresse;
