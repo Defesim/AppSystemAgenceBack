@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -43,8 +44,8 @@ public class ModeOffre {
 	 * Association entre mode d'offre et classe standard
 	 * One mode d'offre pour many classes standards
 	 */
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="modesOffre")
-	private List<ClasseStandard> classesStandards;
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="modesOffre")
+	private BienImmobilier bienImmobilier;
 	
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**
@@ -73,13 +74,14 @@ public class ModeOffre {
 	}
 
 
-	public List<ClasseStandard> getClassesStandards() {
-		return classesStandards;
+	public BienImmobilier getBienImmobilier() {
+		return bienImmobilier;
 	}
 
 
-	public void setClassesStandards(List<ClasseStandard> classesStandards) {
-		this.classesStandards = classesStandards;
+	public void setBienImmobilier(BienImmobilier bienImmobilier) {
+		this.bienImmobilier = bienImmobilier;
 	}
+
 
 }//end class

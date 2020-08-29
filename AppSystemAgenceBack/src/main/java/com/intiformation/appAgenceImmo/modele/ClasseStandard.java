@@ -62,13 +62,12 @@ public class ClasseStandard {
 	 * Association entre classe standard et client:
 	 * Many clients pour many classes standards
 	 */
-	/*
 	@ManyToMany (cascade= CascadeType.ALL)
 	@JoinTable (name="classe_standard_client_assos",
 			joinColumns=@JoinColumn(name="classe_standard_id"),
-			inverseJoinColumns= @JoinColumn(name="client_id"))
+			inverseJoinColumns= @JoinColumn(name="personne_id"))
 	private List<Client> clients;		
-	*/
+	
 	
 	/**
 	 * Association entre classe standard et bien immobilier
@@ -78,14 +77,7 @@ public class ClasseStandard {
 	@OneToMany (cascade=CascadeType.ALL, mappedBy="classeStandard") 
 	private List<BienImmobilier> biensImmobiliers;
 	
-	
-	/**
-	 * Association entre classe standard et mode d'offre 
-	 * Many classes standards pour one mode d'offre
-	 */
-	@ManyToOne
-	@JoinColumn(name="mode_offre_id", referencedColumnName="id_mode_offre")
-	private ModeOffre modesOffre;
+
 	
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**

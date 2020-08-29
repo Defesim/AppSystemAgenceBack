@@ -2,54 +2,44 @@ package com.intiformation.appAgenceImmo.modele;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
  * 
- * Modèle de données pour une Location
- * Hérite de la classe ModeOffre
+ * Modèle de données pour une Location Hérite de la classe ModeOffre
  * 
  * @author hannahlevardon
  *
  */
 @Entity
 @Table(name = "locations")
+@PrimaryKeyJoinColumn(name = "mode_offre_id", referencedColumnName = "id_mode_offre")
 public class Location extends ModeOffre {
-	
+
 	/*--------------- PROPRIETES ---------------*/
-	
+
 	@Column(name = "caution")
-	private double cautionLocative; 
-	
+	private double cautionLocative;
+
 	@Column(name = "loyer")
 	private double loyerMensuel;
-	
+
 	@Column(name = "charges_mensuelles")
-	private double chargesMensuelles; 
-	
+	private double chargesMensuelles;
+
 	@Column(name = "type_bail")
 	private String typeBail;
-	
-	@Column(name = "fourniture")
-	private String fourniture; 
-	
+
+	@Column(name = "meuble")
+	private Boolean meuble;
+
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**
 	 * Constructeur vide
 	 */
 	public Location() {
 	}
-	
-	public Location(double cautionLocative, double loyerMensuel, double chargesMensuelles, String typeBail,
-			String fourniture) {
-		super();
-		this.cautionLocative = cautionLocative;
-		this.loyerMensuel = loyerMensuel;
-		this.chargesMensuelles = chargesMensuelles;
-		this.typeBail = typeBail;
-		this.fourniture = fourniture;
-	}
-
 
 	/*--------------- GETTER / SETTER ---------------*/
 
@@ -85,18 +75,12 @@ public class Location extends ModeOffre {
 		this.typeBail = typeBail;
 	}
 
-	public String getFourniture() {
-		return fourniture;
+	public Boolean getMeuble() {
+		return meuble;
 	}
 
-	public void setFourniture(String fourniture) {
-		this.fourniture = fourniture;
+	public void setMeuble(Boolean meuble) {
+		this.meuble = meuble;
 	}
-	
-	
-	
-	
-	
-	
 
-}//end class
+}// end class

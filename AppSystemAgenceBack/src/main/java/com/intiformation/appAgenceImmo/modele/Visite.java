@@ -1,5 +1,6 @@
 package com.intiformation.appAgenceImmo.modele;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "visites")
-public class Visite {
+public class Visite implements Serializable {
 	
 	/*--------------- PROPRIETES ---------------*/
 	@Id
@@ -37,22 +38,20 @@ public class Visite {
 	/**
 	 * Association entre visite et client
 	 * Many visites to One client
-	 */
-	/*
+	 */	
 	@ManyToOne
-	@JoinColumn(name="client_id", referencedColumnName="id_client")
+	@JoinColumn(name="client_id", referencedColumnName="personne_id")
 	private Client client;
-	 */
+	 
 	
 	/**
 	 * Association entre visite et agent immobilier
 	 * Many visites to One agent immobilier
 	 */
-	/*
 	@ManyToOne
-	@JoinColumn(name="agent_immobilier_id", referencedColumnName="id_agent_immobilier")
+	@JoinColumn(name="agent_immobilier_id", referencedColumnName="personne_id")
 	private AgentImmobilier agentImmobilier;
-	 */
+	 
 	
 	/**
 	 * Association entre visite et bien immobilier
@@ -94,6 +93,22 @@ public class Visite {
 
 	public void setBienImmobilier(BienImmobilier bienImmobilier) {
 		this.bienImmobilier = bienImmobilier;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public AgentImmobilier getAgentImmobilier() {
+		return agentImmobilier;
+	}
+
+	public void setAgentImmobilier(AgentImmobilier agentImmobilier) {
+		this.agentImmobilier = agentImmobilier;
 	}
 
 }//end classe

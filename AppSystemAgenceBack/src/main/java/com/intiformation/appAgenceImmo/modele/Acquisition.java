@@ -1,5 +1,6 @@
 package com.intiformation.appAgenceImmo.modele;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -22,7 +23,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "acquisitions")
-public class Acquisition {
+public class Acquisition implements Serializable{
 	
 	/*--------------- PROPRIETES ---------------*/
 	@Id
@@ -52,21 +53,20 @@ public class Acquisition {
 	 * Association entre acquisition et agent immobilier
 	 * One acquisition to One agent immobilier
 	 */
-	/*
+	
 	@OneToOne
-	@JoinColumn(name = "agent_immobilier_id", referencedColumnName = "id_agent_immobilier")
-	private AgentImobilier agentImmobilier; 
-	*/
+	@JoinColumn(name = "agent_immobilier_id", referencedColumnName = "personne_id")
+	private AgentImmobilier agentImmobilier; 
+	
 	
 	/**
 	 * Association entre acquisition et client
 	 * One acquisition to One client
 	 */
-	/*
 	@OneToOne
-	@JoinColumn(name = "client_id", referencedColumnName = "id_client")
+	@JoinColumn(name = "client_id", referencedColumnName = "personne_id")
 	private Client client; 
-	*/
+	
 	
 	/**
 	 * Association entre un contrat et un acquisition
@@ -123,6 +123,30 @@ public class Acquisition {
 
 	public void setBienImmobilier(BienImmobilier bienImmobilier) {
 		this.bienImmobilier = bienImmobilier;
+	}
+
+	public AgentImmobilier getAgentImmobilier() {
+		return agentImmobilier;
+	}
+
+	public void setAgentImmobilier(AgentImmobilier agentImmobilier) {
+		this.agentImmobilier = agentImmobilier;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Contrat getContrat() {
+		return contrat;
+	}
+
+	public void setContrat(Contrat contrat) {
+		this.contrat = contrat;
 	}
 	
 	

@@ -45,9 +45,13 @@ public class BienImmobilier {
 
 	/*--------------- ASSOCIATIONS ---------------*/
 
-	// @OneToOne
-	// @JoinColumn(name="adresse_id", referencedColumnName="id_adresse")
-	// private Adresse adresse;
+	/**
+	 * Association entre bien immobilier et adresse 
+	 * One bien Immobilier to one adresse
+	 */
+	@OneToOne
+	@JoinColumn(name="adresse_id", referencedColumnName="id_adresse")
+	private Adresse adresse;
 
 	@ManyToOne
 	@JoinColumn(name = "classe_standard_id", referencedColumnName = "id_classe_standard")
@@ -73,6 +77,14 @@ public class BienImmobilier {
 	@OneToOne
 	@JoinColumn(name = "acquisition_id", referencedColumnName = "id_acquisition")
 	private Acquisition acquisition;
+	
+	/**
+	 * Association entre bien immobilier et mode d'offre 
+	 * Many classes standards pour one mode d'offre
+	 */
+	@OneToOne
+	@JoinColumn(name="mode_offre_id", referencedColumnName="id_mode_offre")
+	private ModeOffre modesOffre;
 
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**

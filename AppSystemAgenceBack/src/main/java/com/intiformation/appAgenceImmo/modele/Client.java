@@ -6,8 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.JoinColumn;
 
 /**
  * classe modele pour un client. 
@@ -25,10 +25,7 @@ public class Client extends Personne{
 	private int telephonePrive;
 	
 	// liste des classes standards qui correspondent aux types de biens qui intéressent le client
-	@ManyToMany (cascade= CascadeType.ALL)
-	@JoinTable (name="classe_standard_client_assos",
-				joinColumns=@JoinColumn(name="personne_id"),
-				inverseJoinColumns= @JoinColumn(name="classe_standard_id"))
+	@ManyToMany (cascade= CascadeType.ALL, mappedBy="clients")
 	private List<ClasseStandard> listeClassesStandardsInteret;
 
 	
@@ -51,13 +48,6 @@ public class Client extends Personne{
 		this.listeClassesStandardsInteret = listeClassesStandardsInteret;
 	}
 
-	// ctor SANS Id
-	public Client(String nom, String prenom, String email, Adresse adresse,
-			int telephonePrive, List<ClasseStandard> listeClassesStandardsInteret) {
-		super(nom, prenom, email, adresse);
-		this.telephonePrive = telephonePrive;
-		this.listeClassesStandardsInteret = listeClassesStandardsInteret;
-	}
 
 	// ctor SANS Id et Adresse
 	public Client(String nom, String prenom, String email, int telephonePrive, 
