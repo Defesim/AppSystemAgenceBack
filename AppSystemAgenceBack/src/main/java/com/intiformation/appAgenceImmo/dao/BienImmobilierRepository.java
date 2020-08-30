@@ -13,7 +13,8 @@ import com.intiformation.appAgenceImmo.modele.ModeOffre;
 import com.intiformation.appAgenceImmo.modele.Proprietaire;
 
 /**
- * 
+ * Implementation de la couche DAO pour un bien immobilier
+ * implementation d'un ws REST pour le bien immobilier 
  * @author hannahlevardon
  *
  */
