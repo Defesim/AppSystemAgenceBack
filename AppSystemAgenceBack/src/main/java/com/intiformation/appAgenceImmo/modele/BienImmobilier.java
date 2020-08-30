@@ -183,4 +183,12 @@ public class BienImmobilier implements Serializable {
 		this.modesOffre = modesOffre;
 	}
 
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
 }// end class
