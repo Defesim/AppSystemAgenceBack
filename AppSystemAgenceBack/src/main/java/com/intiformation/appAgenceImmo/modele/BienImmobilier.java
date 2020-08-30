@@ -81,11 +81,19 @@ public class BienImmobilier implements Serializable {
 	
 	/**
 	 * Association entre bien immobilier et mode d'offre 
-	 * Many classes standards pour one mode d'offre
+	 * One bien immobilier pour one mode d'offre
 	 */
 	@OneToOne
 	@JoinColumn(name="mode_offre_id", referencedColumnName="id_mode_offre")
 	private ModeOffre modesOffre;
+	
+	/**
+	 * Association entre bien immobilier et propriétaire 
+	 * Many biens immobiliers pour one propriétaire
+	 */
+	@ManyToOne
+	@JoinColumn(name = "proprietaire_id", referencedColumnName = "id_personne")
+	private Proprietaire proprietaire; 
 
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**
