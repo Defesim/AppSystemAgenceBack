@@ -68,14 +68,6 @@ public class Acquisition implements Serializable{
 	private Client client; 
 	
 	
-	/**
-	 * Association entre un contrat et un acquisition
-	 * One contrat to One acquisition
-	 */
-	@OneToOne
-	@JoinColumn(name = "contrat_id", referencedColumnName = "id_contrat")
-	private Contrat contrat; 
-
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**
 	 * Constructeur vide
@@ -141,13 +133,6 @@ public class Acquisition implements Serializable{
 		this.client = client;
 	}
 
-	public Contrat getContrat() {
-		return contrat;
-	}
-
-	public void setContrat(Contrat contrat) {
-		this.contrat = contrat;
-	}
 	
 	
 }//enc classe
