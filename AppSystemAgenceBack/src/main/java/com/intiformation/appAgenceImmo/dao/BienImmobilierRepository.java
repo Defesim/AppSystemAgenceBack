@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+import com.intiformation.appAgenceImmo.modele.Adresse;
 import com.intiformation.appAgenceImmo.modele.BienImmobilier;
 import com.intiformation.appAgenceImmo.modele.ClasseStandard;
+import com.intiformation.appAgenceImmo.modele.ModeOffre;
 import com.intiformation.appAgenceImmo.modele.Proprietaire;
 
 /**
@@ -31,5 +33,27 @@ public interface BienImmobilierRepository extends JpaRepository<BienImmobilier, 
 	 */
 	public List<BienImmobilier> findByProprietaire(Proprietaire pProprietaire);
 	
+	
+	/**
+	 * Méthode de requête qui permet de récupérer une liste de biens immobiliers en fonction du mode d'offre (location / achat) 
+	 * @param pModeOffre
+	 * @return liste de biens immobilier
+	 */
+	public List<BienImmobilier> findByModesOffre(ModeOffre pModeOffre);
+	
+	
+	/**
+	 * Méthode de requête qui permet de récupérer une liste de biens immobiliers en fonction de la ville)
+	 * @param pAdresse
+	 * @return
+	 */
+	public List<BienImmobilier> findByAdresseVille(Adresse pAdresse); 
 
 }//end interface
+
+
+
+
+
+
+
