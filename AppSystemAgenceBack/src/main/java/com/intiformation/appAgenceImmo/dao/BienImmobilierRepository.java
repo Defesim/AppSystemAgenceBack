@@ -17,6 +17,7 @@ import com.intiformation.appAgenceImmo.modele.Proprietaire;
  * @author hannahlevardon
  *
  */
+
 @RepositoryRestResource // annotation d'un WS Rest
 public interface BienImmobilierRepository extends JpaRepository<BienImmobilier, Long> {
 	
