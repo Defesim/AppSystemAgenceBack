@@ -93,7 +93,14 @@ public class BienImmobilier implements Serializable {
 	 */
 	@ManyToOne
 	@JoinColumn(name = "proprietaire_id", referencedColumnName = "id_personne")
-	private Proprietaire proprietaire; 
+	private Proprietaire proprietaire;
+	
+	/**
+	 * Association entre bien immobilier et propriétaire 
+	 * Many biens immobiliers pour one propriétaire
+	 */
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Image> listeImages;
 
 	/*--------------- CONSTRUCTEURS ---------------*/
 	/**
@@ -189,6 +196,14 @@ public class BienImmobilier implements Serializable {
 
 	public void setProprietaire(Proprietaire proprietaire) {
 		this.proprietaire = proprietaire;
+	}
+
+	public List<Image> getListeImages() {
+		return listeImages;
+	}
+
+	public void setListeImages(List<Image> listeImages) {
+		this.listeImages = listeImages;
 	}
 
 }// end class
