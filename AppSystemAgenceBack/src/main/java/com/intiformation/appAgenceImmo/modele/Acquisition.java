@@ -16,6 +16,7 @@ import javax.persistence.Table;
 /**
  * 
  * Modèle de données pour une acquisition/location
+ * Equivalent du contrat d'achat ou de location 
  * 
  * @author hannahlevardon
  *
@@ -31,6 +32,7 @@ public class Acquisition implements Serializable{
 	@Column(name = "id_acquisition")
 	private Long idAcquisition;
 	
+	// Type : achat ou location  
 	@Column(name = "type_acquisition")
 	private String typeAcquisition;
 	
