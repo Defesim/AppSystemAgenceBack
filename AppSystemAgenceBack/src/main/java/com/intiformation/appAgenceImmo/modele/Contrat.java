@@ -1,5 +1,7 @@
 package com.intiformation.appAgenceImmo.modele;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +21,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "contrats")
-public class Contrat {
+public class Contrat implements Serializable {
 	
 	/*--------------- PROPRIETES ---------------*/
 	@Id

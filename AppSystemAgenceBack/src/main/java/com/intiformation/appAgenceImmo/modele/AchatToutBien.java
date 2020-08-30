@@ -1,5 +1,7 @@
 package com.intiformation.appAgenceImmo.modele;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -17,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "achats_tous_biens")
 @Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
-public class AchatToutBien extends ModeOffre {
+public class AchatToutBien extends ModeOffre implements Serializable {
 	
 	/*--------------- PROPRIETES ---------------*/
 	

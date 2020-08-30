@@ -1,5 +1,6 @@
 package com.intiformation.appAgenceImmo.modele;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,7 +26,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "modes_offres")
 @Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
-public class ModeOffre {
+public class ModeOffre implements Serializable {
 	
 	/*--------------- PROPRIETES ---------------*/
 	@Id

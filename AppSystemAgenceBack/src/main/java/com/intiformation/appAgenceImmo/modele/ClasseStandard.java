@@ -1,5 +1,6 @@
 package com.intiformation.appAgenceImmo.modele;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,7 +26,7 @@ import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "classes_standards")
-public class ClasseStandard {
+public class ClasseStandard implements Serializable{
 	
 
 	/*--------------- PROPRIETES ---------------*/
@@ -143,6 +144,26 @@ public class ClasseStandard {
 
 	public void setBiensImmobiliers(List<BienImmobilier> biensImmobiliers) {
 		this.biensImmobiliers = biensImmobiliers;
+	}
+
+
+	public String getUsageDuBien() {
+		return usageDuBien;
+	}
+
+
+	public void setUsageDuBien(String usageDuBien) {
+		this.usageDuBien = usageDuBien;
+	}
+
+
+	public List<Client> getClients() {
+		return clients;
+	}
+
+
+	public void setClients(List<Client> clients) {
+		this.clients = clients;
 	}
 	
 

@@ -1,5 +1,6 @@
 package com.intiformation.appAgenceImmo.modele;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "biens_immobilliers")
-public class BienImmobilier {
+public class BienImmobilier implements Serializable {
 
 	/*--------------- PROPRIETES ---------------*/
 	@Id
@@ -156,6 +157,22 @@ public class BienImmobilier {
 
 	public void setAcquisition(Acquisition acquisition) {
 		this.acquisition = acquisition;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public ModeOffre getModesOffre() {
+		return modesOffre;
+	}
+
+	public void setModesOffre(ModeOffre modesOffre) {
+		this.modesOffre = modesOffre;
 	}
 
 }// end class
