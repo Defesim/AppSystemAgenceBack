@@ -1,5 +1,6 @@
 package com.intiformation.appAgenceImmo.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -47,7 +48,16 @@ public interface BienImmobilierRepository extends JpaRepository<BienImmobilier, 
 	 * @param pAdresse
 	 * @return
 	 */
-	public List<BienImmobilier> findByAdresseVille(Adresse pAdresse); 
+	public List<BienImmobilier> findByAdresseVille(Adresse pAdresseVille); 
+	
+	
+	/**
+	 * Méthode de requête qui permet de récupérer une liste de biens immobiliers en fonction de la ville)
+	 * @param pAdresse
+	 * @return
+	 */
+	public List<BienImmobilier> findByDateDeMiseADisposition(Date dateDeDispo); 
+	
 
 }//end interface
 
