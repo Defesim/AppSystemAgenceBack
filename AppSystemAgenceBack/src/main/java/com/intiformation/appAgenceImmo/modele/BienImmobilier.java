@@ -97,9 +97,11 @@ public class BienImmobilier implements Serializable {
 	/**
 	 * Association entre bien immobilier et propriétaire 
 	 * Many biens immobiliers pour one propriétaire
+	 * @JoinColumn(name = "personne_id", referencedColumnName ="id_personne")
+	 * 
 	 */
 	@ManyToOne
-	@JoinColumn(name = "proprietaire_id", referencedColumnName = "id_personne")
+	@JoinColumn(name = "personne_id", referencedColumnName ="personne_id")
 	private Proprietaire proprietaire;
 	
 	/**
