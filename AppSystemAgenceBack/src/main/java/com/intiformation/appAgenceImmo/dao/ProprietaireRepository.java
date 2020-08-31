@@ -21,7 +21,7 @@ public interface ProprietaireRepository extends JpaRepository<Proprietaire, Long
 	 * @param pBien
 	 * @return le Proprietaire du bien 
 	 */
-	public Proprietaire findByBienImmobilier(BienImmobilier pBien);
+	public Proprietaire findByListeDesBiensDuProprio(BienImmobilier pBien);
 	
 	
 
