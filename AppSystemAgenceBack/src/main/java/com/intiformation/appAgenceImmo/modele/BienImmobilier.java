@@ -29,8 +29,8 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "biens_immobilliers")
 @XmlRootElement
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-property = "id_bien_immobilier")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+//property = "idBienImmobilier")
 public class BienImmobilier implements Serializable {
 
 	/*--------------- PROPRIETES ---------------*/
@@ -106,7 +106,7 @@ public class BienImmobilier implements Serializable {
 	 * Association entre bien immobilier et liste d'images 
 	 * One bien immobilier pour Many images
 	 */
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="bienImmobilier")
 	private List<Image> listeImages;
 
 	/*--------------- CONSTRUCTEURS ---------------*/

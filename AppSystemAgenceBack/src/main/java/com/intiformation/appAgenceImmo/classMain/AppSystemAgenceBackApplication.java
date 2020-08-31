@@ -1,5 +1,7 @@
 package com.intiformation.appAgenceImmo.classMain;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -55,8 +57,10 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(AppSystemAgenceBackApplication.class, args);
+		
 		System.out.println("Démarrage de l'application !");
+		SpringApplication.run(AppSystemAgenceBackApplication.class, args);
+		
 	}// end main
 
 	/**
@@ -82,6 +86,13 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		
 		bienImmo.save(bien1);
 		bienImmoWS.ajouterBienImmobilier(bien2);
+		
+		// Test GetAll
+		List<BienImmobilier> listeBiensImmoBDD =  bienImmoWS.trouverTousBienImmobiliers();
+		for (BienImmobilier bienImmobilier : listeBiensImmoBDD) {
+			System.out.println(bienImmobilier.getStatut());
+		}
+		 
 		
 
 	}// end run()
