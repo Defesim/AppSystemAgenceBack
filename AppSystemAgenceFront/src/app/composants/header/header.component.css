@@ -1,0 +1,10 @@
+/* classe css active */
+nav a.active{
+    color: blue;
+    font-weight: bold;
+}
+
+nav a.decoration{
+    text-decoration: underline;
+}
+
