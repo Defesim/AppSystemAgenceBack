@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.intiformation.appAgenceImmo.dao.ClasseStandardRepository;
 import com.intiformation.appAgenceImmo.modele.ClasseStandard;
-
+@Service
 public class ClasseStandardServiceImpl implements IClasseStandardService {
 
 	
@@ -63,42 +64,60 @@ public class ClasseStandardServiceImpl implements IClasseStandardService {
 		return classeStandarRep.save(pClasse);
 	}
 
+	/**
+	 * Modifier une classe standard
+	 */
 	@Override
 	public ClasseStandard modifier(ClasseStandard pClasse) {
 		return classeStandarRep.save(pClasse);
 	}
 
+	/**
+	 * Supprimer classe standard
+	 */
 	@Override
 	public void supprimer(ClasseStandard pClasse) {
 		classeStandarRep.delete(pClasse);
 	}
 
+	/**
+	 * Supprimer un classe standard par son id
+	 */
 	@Override
 	public void supprimerViaId(Long pId) {
 		classeStandarRep.deleteById(pId);
 	}
 
+	/**
+	 * Récupérer une classe standard via son libellé
+	 */
 	@Override
 	public ClasseStandard trouverParLibelle(String pLibelle) {
 		return classeStandarRep.findByLibelle(pLibelle);
 	}
 
+	/**
+	 * Récupérer une liste de classes standards par prix maximum
+	 */
 	@Override
-	public List<ClasseStandard> trouverParPrixMaximum(double pPrixMax) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ClasseStandard> trouverParPrixMaximum(double pPrixMax) {	
+		return classeStandarRep.findByPrixMaximum(pPrixMax);
 	}
 
+	/**
+	 * Récupérer une liste de classes standards par usage du bien
+	 */
 	@Override
-	public List<ClasseStandard> trouverParUsageDuBien(String pUsage) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ClasseStandard> trouverParUsageDuBien(String pUsage) {		
+		return classeStandarRep.findByUsageDuBien(pUsage);
 	}
 
+	/**
+	 * Récupérer une liste de classes standards par type de bien 
+	 */
 	@Override
 	public List<ClasseStandard> trouverParTypeDeBien(String pType) {
-		// TODO Auto-generated method stub
-		return null;
+		return classeStandarRep.findByTypeDeBien(pType);
 	}
 
 }//end class
