@@ -96,8 +96,8 @@ public class BienImmobilier implements Serializable {
 	private Proprietaire proprietaire;
 	
 	/**
-	 * Association entre bien immobilier et propriétaire 
-	 * Many biens immobiliers pour one propriétaire
+	 * Association entre bien immobilier et liste d'images 
+	 * One bien immobilier pour Many images
 	 */
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<Image> listeImages;
