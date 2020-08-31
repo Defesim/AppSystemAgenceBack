@@ -21,6 +21,8 @@ import com.intiformation.appAgenceImmo.modele.Proprietaire;
 @Service
 public class BienImmobilierServiceImpl implements IBienImmobillierService {
 
+	/*___________ PROPRIETES __________*/
+	
 	/**
 	 * Déclaration de la couche DAO
 	 */
