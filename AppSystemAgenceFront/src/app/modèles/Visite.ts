@@ -5,7 +5,7 @@ export class Visite{
 
     /*_________________props__________________ */
     idVisite:number;
-    dateVisite:Date;
+    dateVisite:string; //Date
     agentImmobilier:AgentImmobilier;
     bienImmobilier:BienImmobilier;
 

@@ -8,8 +8,8 @@ export class BienImmobilier{
 
     idBienImmobilier:number;
     statut:string;
-    dateDeSoumission:Date;
-    dateDeMiseADisposition:Date;
+    dateDeSoumission:string; //date
+    dateDeMiseADisposition:string; //date
     revenuCadastral:number;
     adresse:Adresse;
     classeStandard:ClasseStandard;
