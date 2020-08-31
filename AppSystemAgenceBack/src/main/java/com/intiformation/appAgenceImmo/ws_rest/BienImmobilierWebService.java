@@ -1,43 +1,39 @@
 package com.intiformation.appAgenceImmo.ws_rest;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.intiformation.appAgenceImmo.modele.Adresse;
 import com.intiformation.appAgenceImmo.modele.BienImmobilier;
 import com.intiformation.appAgenceImmo.modele.ClasseStandard;
-import com.intiformation.appAgenceImmo.modele.ModeOffre;
 import com.intiformation.appAgenceImmo.modele.Personne;
 import com.intiformation.appAgenceImmo.modele.Proprietaire;
 import com.intiformation.appAgenceImmo.service.IBienImmobillierService;
 
 /**
- * http://localhost:8080/gestion-agence-immo/biensImmo/save
+ *
  * @author hannahlevardon
  *
  */
-//@RepositoryRestResource
+
 @RestController // déclaration de la classe comme WS Rest
 @RequestMapping("/biensImmo") // URL du WS REST pour des biens immobilier
 public class BienImmobilierWebService {
 
-	// Déclaration de la coucher service
+	/*--------------- PROPRIETES ---------------*/
+	
+	// Déclaration de la couche service
 	@Autowired
 	private IBienImmobillierService bienImmoService;
 
@@ -77,7 +73,7 @@ public class BienImmobilierWebService {
 	 */
 	@GetMapping(value="/getAll")	
 	public List<BienImmobilier> trouverTousBienImmobiliers(){		
-		repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class);	
+		//repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class);	
 		return bienImmoService.trouverTout() ;
 	}// end trouverTousBienImmobiliers
 	
@@ -118,7 +114,7 @@ public class BienImmobilierWebService {
 	 */
 	@DeleteMapping(value="/delete/{id}")
 	public ResponseEntity<Boolean> supprimerBienImmobilier(@PathVariable("id") Long pIdBien ) {
-		
+		repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class);	
 		bienImmoService.supprimerViaId(pIdBien);
 		return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
 	}//end supprimerBienImmobilier
