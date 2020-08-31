@@ -48,9 +48,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
-		
-		
+	
+	
 		<!-- spring-boot-starter-jdbc = non utilisé dans les projets précédents  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
