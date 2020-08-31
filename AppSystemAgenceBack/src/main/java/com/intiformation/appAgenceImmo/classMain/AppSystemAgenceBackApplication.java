@@ -13,6 +13,8 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import com.intiformation.appAgenceImmo.dao.BienImmobilierRepository;
 import com.intiformation.appAgenceImmo.modele.BienImmobilier;
+import com.intiformation.appAgenceImmo.modele.Personne;
+import com.intiformation.appAgenceImmo.modele.Proprietaire;
 import com.intiformation.appAgenceImmo.service.BienImmobilierServiceImpl;
 import com.intiformation.appAgenceImmo.ws_rest.BienImmobilierWebService;
 
@@ -73,13 +75,14 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		System.out.println("++++++++ Dans la méthode run() +++++++");
 
 		// Exposition de l'id du Bien Immobilier dans le ws rest
-		repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class);
+		repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class, Personne.class, Proprietaire.class);
 
 		// ==================================================
 		// ============= Methodes de base ===================
 		// ====== (UserRepository - JpaRepository) ==========
 		// ==================================================
 		
+		// ====== WS REST BIEN IMMOBILIER ==========
 		// Test AJOUT
 		BienImmobilier bien1 = new BienImmobilier("maison", 20000.00);
 		BienImmobilier bien2 = new BienImmobilier("Appartement", 20000.00);
@@ -92,7 +95,16 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		for (BienImmobilier bienImmobilier : listeBiensImmoBDD) {
 			System.out.println(bienImmobilier.getStatut());
 		}
-		 
+		
+		// Test find by Id
+		
+		BienImmobilier BienImmoaTrouver = bienImmoWS.trouverBienImmoViaId(2L); 
+		System.out.println(BienImmoaTrouver.getRevenuCadastral());
+		
+		
+		// Test modification 		
+		BienImmoaTrouver.setRevenuCadastral(40000);
+		bienImmoWS.modifierBienImmobilier(BienImmoaTrouver);
 		
 
 	}// end run()
