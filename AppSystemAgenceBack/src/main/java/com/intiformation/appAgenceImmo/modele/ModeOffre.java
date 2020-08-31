@@ -24,8 +24,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "modes_offres")
-@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+@Table(name ="modes_offres")
+@Inheritance(strategy= InheritanceType.JOINED)
 public class ModeOffre implements Serializable {
 	
 	/*--------------- PROPRIETES ---------------*/
