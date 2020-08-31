@@ -22,6 +22,9 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 	 * @param pClasseStandard
 	 * @return liste de clients
 	 */
-	public List<Client> findByClasseStandard(ClasseStandard pClasseStandard); 
+	
+	// Id classe Standard
+	// A VOIR !!
+	public List<Client> findByListeClassesStandardsInteretIdClasseStandard(ClasseStandard pClasseStandard); 
 
 }// end interface
