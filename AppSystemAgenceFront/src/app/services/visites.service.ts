@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 
 export class VisitesService {
 
-  private WS_REST_BASE_URL = "http://localhost:8080/AppSystemAgenceBack/biensImmo";
+  private WS_REST_BASE_URL = "http://localhost:8080/AppSystemAgenceBack/visites";
 
 
   constructor(private httpClient: HttpClient) { }
@@ -46,4 +46,4 @@ export class VisitesService {
 
   }//end modifierVisiteViaWsRest
 
-}//end classe
+}//end classe 
