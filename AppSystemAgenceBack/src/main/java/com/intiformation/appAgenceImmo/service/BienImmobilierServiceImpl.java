@@ -24,6 +24,12 @@ public class BienImmobilierServiceImpl implements IBienImmobillierService {
 	@Autowired
 	private BienImmobilierRepository bienImmobilierRep; 
 	
+	
+	public void setBienImmobilierRep(BienImmobilierRepository bienImmobilierRep) {
+		this.bienImmobilierRep = bienImmobilierRep;
+	}
+
+
 	@Override
 	public List<BienImmobilier> trouverTout() {
 		return bienImmobilierRep.findAll();
