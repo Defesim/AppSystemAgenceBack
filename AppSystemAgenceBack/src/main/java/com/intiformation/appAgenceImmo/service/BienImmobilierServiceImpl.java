@@ -21,8 +21,21 @@ import com.intiformation.appAgenceImmo.modele.Proprietaire;
 @Service
 public class BienImmobilierServiceImpl implements IBienImmobillierService {
 
+	/**
+	 * Déclaration de la couche DAO
+	 */
 	@Autowired
 	private BienImmobilierRepository bienImmobilierRep; 
+	
+	/**
+	 * Setter pour injection du bean Spring
+	 * @param bienImmobilierRep
+	 */
+	public void setBienImmobilierRep(BienImmobilierRepository bienImmobilierRep) {
+		this.bienImmobilierRep = bienImmobilierRep;
+	}
+
+	/*___________ METHODES __________*/
 	
 	@Override
 	public List<BienImmobilier> trouverTout() {

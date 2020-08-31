@@ -8,7 +8,7 @@ export class Acquisition{
     /*___________________props__________________ */
     idAcquisition:number;
     typeAcquisition:string;
-    dateAchat: Date;
+    dateAchat: string; //Date
     prixAchat:number;
     bienImmobilier:BienImmobilier;
     agentImmobilier: AgentImmobilier;

@@ -15,8 +15,8 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "achats_sauf_terrain")
-public class AchatSaufTerrain extends AchatToutBien implements Serializable{
+@Table(name="achats_sauf_terrain")
+public class AchatSaufTerrain extends AchatToutBien {
 
 	/*--------------- PROPRIETES ---------------*/
 
