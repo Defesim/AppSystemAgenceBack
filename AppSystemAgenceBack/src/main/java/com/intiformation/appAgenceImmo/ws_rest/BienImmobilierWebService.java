@@ -8,6 +8,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -33,6 +34,7 @@ import com.intiformation.appAgenceImmo.service.IBienImmobillierService;
  *
  */
 //@RepositoryRestResource
+@CrossOrigin(origins= {"http://localhost:4200","http://localhost:4200/listBiens","http://localhost:4200/**"} )// authorisation de toutes les requetes provenant de cette adresse
 @RestController // déclaration de la classe comme WS Rest
 @RequestMapping("/biensImmo") // URL du WS REST pour des biens immobilier
 public class BienImmobilierWebService {
@@ -60,6 +62,7 @@ public class BienImmobilierWebService {
 	 * Méthode exposée dans le web service pour ajouter un bien immobilier
 	 * URL: 
 	 * http://localhost:8080/gestion-agence-immo/biensImmo/save
+	 * 
 	 * @param pBien
 	 * @return
 	 */
@@ -72,6 +75,7 @@ public class BienImmobilierWebService {
 	/**
 	 * Méthode exposée dans le web service pour trouver la liste de toutes les biens immobiliers
 	 * URL:
+	 * http://localhost:8080/gestion-agence-immo/biensImmo/getAll
 	 * http://localhost:8080/gestion-agence-immo/biensImmo/getAll
 	 * @return
 	 */
