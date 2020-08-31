@@ -8,26 +8,31 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  x : number = 0;
-  prefix : string = "href";
-  suffix : string = "ts";
-  constructor(elementRef:ElementRef, renderer:Renderer2) { }
+  
 
-  ngOnInit(): void {
-    setInterval(this.DisplayNextColor,2000);
+  constructor(elementRef:ElementRef, 
+              renderer:Renderer2) {
   }
 
-  DisplayNextColor(){
-    (this.x == 5) ? 0 : this.x+1;
-    console.log(this.x);
+  ngOnInit(): void {
+    setInterval(this.DisplayNextColor,2000, ["#000088","#004444","#008800","#444400","#880000"]);
+  }
+
+  DisplayNextColor(listeColor:string[]){
+    let refNum :number = Math.floor(Math.random()*5) +1;
+
     for (let index = 1; index < 6; index++) {
-      let ElementId = this.prefix + index + this.suffix;
+
+      let ElementId = "Color"  + index.toString();
       let hrefModif = document.getElementById(ElementId);
-      let newClassNumber = this.x + index;
-      if(newClassNumber > 5){
-        newClassNumber = newClassNumber - 5;
+     
+      let newIndex:number = refNum + index ;
+      if(newIndex >5 ){
+        newIndex = newIndex%5 +1;
       }
-      hrefModif.className = "Color" + newClassNumber;
+      console.log( listeColor);
+      
+      hrefModif.style.color = listeColor[newIndex];
     }
   }
 
