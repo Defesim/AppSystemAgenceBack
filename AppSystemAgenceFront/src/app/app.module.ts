@@ -13,6 +13,7 @@ import { FooterComponent } from './composants/footer/footer.component';
 import { VisitesComponent } from './composants/visites/visites.component';
 import { ClientsProprioComponent } from './composants/clients-proprio/clients-proprio.component';
 import { LoginComponent } from './composants/login/login.component';
+import { BiensImmobiliersComponent } from './composants/biens-immobiliers/biens-immobiliers.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginComponent } from './composants/login/login.component';
     FooterComponent,
     VisitesComponent,
     ClientsProprioComponent,
-    LoginComponent
+    LoginComponent,
+    BiensImmobiliersComponent
   ],
   imports: [
     BrowserModule,
