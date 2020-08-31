@@ -81,7 +81,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		// ============= Methodes de base ===================
 		// ====== (UserRepository - JpaRepository) ==========
 		// ==================================================
-		
+		/*
 		// ====== WS REST BIEN IMMOBILIER ==========
 		// Test AJOUT
 		BienImmobilier bien1 = new BienImmobilier("maison", 20000.00);
@@ -105,7 +105,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		// Test modification 		
 		BienImmoaTrouver.setRevenuCadastral(40000);
 		bienImmoWS.modifierBienImmobilier(BienImmoaTrouver);
-		
+		*/
 
 	}// end run()
 
