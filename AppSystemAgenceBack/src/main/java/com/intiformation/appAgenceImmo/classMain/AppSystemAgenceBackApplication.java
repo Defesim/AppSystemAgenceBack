@@ -1,24 +1,91 @@
 package com.intiformation.appAgenceImmo.classMain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
+import com.intiformation.appAgenceImmo.dao.BienImmobilierRepository;
+import com.intiformation.appAgenceImmo.modele.BienImmobilier;
+import com.intiformation.appAgenceImmo.service.BienImmobilierServiceImpl;
+import com.intiformation.appAgenceImmo.ws_rest.BienImmobilierWebService;
 
 /**
- * point d'entrée de notre appli => methode main 
+ * point d'entrée de notre appli => methode main
+ * 
  * @author anais
  *
  */
 @SpringBootApplication
-@EntityScan(basePackages= {"com.intiformation.appAgenceImmo.modele"}) // détection des entités par spring 
-@EnableJpaRepositories(basePackages= {"com.intiformation.appAgenceImmo.dao"} ) // détection de la couche dao
-public class AppSystemAgenceBackApplication {
+@EntityScan(basePackages = { "com.intiformation.appAgenceImmo.modele"}) // détection des entités par spring
+@ComponentScan(basePackages= {"com.intiformation.appAgenceImmo.service", 
+		"com.intiformation.appAgenceImmo.ws_rest" })
+@EnableJpaRepositories(basePackages = { "com.intiformation.appAgenceImmo.dao" }) // détection de la couche dao
+public class AppSystemAgenceBackApplication implements CommandLineRunner {
 
+	// Déclaration du Web Service
+	@Autowired
+	private BienImmobilierRepository bienImmo;
+	
+
+	@Autowired
+	private BienImmobilierWebService bienImmoWS;
+	
+	
+	
+	public void setBienImmo(BienImmobilierRepository bienImmo) {
+		this.bienImmo = bienImmo;
+	}
+
+	public void setBienImmoWS(BienImmobilierWebService bienImmoWS) {
+		this.bienImmoWS = bienImmoWS;
+	}
+
+	// Déclaration de la classe pour la config de l'id dans le ws rest
+	@Autowired
+	private RepositoryRestConfiguration repositoryRestConfiguration;
+
+	/**
+	 * Méthode main
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(AppSystemAgenceBackApplication.class, args);
+		System.out.println("Démarrage de l'application !");
+	}// end main
+
+	/**
+	 * meth de l'interface : org.springframework.boot.CommandLineRunner methode qui
+	 * s'execute après l'execution de l'app
+	 */
+	@Override
+	public void run(String... args) throws Exception {
+
+		System.out.println("++++++++ Dans la méthode run() +++++++");
+
+		// Exposition de l'id du Bien Immobilier dans le ws rest
+		repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class);
+
+		// ==================================================
+		// ============= Methodes de base ===================
+		// ====== (UserRepository - JpaRepository) ==========
+		// ==================================================
 		
-	}// end main 
+		// Test AJOUT
+		BienImmobilier bien1 = new BienImmobilier("maison", 20000.00);
+		BienImmobilier bien2 = new BienImmobilier("Appartement", 20000.00);
+		
+		bienImmo.save(bien1);
+		bienImmoWS.ajouterBienImmobilier(bien2);
+		
+
+	}// end run()
+
+	
 
 }// end class
