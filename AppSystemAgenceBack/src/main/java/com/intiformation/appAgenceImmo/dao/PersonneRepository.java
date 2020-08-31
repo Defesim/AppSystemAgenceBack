@@ -19,6 +19,6 @@ public interface PersonneRepository extends JpaRepository<Personne, Long> {
 	 * @param pNom
 	 * @return Personne
 	 */
-	public Personne findByName(String pNom); 
+	public Personne findByNom(String pNom); 
 
 }// end interface
