@@ -31,7 +31,7 @@ public abstract class Personne implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_personne")
-	private int id_personne;
+	private Long id_personne;
 	
 	@Column(length=30)
 	private String nom;
@@ -58,14 +58,14 @@ public abstract class Personne implements Serializable {
 		this.email = email;
 	}
 
-	public Personne(int id_personne, String nom, String prenom, String email) {
+	public Personne(Long id_personne, String nom, String prenom, String email) {
 		this.id_personne = id_personne;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 	}
 	
-	public Personne(int id_personne, String nom, String prenom, String email, Adresse adresse) {
+	public Personne(Long id_personne, String nom, String prenom, String email, Adresse adresse) {
 		this.id_personne = id_personne;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -78,11 +78,11 @@ public abstract class Personne implements Serializable {
 	// ====== METHODES ======
 	// ====== Getters / Setters ======
 
-	public int getId_personne() {
+	public Long getId_personne() {
 		return id_personne;
 	}
 
-	public void setId_personne(int id_personne) {
+	public void setId_personne(Long id_personne) {
 		this.id_personne = id_personne;
 	}
 	

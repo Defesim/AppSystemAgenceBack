@@ -26,7 +26,7 @@ public class Proprietaire extends Personne{
 	private int telephonePro;
 	
 	// liste des biens appartenant au proprietaire
-	@OneToMany(mappedBy="")
+	@OneToMany(mappedBy="proprietaire")
 	private List<BienImmobilier> listeDesBiensDuProprio;
 	
 	// ====== Ctors ======
@@ -34,7 +34,7 @@ public class Proprietaire extends Personne{
 	}
 
 	// ctor ALL PROPS 
-	public Proprietaire(int id_personne, String nom, String prenom, String email, 
+	public Proprietaire(Long id_personne, String nom, String prenom, String email, 
 						Adresse adresse, int telephonePrive, int telephonePro) {
 		super(id_personne, nom, prenom, email, adresse);
 		this.telephonePrive = telephonePrive;
@@ -42,7 +42,7 @@ public class Proprietaire extends Personne{
 	}
 
 	// ctor SANS Adresse
-	public Proprietaire(int id_personne, String nom, String prenom, String email, int telephonePrive, int telephonePro) {
+	public Proprietaire(Long id_personne, String nom, String prenom, String email, int telephonePrive, int telephonePro) {
 		super(id_personne, nom, prenom, email);
 		this.telephonePrive = telephonePrive;
 		this.telephonePro = telephonePro;

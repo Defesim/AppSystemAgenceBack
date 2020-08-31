@@ -35,13 +35,13 @@ public class Client extends Personne{
 	}
 
 	// ctor PROPS de Personne
-	public Client(int id_personne, String nom, String prenom, String email, Adresse adresse) {
+	public Client(Long id_personne, String nom, String prenom, String email, Adresse adresse) {
 		super(id_personne, nom, prenom, email, adresse);
 		// TODO Auto-generated constructor stub
 	}
 	
 	// ctor ALL PROPS 
-	public Client(int id_personne, String nom, String prenom, String email, Adresse adresse,
+	public Client(Long id_personne, String nom, String prenom, String email, Adresse adresse,
 			int telephonePrive, List<ClasseStandard> listeClassesStandardsInteret) {
 		super(id_personne, nom, prenom, email, adresse);
 		this.telephonePrive = telephonePrive;
