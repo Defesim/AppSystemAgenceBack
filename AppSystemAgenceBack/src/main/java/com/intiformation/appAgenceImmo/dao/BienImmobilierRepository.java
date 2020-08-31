@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
 import com.intiformation.appAgenceImmo.modele.Adresse;
 import com.intiformation.appAgenceImmo.modele.BienImmobilier;
@@ -19,7 +20,8 @@ import com.intiformation.appAgenceImmo.modele.Proprietaire;
  *
  */
 
-@RepositoryRestResource // annotation d'un WS Rest
+//@RepositoryRestResource // annotation d'un WS Rest
+@Repository
 public interface BienImmobilierRepository extends JpaRepository<BienImmobilier, Long> {
 	
 	/**
