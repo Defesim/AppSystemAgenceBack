@@ -25,7 +25,7 @@ public interface VisiteRepository  extends JpaRepository<Visite, Long> {
 	 * @param pDate
 	 * @return liste des visites de la date 
 	 */
-	public List<Visite> findByDate(Date pDate); 
+	public List<Visite> findByDateVisite(Date pDate); 
 	
 	/**
 	 * Méthode de requête qui permet de récupérer la liste de visites pour un client
@@ -54,7 +54,7 @@ public interface VisiteRepository  extends JpaRepository<Visite, Long> {
 	 * @param pDate
 	 * @return liste des visite du bien immobilier pour une date 
 	 */
-	public List<Visite> findByBienImmobilierAndDate(BienImmobilier pBien, Date pDate);
+	public List<Visite> findByBienImmobilierAndDateVisite(BienImmobilier pBien, Date pDate);
 	
 	/**
 	 * Méthode de requête qui permet de récupérer une liste des visite d'un agent immobilier en fonction de la date
@@ -62,7 +62,7 @@ public interface VisiteRepository  extends JpaRepository<Visite, Long> {
 	 * @param pDate
 	 * @return liste des visites de l'agent immobilier pour une date 
 	 */
-	public List<Visite> findByAgentImmobilierAndDate(AgentImmobilier pAgent, Date pDate);
+	public List<Visite> findByAgentImmobilierAndDateVisite(AgentImmobilier pAgent, Date pDate);
 	
 	/**
 	 * Méthode de requête qui permet de récupérer une liste des visite d'un agent immobilier en fonction du bien visité
