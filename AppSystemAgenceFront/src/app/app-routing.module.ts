@@ -9,7 +9,13 @@ const routes: Routes = [
   //route vers le login
   {path:"login" , component:LoginComponent},
 
+  //route pour la gestion des biens immobiliers
   {path:"listBiens", component:BiensImmobiliersComponent}
+
+  //route pour les gestion des visites
+
+  //route pour la gestion des proprietaire/locataire
+
 
 ];
 

@@ -19,29 +19,29 @@ export class BiensImmobiliersService {
     return this.httpClient.get<BienImmobilier[]>(this.WS_REST_BASE_URL + "/getAll");
   }//end getAllBienImmoFromWsRest
 
-  ajouterEmployeViaWsRest(bienImmo: BienImmobilier): Observable<BienImmobilier>{
+  ajouterBienImmoViaWsRest(bienImmo: BienImmobilier): Observable<BienImmobilier>{
 
     return this.httpClient.post<BienImmobilier>(this.WS_REST_BASE_URL+"/save", bienImmo);
 
   }
 
-  supprimerEmployeViaWsRest(bienImmo:BienImmobilier): Observable<void>{
+  supprimerBienImmoViaWsRest(bienImmo:BienImmobilier): Observable<void>{
 
     return this.httpClient.delete<void>(this.WS_REST_BASE_URL + "/delete/" + bienImmo.idBienImmobilier);
 
-  }//end supprimerEmployeViaWsRest
+  }//end supprimerBienImmoViaWsRest
 
-  getEmployeByIdFromWsRest(pBienId : number): Observable<BienImmobilier>{
+  getBienImmoByIdFromWsRest(pBienId : number): Observable<BienImmobilier>{
 
     return this.httpClient.get<BienImmobilier>(`${this.WS_REST_BASE_URL}/findById/${pBienId}`);
 
-  }//end getEmployeByIdFromWsRest
+  }//end getBienImmoByIdFromWsRest
 
 
-  modifierEmployeViaWsRest(pBien:BienImmobilier): Observable<void>{
+  modifierBienImmoViaWsRest(pBien:BienImmobilier): Observable<void>{
 
     return this.httpClient.put<void>(this.WS_REST_BASE_URL + "/update/" +pBien.idBienImmobilier, pBien );
 
-  }//end modifierEmployeViaWsRest
+  }//end modifierBienImmoViaWsRest
 
-}
+}//end classe
