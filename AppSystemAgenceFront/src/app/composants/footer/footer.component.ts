@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
+import { rendererTypeName } from '@angular/compiler';
 
 
 @Component({
@@ -8,20 +9,23 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  x : number = 0;
-  prefix : string = "href";
-  suffix : string = "ts";
+  x = 0;
+
   constructor(elementRef:ElementRef, renderer:Renderer2) { }
 
   ngOnInit(): void {
     setInterval(this.DisplayNextColor,2000);
   }
-
-  DisplayNextColor(){
-    (this.x == 5) ? 0 : this.x+1;
+  
+  DisplayNextColor(): void {
+    let prefix = "href";
+    let suffix = "ts";
     console.log(this.x);
+    (this.x == 5) ? 0 : this.x+1;
+
     for (let index = 1; index < 6; index++) {
-      let ElementId = this.prefix + index + this.suffix;
+
+      let ElementId = prefix + index + suffix;
       let hrefModif = document.getElementById(ElementId);
       let newClassNumber = this.x + index;
       if(newClassNumber > 5){
@@ -30,5 +34,4 @@ export class FooterComponent implements OnInit {
       hrefModif.className = "Color" + newClassNumber;
     }
   }
-
 }
