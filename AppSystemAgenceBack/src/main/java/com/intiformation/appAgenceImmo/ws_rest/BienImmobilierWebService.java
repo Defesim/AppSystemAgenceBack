@@ -121,13 +121,13 @@ public class BienImmobilierWebService {
 	
 	/**
 	 * Méthode exposée dans le web service pour trouver une liste de biens immobilier pour une classe standard
-	 * http://localhost:8080/gestion-agence-immo/biensImmo/getByClasseStandard
+	 * http://localhost:8080/gestion-agence-immo/biensImmo/getByClasseStandard/id
 	 * @param pClasse
 	 * @return
 	 */
-	@GetMapping(value="getByClasseStandard")
-	public List<BienImmobilier> TrouverBienImmoParClasseStandard(@RequestBody ClasseStandard pClasse){		
-		return bienImmoService.trouverParClasseStandard(pClasse);			
+	@GetMapping(value="getByClasseStandard/{idClasseStandard}")
+	public List<BienImmobilier> TrouverBienImmoParClasseStandard(@PathVariable("idClasseStandard") Long pIdClasse){		
+		return bienImmoService.trouverParClasseStandard(pIdClasse);			
 	}//end TrouverBeinImmoParClasseStandard
 	
 	// A IMPLEMENTER PAR LA SUITE :

@@ -17,13 +17,13 @@ import com.intiformation.appAgenceImmo.modele.Proprietaire;
  */
 public interface IBienImmobillierService extends IGenericService<BienImmobilier> {
 	
-	public List<BienImmobilier> trouverParClasseStandard(ClasseStandard pClasseStandard);
+	public List<BienImmobilier> trouverParClasseStandard(Long pClasseStandard);
 	
-	public List<BienImmobilier> trouverParProprietaire(Proprietaire pProprietaire);
+	public List<BienImmobilier> trouverParProprietaire(Long pIdProprietaire);
 	
-	public List<BienImmobilier> TrouverParModesOffre(ModeOffre pModeOffre);
+	public List<BienImmobilier> TrouverParModesOffre( Long pIdModeOffre);
 	
-	public List<BienImmobilier> TrouverParVille(Adresse pAdresseVille); 
+	public List<BienImmobilier> TrouverParVille(String pAdresseVille); 
 	
 	public List<BienImmobilier> trouverParDateDeMiseADisposition(Date dateDeDispo); 
 
