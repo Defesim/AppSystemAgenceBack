@@ -1,1 +1,71 @@
-<p>clients-proprio works!</p>
+<div class="panel panel-primary" *ngFor="let client of clients">
+
+    <!--===================================-->
+    <!--===== Header du panneau ===========-->
+    <!--===================================-->
+    <div class="panel-heading">
+        <h3 class="panel-title">{{client.nom}} {{client.prenom}}</h3>
+    </div>
+
+
+
+    <!--===================================-->
+    <!--===== body du panneau =============-->
+    <!--===================================-->
+    <div class="panel-body">
+        <div class="col-xs-10">
+            <div class="row vertical-align">
+
+                <!--+++++++++++++++++ photo +++++++++++++++++++++-->
+                <div class="col-xs-4"><!--
+                    <h3>Adresse:</h3>
+                    <br>
+                    <p><strong></strong> {{bien.adresse.rue}} </p>
+                    <br>
+                    <p><strong>{{bien.adresse.codePostal}} </strong> {{bien.adresse.ville}} </p>
+                --> </div>
+
+                <!--++++++++ details du client ++++++++++++++++-->
+                <div class="col-xs-8">
+
+                    <!--++++++++ Email ++++++++++++++++-->
+                    <div class="row">
+                        <div class="col-xs-6 font-title">
+                            Adresse email  :
+                        </div>
+                        <div class="col-xs-6">
+                            {{client.email}}
+                        </div>
+                    </div>
+
+                    <!--++++++++ Telephone privé ++++++++++++++++++-->
+                    <div class="row ">
+                        <div class="col-xs-6">
+                            Numéro de Téléphone :
+                        </div>
+                        <div class="col-xs-6">
+                            {{client.telephonePrive}} 
+                        </div>
+                    </div><!--end row-->
+
+                </div>
+
+            </div><!--end row vertical align-->
+        </div><!--end div col-xs-10-->
+    </div><!--end body-->
+
+    <!--===================================-->
+    <!--===== footer du panneau ===========-->
+    <!--===================================-->
+    <div class="panel-footer">
+
+        <button class="btn btn-primary" >
+            Edit
+        </button>
+        ||
+        <button class="btn btn-danger" >
+            Delete
+        </button>
+
+    </div>
+</div> 

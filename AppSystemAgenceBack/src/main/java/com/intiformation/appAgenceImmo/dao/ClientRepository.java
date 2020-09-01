@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.intiformation.appAgenceImmo.modele.ClasseStandard;
 import com.intiformation.appAgenceImmo.modele.Client;
 
 /**
@@ -18,13 +17,18 @@ import com.intiformation.appAgenceImmo.modele.Client;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 	
 	/**
+	 * Méthode de requête qui permet de récupérer un client avec son nom
+	 * @param pNom
+	 * @return Client
+	 */
+	public Client findByNom(String pNom); 
+	
+	/**
 	 * Méthode de requête qui permet de récupérer une liste des clients intéréssés par une classe Standard 
-	 * @param pClasseStandard
+	 * @param pIdClasseStandard : id de la classe d'interet
 	 * @return liste de clients
 	 */
-	
-	// Id classe Standard
-	// A VOIR !!
-	public List<Client> findByListeClassesStandardsInteretIdClasseStandard(ClasseStandard pClasseStandard); 
+// A VERIF 
+	public List<Client> findByListeClassesStandardsInteretIdClasseStandard(Long pIdClasseStandard); 
 
 }// end interface
