@@ -90,8 +90,7 @@ public class BienImmobilierWebService {
 	public BienImmobilier trouverBienImmoViaId(@PathVariable("id") Long idBienImmo) {
 		
 		repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class, Personne.class, Proprietaire.class);	
-		BienImmobilier bienImmoATrouver = bienImmoService.trouverViaId(idBienImmo);
-		
+		BienImmobilier bienImmoATrouver = bienImmoService.trouverViaId(idBienImmo);	
 		return bienImmoATrouver; 
 	}//end trouverBienImmoViaId
 	
