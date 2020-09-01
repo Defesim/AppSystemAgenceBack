@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.intiformation.appAgenceImmo.modele.BienImmobilier;
 import com.intiformation.appAgenceImmo.modele.Proprietaire;
-import com.intiformation.appAgenceImmo.modele.Visite;
 import com.intiformation.appAgenceImmo.service.IBienImmobillierService;
 import com.intiformation.appAgenceImmo.service.IProprietaireService;
 
@@ -138,7 +137,7 @@ public class ProprietaireWsREST {
 		 *  sera invoquée via l'url : http://localhost:8080/gestion-agence-immo/ws-rest/proprietaire/get-by-bien/<id-bien>
 		 */
 		@RequestMapping(value="get-by-bien/{idBien}", method=RequestMethod.GET)
-		public Proprietaire trouverParLeBienDuProprio(@PathVariable("id") Long pBien) {
+		public Proprietaire trouverParLeBienDuProprio(@PathVariable("idBien") Long pBien) {
 			
 			BienImmobilier bienImmobilier = bienImmobillierService.trouverViaId(pBien);
 			
