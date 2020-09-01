@@ -15,6 +15,11 @@ import { ClientsProprioComponent } from './composants/clients-proprio/clients-pr
 import { LoginComponent } from './composants/login/login.component';
 import { BiensImmobiliersComponent } from './composants/biens-immobiliers/biens-immobiliers.component';
 
+// Pour l'internationalization 
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +34,20 @@ import { BiensImmobiliersComponent } from './composants/biens-immobiliers/biens-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps : [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http);
+}
