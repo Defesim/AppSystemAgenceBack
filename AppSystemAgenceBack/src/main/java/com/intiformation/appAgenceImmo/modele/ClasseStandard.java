@@ -31,7 +31,7 @@ import javax.persistence.JoinColumn;
 @Entity
 @Table(name = "classes_standards")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-property = "idClasseStandard")
+				property = "idClasseStandard")
 public class ClasseStandard implements Serializable{
 	
 
@@ -80,7 +80,6 @@ public class ClasseStandard implements Serializable{
 	 * Association entre classe standard et bien immobilier
 	 * One classe standard pour Many biens immobiliers
 	 */
-	
 	@OneToMany (cascade=CascadeType.ALL, mappedBy="classeStandard") 
 	private List<BienImmobilier> biensImmobiliers;
 	

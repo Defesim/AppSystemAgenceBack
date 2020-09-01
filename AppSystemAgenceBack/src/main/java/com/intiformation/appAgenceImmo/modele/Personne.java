@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
-
 /**
  * classe modele pour toutes les personnes.
  * classe de base pour client / agent immobilier et Proprietaire.

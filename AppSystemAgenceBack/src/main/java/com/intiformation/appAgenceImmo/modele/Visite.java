@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 /**
  * 
  * Modèle de données pour une visite
@@ -21,6 +24,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "visites")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+				property = "idViste")
 public class Visite implements Serializable {
 	
 	/*--------------- PROPRIETES ---------------*/

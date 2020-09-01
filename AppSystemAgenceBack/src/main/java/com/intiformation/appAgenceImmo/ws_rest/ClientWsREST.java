@@ -17,7 +17,7 @@ import com.intiformation.appAgenceImmo.modele.Client;
 import com.intiformation.appAgenceImmo.service.IClientService;
 
 /**
- * implementation d'un ws rest pour une personne
+ * implementation d'un ws rest pour un client
  * 
  * ws rest sera accessible via l'url : http://localhost:8080/gestion-agence-immo/ws-rest/clients/
  * 

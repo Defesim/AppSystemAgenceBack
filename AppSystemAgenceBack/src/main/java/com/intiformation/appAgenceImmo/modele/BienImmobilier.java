@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -30,8 +31,9 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  */
 @Entity
 @Table(name = "biens_immobilliers")
+//@XmlRootElement
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-property = "idBienImmobilier")
+				property = "idBienImmobilier")
 public class BienImmobilier implements Serializable {
 
 	/*--------------- PROPRIETES ---------------*/
@@ -61,6 +63,7 @@ public class BienImmobilier implements Serializable {
 	@OneToOne
 	@JoinColumn(name="adresse_id", referencedColumnName="idAdresse")
 	private Adresse adresse;
+
 
 	@ManyToOne
 	@JoinColumn(name = "classe_standard_id", referencedColumnName = "id_classe_standard")
