@@ -8,11 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.intiformation.appAgenceImmo.dao.BienImmobilierRepository;
-import com.intiformation.appAgenceImmo.modele.Adresse;
 import com.intiformation.appAgenceImmo.modele.BienImmobilier;
-import com.intiformation.appAgenceImmo.modele.ClasseStandard;
-import com.intiformation.appAgenceImmo.modele.ModeOffre;
-import com.intiformation.appAgenceImmo.modele.Proprietaire;
 /**
  * Implémentation concrète de la couche service pour un bien immobilier
  * @author hannahlevardon
@@ -100,22 +96,22 @@ public class BienImmobilierServiceImpl implements IBienImmobillierService {
 	 * Récupérer la liste des biens immobilier en fonction d'une classe Standard
 	 */
 	@Override
-	public List<BienImmobilier> trouverParClasseStandard(ClasseStandard pClasseStandard) {
-		return bienImmobilierRep.findByClasseStandard(pClasseStandard);
+	public List<BienImmobilier> trouverParClasseStandard(Long pIdClasseStandard ) {
+		return bienImmobilierRep.findByClasseStandardIdClasseStandard(pIdClasseStandard);
 	}
 
 	@Override
-	public List<BienImmobilier> trouverParProprietaire(Proprietaire pProprietaire) {
-		return bienImmobilierRep.findByProprietaire(pProprietaire);
+	public List<BienImmobilier> trouverParProprietaire(Long pIdProprietaire) {
+		return bienImmobilierRep.findByIdProprietaire(pIdProprietaire);
 	}
 
 	@Override
-	public List<BienImmobilier> TrouverParModesOffre(ModeOffre pModeOffre) {
-		return bienImmobilierRep.findByModesOffre(pModeOffre);
+	public List<BienImmobilier> TrouverParModesOffre(Long pIdModeOffre) {
+		return bienImmobilierRep.findByModesOffreIdModeOffre(pIdModeOffre);
 	}
 
 	@Override
-	public List<BienImmobilier> TrouverParVille(Adresse pAdresseVille) {
+	public List<BienImmobilier> TrouverParVille(String pAdresseVille) {
 		return bienImmobilierRep.findByAdresseVille(pAdresseVille);
 	}
 

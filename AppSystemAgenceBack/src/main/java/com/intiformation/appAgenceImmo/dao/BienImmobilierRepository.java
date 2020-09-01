@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 
@@ -29,14 +31,15 @@ public interface BienImmobilierRepository extends JpaRepository<BienImmobilier, 
 	 * @param pClasseStandard
 	 * @return liste de biens immobilier
 	 */
-	public List<BienImmobilier> findByClasseStandard(ClasseStandard pClasseStandard); 
+	public List<BienImmobilier> findByClasseStandardIdClasseStandard(Long pIdClasseStandard); 
 	
 	/**
 	 * Méthode de requête qui permet de récupérer une liste de biens immobiliers à partir du propriétaire
 	 * @param pProprietaire
 	 * @return liste de biens immobilier
 	 */
-	public List<BienImmobilier> findByProprietaire(Proprietaire pProprietaire);
+	@Query("Select b From BienImmobilier b Where b.proprietaire.id_personne = :pIdProprietaire")
+	public List<BienImmobilier> findByIdProprietaire(@Param("pIdProprietaire")Long pIdClient);
 	
 	
 	/**
@@ -44,7 +47,7 @@ public interface BienImmobilierRepository extends JpaRepository<BienImmobilier, 
 	 * @param pModeOffre
 	 * @return liste de biens immobilier
 	 */
-	public List<BienImmobilier> findByModesOffre(ModeOffre pModeOffre);
+	public List<BienImmobilier> findByModesOffreIdModeOffre(Long pIdModeOffre);
 	
 	
 	/**
@@ -52,7 +55,7 @@ public interface BienImmobilierRepository extends JpaRepository<BienImmobilier, 
 	 * @param pAdresse
 	 * @return
 	 */
-	public List<BienImmobilier> findByAdresseVille(Adresse pAdresseVille); 
+	public List<BienImmobilier> findByAdresseVille(String pVille); 
 	
 	
 	/**
