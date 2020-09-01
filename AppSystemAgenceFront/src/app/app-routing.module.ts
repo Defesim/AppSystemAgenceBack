@@ -13,6 +13,7 @@ const routes: Routes = [
   {path:"listBiens", component:BiensImmobiliersComponent}
 
   //route pour les gestion des visites
+  
 
   //route pour la gestion des proprietaire/locataire
 
