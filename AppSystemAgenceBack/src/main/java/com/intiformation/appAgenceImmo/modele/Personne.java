@@ -13,6 +13,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 
 /**
  * classe modele pour toutes les personnes.
@@ -25,6 +28,8 @@ import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+property = "id_personne")
 public abstract class Personne implements Serializable {
 	
 	// ====== PROPRIETES ======

@@ -14,6 +14,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.JoinColumn;
 
 
@@ -26,6 +30,8 @@ import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "classes_standards")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+				property = "idClasseStandard")
 public class ClasseStandard implements Serializable{
 	
 
@@ -74,7 +80,6 @@ public class ClasseStandard implements Serializable{
 	 * Association entre classe standard et bien immobilier
 	 * One classe standard pour Many biens immobiliers
 	 */
-	
 	@OneToMany (cascade=CascadeType.ALL, mappedBy="classeStandard") 
 	private List<BienImmobilier> biensImmobiliers;
 	

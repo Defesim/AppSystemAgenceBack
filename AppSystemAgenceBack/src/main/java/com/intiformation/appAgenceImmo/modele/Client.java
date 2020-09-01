@@ -8,7 +8,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.JoinColumn;
 
@@ -21,6 +23,7 @@ import javax.persistence.JoinColumn;
 @Entity
 @PrimaryKeyJoinColumn(name="personne_id",
 				referencedColumnName="id_personne")
+
 public class Client extends Personne{
 	
 	// ====== PROPRIETES ======
@@ -29,7 +32,6 @@ public class Client extends Personne{
 	
 	// liste des classes standards qui correspondent aux types de biens qui intéressent le client
 	@ManyToMany (cascade= CascadeType.ALL, mappedBy="clients")
-	@JsonIgnore // necessaire pour affichage dans le ws de la liste des client par CS : sinon boucle: Client => CS => client => CS....
 	private List<ClasseStandard> listeClassesStandardsInteret;
 
 	
