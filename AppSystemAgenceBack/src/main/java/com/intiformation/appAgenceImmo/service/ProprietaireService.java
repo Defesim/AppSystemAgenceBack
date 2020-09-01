@@ -32,8 +32,7 @@ public class ProprietaireService implements IProprietaireService {
 	// GET BY ID 
 	@Override
 	public Proprietaire trouverViaId(Long pIdProprietaire) {
-		Optional<Proprietaire> proprietaireRecup = proprietaireRepository.findById(pIdProprietaire);
-		return null;
+		return proprietaireRepository.findById(pIdProprietaire).get();
 	}
 
 	// GET ONE BY ID 
