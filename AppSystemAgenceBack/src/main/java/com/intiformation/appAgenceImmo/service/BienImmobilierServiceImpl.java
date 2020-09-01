@@ -8,11 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.intiformation.appAgenceImmo.dao.BienImmobilierRepository;
-import com.intiformation.appAgenceImmo.modele.Adresse;
 import com.intiformation.appAgenceImmo.modele.BienImmobilier;
-import com.intiformation.appAgenceImmo.modele.ClasseStandard;
-import com.intiformation.appAgenceImmo.modele.ModeOffre;
-import com.intiformation.appAgenceImmo.modele.Proprietaire;
 /**
  * Implémentation concrète de la couche service pour un bien immobilier
  * @author hannahlevardon
