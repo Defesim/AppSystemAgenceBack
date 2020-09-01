@@ -35,8 +35,9 @@ export class FooterComponent implements OnInit {
       let newIndex:number = refNum + index ;
       if(newIndex >5 ){
         newIndex = newIndex%5 +1;
-      }      
+      }
       hrefModif.style.color = listeColor[newIndex];
+      
     }
   }
 }
