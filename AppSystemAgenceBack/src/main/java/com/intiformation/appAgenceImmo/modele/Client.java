@@ -39,6 +39,11 @@ public class Client extends Personne{
 		super(id_personne, nom, prenom, email, adresse);
 		// TODO Auto-generated constructor stub
 	}
+	// ctor PROPS de Personne sans ID / Adresse
+	public Client(String nom, String prenom, String email) {
+		super(nom, prenom, email);
+		// TODO Auto-generated constructor stub
+	}
 	
 	// ctor ALL PROPS 
 	public Client(Long id_personne, String nom, String prenom, String email, Adresse adresse,
