@@ -1,7 +1,8 @@
+import { ModeOffre } from './ModeOffre';
 
 
 
-export class Location{
+export class Location extends ModeOffre{
 
     /*______________________props___________________________ */
     cautionLocative:number;

@@ -1,0 +1,29 @@
+/* classe css active */
+navbar-brand{
+    color: rgb(86, 86, 86);
+}
+
+nav a.active{
+    color: blue;
+    font-weight: bold;
+}
+
+nav a.decoration{
+    text-decoration: underline;
+}
+
+nav button{
+    border:solid 1px rgb(86, 86, 86);
+    border-radius: 5px;
+    height: 40px;
+    width: 40px;
+    align-content: center;
+    align-items: center;
+}
+
+nav button span{
+    width:90%;
+    margin-right: 5%;
+    margin-left:5%;
+    background-color:rgb(86, 86, 86) ;
+}

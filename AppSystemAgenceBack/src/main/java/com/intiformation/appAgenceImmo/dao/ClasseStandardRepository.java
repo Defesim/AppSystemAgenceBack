@@ -28,7 +28,7 @@ public interface ClasseStandardRepository extends JpaRepository<ClasseStandard, 
 	 * @param pPrixMax
 	 * @return Liste de ClasseStandard
 	 */
-	public List<ClasseStandard> findByPrixMaximumLessThan(double pPrixMax);
+	public List<ClasseStandard> findByPrixMaximum(double pPrixMax);
 	
 	/**
 	 * Méthode de requête qui permet de récupérer une liste de classes standards en fonction de l'usage : commercial ou habitation

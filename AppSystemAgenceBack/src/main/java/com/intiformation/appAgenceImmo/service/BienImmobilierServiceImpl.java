@@ -21,6 +21,8 @@ import com.intiformation.appAgenceImmo.modele.Proprietaire;
 @Service
 public class BienImmobilierServiceImpl implements IBienImmobillierService {
 
+	/*___________ PROPRIETES __________*/
+	
 	/**
 	 * Déclaration de la couche DAO
 	 */
@@ -37,42 +39,66 @@ public class BienImmobilierServiceImpl implements IBienImmobillierService {
 
 	/*___________ METHODES __________*/
 	
+	/**
+	 * Récupération de la liste de tous les biens immobiliers
+	 */
 	@Override
 	public List<BienImmobilier> trouverTout() {
 		return bienImmobilierRep.findAll();
 	}
 
+	/**
+	 * Récupération d'un bien immobilier par son id
+	 */
 	@Override
 	public BienImmobilier trouverViaId(Long pId) {	
 		Optional<BienImmobilier> bienImmo =  bienImmobilierRep.findById(pId);
 		return bienImmo.get();
 	}
 
+	/**
+	 * Ajout d'un bien immobilier dans la base de données
+	 */
 	@Override
 	public BienImmobilier ajouter(BienImmobilier pBien) {
 		return bienImmobilierRep.save(pBien);
 	}
 
+	/**
+	 * Modification d'un bien immobilier
+	 */
 	@Override
 	public BienImmobilier modifier(BienImmobilier pBien) {
 		return bienImmobilierRep.save(pBien);
 	}
 
+	/**
+	 * Supprimer un bien Immobilier
+	 */
 	@Override
 	public void supprimer(BienImmobilier pBien) {	
 		bienImmobilierRep.delete(pBien);
 	}
 
+	/**
+	 * Supprimer un bien immobilier par son Id
+	 */
 	@Override
 	public void supprimerViaId(Long pId) {
 		bienImmobilierRep.deleteById(pId);
 	}
 
+	/**
+	 * Récupérer une référence à un bien Immobilier
+	 */
 	@Override
 	public BienImmobilier trouverUn(Long pId) {
 		return bienImmobilierRep.getOne(pId);
 	}
 
+	/**
+	 * Récupérer la liste des biens immobilier en fonction d'une classe Standard
+	 */
 	@Override
 	public List<BienImmobilier> trouverParClasseStandard(ClasseStandard pClasseStandard) {
 		return bienImmobilierRep.findByClasseStandard(pClasseStandard);
