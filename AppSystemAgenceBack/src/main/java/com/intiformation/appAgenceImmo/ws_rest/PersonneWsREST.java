@@ -63,6 +63,7 @@ public class PersonneWsREST {
 	/** ADD
 	 * ======
 	 * Méthode exposée dans le web service pour ajouter une personne
+	 * sera invoquée via l'url : http://localhost:8080/gestion-agence-immo/ws-rest/personnes/save
 	 */
 	@PostMapping(value="/save")	
 	public Personne ajouterPersonne(@RequestBody Personne pPersonne){

@@ -65,6 +65,13 @@ public abstract class Personne implements Serializable {
 		this.email = email;
 	}
 	
+	public Personne(String nom, String prenom, String email, Adresse adresse) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.adresse = adresse;
+	}
+	
 	public Personne(Long id_personne, String nom, String prenom, String email, Adresse adresse) {
 		this.id_personne = id_personne;
 		this.nom = nom;

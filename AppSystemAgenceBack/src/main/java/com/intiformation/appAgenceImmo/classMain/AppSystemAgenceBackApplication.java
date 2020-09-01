@@ -120,7 +120,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		for (BienImmobilier bienImmobilier : listeBiensImmoBDD) {
 			System.out.println(bienImmobilier.getStatut());
 		}
-		 
+*/		 
 
 		
 		// TEST sur : PERSONNE
@@ -130,7 +130,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		
 		personneService.ajouter(personne1);
 		personneWsREST.ajouterPersonne(personne2);
-		
+	
 		// Test GetAll
 		List<Personne> listePersonneBDD =  personneWsREST.listAllPersonneBdd();
 		for (Personne personne : listePersonneBDD) {
@@ -142,7 +142,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		Personne personneARecup = personneWsREST.personneById((long) 1);
 			System.out.println("\t > " + personneARecup.getNom());
 		
-		// Test find by Id
+/*		// Test find by Id
 		
 		BienImmobilier BienImmoaTrouver = bienImmoWS.trouverBienImmoViaId(2L); 
 		System.out.println(BienImmoaTrouver.getRevenuCadastral());
@@ -151,7 +151,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		// Test modification 		
 		BienImmoaTrouver.setRevenuCadastral(40000);
 		bienImmoWS.modifierBienImmobilier(BienImmoaTrouver);
-		*/
+*/	
 
 	}// end run()
 
