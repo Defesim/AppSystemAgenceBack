@@ -31,4 +31,22 @@ export class BiensImmobiliersComponent implements OnInit {
                          .subscribe(data=> this.biensImmobiliers = data);
   }//end findAllBiensImmo
 
-}
+
+  deleteBienImmo(bienImmobilier:BienImmobilier){
+
+    this.biensImmoService.supprimerBienImmoViaWsRest(bienImmobilier).subscribe( ()=>{
+
+      this.findAllBiensImmo();
+    });
+
+  }//end deleteBienImmo
+
+
+  editBienImmo(idBienImmobilier :number){
+
+    this.route.navigate(['editBien', idBienImmobilier]);
+
+  }//end editBienImmo
+ 
+
+}//end class

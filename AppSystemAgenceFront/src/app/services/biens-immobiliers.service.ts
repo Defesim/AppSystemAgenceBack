@@ -39,7 +39,7 @@ export class BiensImmobiliersService {
 
   modifierBienImmoViaWsRest(pBien:BienImmobilier): Observable<void>{
 
-    return this.httpClient.put<void>(this.WS_REST_BASE_URL + "/update/" +pBien.idBienImmobilier, pBien );
+    return this.httpClient.put<void>(this.WS_REST_BASE_URL + "/update", pBien ); /*+pBien.idBienImmobilier, pBien );*/
 
   }//end modifierBienImmoViaWsRest
 

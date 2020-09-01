@@ -18,7 +18,13 @@ import { BiensImmobiliersComponent } from './composants/biens-immobiliers/biens-
 // Pour l'internationalization 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+
 import {HttpClient} from '@angular/common/http';
+
+import { CreateClientsComponent } from './composants/create/create-clients/create-clients.component';
+import { CreateBiensImmobiliersComponent } from './composants/create/create-biens-immobiliers/create-biens-immobiliers.component';
+import { CreateAdresseComponent } from './composants/create/create-adresse/create-adresse.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,10 @@ import {HttpClient} from '@angular/common/http';
     VisitesComponent,
     ClientsProprioComponent,
     LoginComponent,
-    BiensImmobiliersComponent
+    BiensImmobiliersComponent,
+    CreateClientsComponent,
+    CreateBiensImmobiliersComponent,
+    CreateAdresseComponent
   ],
   imports: [
     BrowserModule,

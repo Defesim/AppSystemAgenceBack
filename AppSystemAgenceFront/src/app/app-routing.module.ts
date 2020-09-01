@@ -4,6 +4,7 @@ import { LoginComponent } from './composants/login/login.component';
 
 import { BiensImmobiliersComponent } from './composants/biens-immobiliers/biens-immobiliers.component';
 import { ClientsProprioComponent } from './composants/clients-proprio/clients-proprio.component';
+import { CreateBiensImmobiliersComponent } from './composants/create/create-biens-immobiliers/create-biens-immobiliers.component';
 
 const routes: Routes = [
 
@@ -12,7 +13,8 @@ const routes: Routes = [
 
   //route pour la gestion des biens immobiliers
   {path:"listBiens", component:BiensImmobiliersComponent},
-
+  {path:"editBien/:id",component:CreateBiensImmobiliersComponent },
+  
   //route pour les gestion des visites
   
 
@@ -20,6 +22,7 @@ const routes: Routes = [
 
   //route pour la gestion des clients
   {path:"clients", component:ClientsProprioComponent}
+
 
 ];
 
