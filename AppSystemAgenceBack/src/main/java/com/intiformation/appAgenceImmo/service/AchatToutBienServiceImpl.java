@@ -2,9 +2,11 @@ package com.intiformation.appAgenceImmo.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.intiformation.appAgenceImmo.dao.AchatToutBienRepository;
 import com.intiformation.appAgenceImmo.modele.AchatToutBien;
-
+@Service
 public class AchatToutBienServiceImpl implements IAchatToutBIen {
 
 	/* ___________ PROPRIETES __________ */
