@@ -29,6 +29,7 @@ import com.intiformation.appAgenceImmo.service.IBienImmobillierService;
  * @author hannahlevardon
  *
  */
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController // déclaration de la classe comme WS Rest
 @RequestMapping("/biensImmo") // URL du WS REST pour des biens immobilier
