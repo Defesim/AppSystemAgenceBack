@@ -9,8 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class BiensImmobiliersService {
 
-  private WS_REST_BASE_URL = "http://localhost:8080/AppSystemAgenceBack/biensImmo";
-
+  private WS_REST_BASE_URL = "http://localhost:8080/gestion-agence-immo/biensImmo";
 
   constructor(private httpClient: HttpClient) { }
 
