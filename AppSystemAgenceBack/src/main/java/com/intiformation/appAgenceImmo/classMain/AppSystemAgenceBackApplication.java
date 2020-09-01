@@ -106,7 +106,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		// ============= Methodes de base ===================
 		// ====== (UserRepository - JpaRepository) ==========
 		// ==================================================
-		
+		/*
 		// ====== WS REST BIEN IMMOBILIER ==========
 		// Test AJOUT
 		BienImmobilier bien1 = new BienImmobilier("maison", 20000.00);
@@ -121,7 +121,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 			System.out.println(bienImmobilier.getStatut());
 		}
 		 
-
+	
 		
 		// TEST sur : PERSONNE
 		// Test AJOUT
@@ -141,7 +141,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		// ------ Test : Get by ID -----------
 		Personne personneARecup = personneWsREST.personneById((long) 1);
 			System.out.println("\t > " + personneARecup.getNom());
-		
+		*/
 /*		// Test find by Id
 		
 		BienImmobilier BienImmoaTrouver = bienImmoWS.trouverBienImmoViaId(2L); 
