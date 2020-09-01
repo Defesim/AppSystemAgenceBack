@@ -15,10 +15,11 @@ import com.intiformation.appAgenceImmo.modele.Client;
  */
 public interface IAcquisitionService extends IGenericService<Acquisition> {
 	
-	public List<Acquisition> trouverParClient(Client pClient);
+	public List<Acquisition> trouverParIdClient(Long pIdClient);
 	
-	public List<Acquisition> trouverParAgentImmobilier(AgentImmobilier pAgent);
+	public List<Acquisition> trouverParIdAgentImmobilier(Long pIdAgent);
 	
-	public Acquisition trouverParBienImmobilier(BienImmobilier pBien);
+	public Acquisition trouverParBienImmobilier(Long pIdBien);
+	
 
 }//end interface

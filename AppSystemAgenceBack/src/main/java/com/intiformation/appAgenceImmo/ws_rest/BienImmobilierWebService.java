@@ -29,6 +29,7 @@ import com.intiformation.appAgenceImmo.service.IBienImmobillierService;
  * @author hannahlevardon
  *
  */
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController // déclaration de la classe comme WS Rest
 @RequestMapping("/biensImmo") // URL du WS REST pour des biens immobilier
@@ -90,8 +91,7 @@ public class BienImmobilierWebService {
 	public BienImmobilier trouverBienImmoViaId(@PathVariable("id") Long idBienImmo) {
 		
 		repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class, Personne.class, Proprietaire.class);	
-		BienImmobilier bienImmoATrouver = bienImmoService.trouverViaId(idBienImmo);
-		
+		BienImmobilier bienImmoATrouver = bienImmoService.trouverViaId(idBienImmo);	
 		return bienImmoATrouver; 
 	}//end trouverBienImmoViaId
 	
@@ -122,13 +122,13 @@ public class BienImmobilierWebService {
 	
 	/**
 	 * Méthode exposée dans le web service pour trouver une liste de biens immobilier pour une classe standard
-	 * http://localhost:8080/gestion-agence-immo/biensImmo/getByClasseStandard
+	 * http://localhost:8080/gestion-agence-immo/biensImmo/getByClasseStandard/id
 	 * @param pClasse
 	 * @return
 	 */
-	@GetMapping(value="getByClasseStandard")
-	public List<BienImmobilier> TrouverBienImmoParClasseStandard(@RequestBody ClasseStandard pClasse){		
-		return bienImmoService.trouverParClasseStandard(pClasse);			
+	@GetMapping(value="getByClasseStandard/{idClasseStandard}")
+	public List<BienImmobilier> TrouverBienImmoParClasseStandard(@PathVariable("idClasseStandard") Long pIdClasse){		
+		return bienImmoService.trouverParClasseStandard(pIdClasse);			
 	}//end TrouverBeinImmoParClasseStandard
 	
 	// A IMPLEMENTER PAR LA SUITE :

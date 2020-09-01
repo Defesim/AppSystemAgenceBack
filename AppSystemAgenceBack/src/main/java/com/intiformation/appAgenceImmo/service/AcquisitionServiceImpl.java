@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.intiformation.appAgenceImmo.dao.AcquisitionRepository;
 import com.intiformation.appAgenceImmo.modele.Acquisition;
-import com.intiformation.appAgenceImmo.modele.AgentImmobilier;
-import com.intiformation.appAgenceImmo.modele.BienImmobilier;
-import com.intiformation.appAgenceImmo.modele.Client;
+
 /**
  * Implémentation concrète de la couche service pour une acquisition/contrat
  * @author hannahlevardon
@@ -45,6 +43,7 @@ public class AcquisitionServiceImpl implements IAcquisitionService {
 		return acquisitionRep.findAll();
 	}
 	
+	
 	/**
 	 * Récupération d'une acquisition par son id
 	 */
@@ -71,40 +70,54 @@ public class AcquisitionServiceImpl implements IAcquisitionService {
 		return acquisitionRep.save(pAcquisition);
 	}
 
+	/**
+	 * Modifier une acquisition dans la database
+	 */
 	@Override
-	public Acquisition modifier(Acquisition t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Acquisition modifier(Acquisition pAcquisition) {
+		return acquisitionRep.save(pAcquisition);
 	}
 
+	/**
+	 * Supprimer un acquistion dans la database
+	 */
 	@Override
-	public void supprimer(Acquisition t) {
-		// TODO Auto-generated method stub
-		
+	public void supprimer(Acquisition pAcquisition ) {
+		acquisitionRep.delete(pAcquisition);
 	}
 
+
+	/**
+	 * Supprimer un acquistion dans la database via son id
+	 */
 	@Override
 	public void supprimerViaId(Long pId) {
-		// TODO Auto-generated method stub
-		
+		acquisitionRep.deleteById(pId);	
 	}
 
+	/**
+	 * Récupération de la liste des acquisitions d'un client
+	 */
 	@Override
-	public List<Acquisition> trouverParClient(Client pClient) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Acquisition> trouverParIdClient(Long pIdClient) {
+		return acquisitionRep.findByClientId(pIdClient);
 	}
 
+	/**
+	 * Récupération de la liste des acquisitions gérées par un agent immobilier
+	 */
 	@Override
-	public List<Acquisition> trouverParAgentImmobilier(AgentImmobilier pAgent) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Acquisition> trouverParIdAgentImmobilier(Long pIdAgent) {
+		return acquisitionRep.findByIdAgentImmobilier(pIdAgent);
 	}
 
+	/**
+	 * Récupération de acquisitions liée à un bien immobilier
+	 */
 	@Override
-	public Acquisition trouverParBienImmobilier(BienImmobilier pBien) {
-		// TODO Auto-generated method stub
-		return null;
+	public Acquisition trouverParBienImmobilier(Long pIdBien) {
+		return acquisitionRep.findByBienImmobilierIdBienImmobilier(pIdBien);
 	}
 
+	
 }//end classe
