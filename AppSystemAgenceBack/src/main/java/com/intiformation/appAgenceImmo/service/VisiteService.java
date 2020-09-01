@@ -36,8 +36,8 @@ public class VisiteService implements IVisiteService {
 	// GET BY ID 
 	@Override
 	public Visite trouverViaId(Long pIdVisite) {
-		Optional<Visite> visiteRecup = visiteRepository.findById(pIdVisite);
-		return null;
+		
+		return visiteRepository.findById(pIdVisite).get();
 	}
 
 	// GET ONE BY ID 
