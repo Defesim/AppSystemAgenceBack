@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.intiformation.appAgenceImmo.dao.AcquisitionRepository;
 import com.intiformation.appAgenceImmo.modele.Acquisition;
-import com.intiformation.appAgenceImmo.modele.AgentImmobilier;
-import com.intiformation.appAgenceImmo.modele.BienImmobilier;
-import com.intiformation.appAgenceImmo.modele.Client;
+
 /**
  * Implémentation concrète de la couche service pour une acquisition/contrat
  * @author hannahlevardon
