@@ -23,7 +23,9 @@ import com.intiformation.appAgenceImmo.modele.Proprietaire;
 import com.intiformation.appAgenceImmo.service.IBienImmobillierService;
 
 /**
- *
+ * Implémentation du Web Service Rest pour un bien immobilier
+ * 
+ * URL de base : http://localhost:8080/gestion-agence-immo/biensImmo/*
  * @author hannahlevardon
  *
  */
@@ -101,11 +103,9 @@ public class BienImmobilierWebService {
 	 * @return
 	 */
 	@PutMapping(value="/update")
-	public BienImmobilier modifierBienImmobilier(@RequestBody BienImmobilier pBIen) {
-		
+	public BienImmobilier modifierBienImmobilier(@RequestBody BienImmobilier pBIen) {		
 		repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class);	
-		return bienImmoService.modifier(pBIen);
-		
+		return bienImmoService.modifier(pBIen);	
 	}//end modifierBienImmobilier
 	
 	/**

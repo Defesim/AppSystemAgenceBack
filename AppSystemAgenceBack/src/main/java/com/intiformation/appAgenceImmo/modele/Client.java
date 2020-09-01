@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.JoinColumn;
 
 /**
@@ -26,6 +29,7 @@ public class Client extends Personne{
 	
 	// liste des classes standards qui correspondent aux types de biens qui intéressent le client
 	@ManyToMany (cascade= CascadeType.ALL, mappedBy="clients")
+	@JsonIgnore // necessaire pour affichage dans le ws de la liste des client par CS : sinon boucle: Client => CS => client => CS....
 	private List<ClasseStandard> listeClassesStandardsInteret;
 
 	
@@ -42,6 +46,12 @@ public class Client extends Personne{
 	// ctor PROPS de Personne sans ID / Adresse
 	public Client(String nom, String prenom, String email) {
 		super(nom, prenom, email);
+		// TODO Auto-generated constructor stub
+	}
+	
+	// ctor PROPS de Personne sans ID
+	public Client(String nom, String prenom, String email, Adresse adresse) {
+		super(nom, prenom, email, adresse);
 		// TODO Auto-generated constructor stub
 	}
 	

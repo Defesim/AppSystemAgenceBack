@@ -65,4 +65,16 @@ public class ClientService implements IClientService{
 		clientRepository.deleteById(pIdClient);
 	}
 
+	// trouver un client via son nom
+	@Override
+	public Client findByNom(String pNom) {
+		return clientRepository.findByNom(pNom);
+	}
+
+	// permet de récupérer la liste des clients intéréssés par une classe Standard 
+	@Override
+	public List<Client> findByListeClassesStandardsInteretIdClasseStandard(Long pIdClasseStandard) {
+		return clientRepository.findByListeClassesStandardsInteretIdClasseStandard(pIdClasseStandard);
+	}
+
 }// end classe
