@@ -100,24 +100,25 @@ public class AcquisitionServiceImpl implements IAcquisitionService {
 	 * Récupération de la liste des acquisitions d'un client
 	 */
 	@Override
-	public List<Acquisition> trouverParClient(Client pClient) {
-		return acquisitionRep.findByClient(pClient);
+	public List<Acquisition> trouverParIdClient(Long pIdClient) {
+		return acquisitionRep.findByClientId(pIdClient);
 	}
 
 	/**
 	 * Récupération de la liste des acquisitions gérées par un agent immobilier
 	 */
 	@Override
-	public List<Acquisition> trouverParAgentImmobilier(AgentImmobilier pAgent) {
-		return acquisitionRep.findByAgentImmobilier(pAgent);
+	public List<Acquisition> trouverParIdAgentImmobilier(Long pIdAgent) {
+		return acquisitionRep.findByIdAgentImmobilier(pIdAgent);
 	}
 
 	/**
 	 * Récupération de acquisitions liée à un bien immobilier
 	 */
 	@Override
-	public Acquisition trouverParBienImmobilier(BienImmobilier pBien) {
-		return acquisitionRep.findByBienImmobilier(pBien);
+	public Acquisition trouverParBienImmobilier(Long pIdBien) {
+		return acquisitionRep.findByBienImmobilierIdBienImmobilier(pIdBien);
 	}
 
+	
 }//end classe

@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.intiformation.appAgenceImmo.modele.Acquisition;
+import com.intiformation.appAgenceImmo.modele.AgentImmobilier;
+import com.intiformation.appAgenceImmo.modele.BienImmobilier;
+import com.intiformation.appAgenceImmo.modele.Client;
 import com.intiformation.appAgenceImmo.service.IAcquisitionService;
 
 /**
@@ -97,12 +100,31 @@ public class AcquistionWebService {
 		return acquistionService.modifier(pAcquisition);
 	}//end modifierAcquisition
 	
+
+	/**
+	 * Méthode exposée dans le web service pour supprimer une acquisition  via son id
+	 * URL : http://localhost:8080/gestion-agence-immo/acquisition/delete/id
+	 * @return
+	 */
 	@DeleteMapping(value="/delete/{id}")
 	public ResponseEntity<Boolean> supprimerAcquisition(@PathVariable("id") Long pId){
 		acquistionService.supprimerViaId(pId);
 		return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);		
 	}//end supprimerAcquisition 
+	
+	
+	/**
+	 * Méthode exposée dans le web service pour récupérer une liste d'acquisition via l'id d'un client
+	 * http://localhost:8080/gestion-agence-immo/acquisition/getByClient/ 
+	 * @param pClient
+	 * @return
+	 */
+	@GetMapping(value="getByClient/{idClient}")
+	public List<Acquisition> trouverAcquisitionsDuClient(@PathVariable("idClient") Long pIdClient){
+		return acquistionService.trouverParIdClient(pIdClient);
+	}
 
+	
 }// end classe
 
 
