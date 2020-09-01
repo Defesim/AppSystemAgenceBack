@@ -77,6 +77,18 @@ public class Acquisition implements Serializable{
 	public Acquisition() {
 	}
 	
+	
+	public Acquisition(String typeAcquisition, Date dateAchat, double prixAchat,
+			AgentImmobilier agentImmobilier, Client client) {
+		this.typeAcquisition = typeAcquisition;
+		this.dateAchat = dateAchat;
+		this.prixAchat = prixAchat;
+		this.agentImmobilier = agentImmobilier;
+		this.client = client;
+	}
+
+
+
 	/*--------------- GETTER / SETTER ---------------*/
 
 	public Long getIdAcquisition() {

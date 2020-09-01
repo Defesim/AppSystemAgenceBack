@@ -68,6 +68,15 @@ public class Visite implements Serializable {
 	 */
 	public Visite() {
 	}
+	
+	public Visite(Date dateVisite, Client client, AgentImmobilier agentImmobilier) {
+		super();
+		this.dateVisite = dateVisite;
+		this.client = client;
+		this.agentImmobilier = agentImmobilier;
+	}
+
+
 
 	/*--------------- GETTER / SETTER ---------------*/
 	

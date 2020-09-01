@@ -24,8 +24,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "modes_offres")
-@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+@Table(name ="modes_offres")
+@Inheritance(strategy= InheritanceType.JOINED)
 public class ModeOffre implements Serializable {
 	
 	/*--------------- PROPRIETES ---------------*/
@@ -56,6 +56,12 @@ public class ModeOffre implements Serializable {
 	}//end constructeur
 	
 	
+	public ModeOffre(String typeModeOffre, BienImmobilier bienImmobilier) {
+		this.typeModeOffre = typeModeOffre;
+		this.bienImmobilier = bienImmobilier;
+	}
+
+
 	/*--------------- GETTER / SETTER ---------------*/
 
 	public Long getIdModeOffre() {

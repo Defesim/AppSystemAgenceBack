@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "locations")
-@PrimaryKeyJoinColumn(name = "mode_offre_id", referencedColumnName = "id_mode_offre")
+@PrimaryKeyJoinColumn(name ="location_id", referencedColumnName = "id_mode_offre")
 public class Location extends ModeOffre {
 
 	/*--------------- PROPRIETES ---------------*/

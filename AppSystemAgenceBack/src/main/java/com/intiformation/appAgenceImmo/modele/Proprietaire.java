@@ -3,6 +3,7 @@ package com.intiformation.appAgenceImmo.modele;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -21,12 +22,12 @@ public class Proprietaire extends Personne{
 	
 	// ====== PROPRIETES ======
 	
-	private int telephonePrive;
+	private String telephonePrive;
 	
-	private int telephonePro;
+	private String telephonePro;
 	
 	// liste des biens appartenant au proprietaire
-	@OneToMany(mappedBy="")
+	@OneToMany(mappedBy="proprietaire")
 	private List<BienImmobilier> listeDesBiensDuProprio;
 	
 	// ====== Ctors ======
@@ -34,45 +35,60 @@ public class Proprietaire extends Personne{
 	}
 
 	// ctor ALL PROPS 
-	public Proprietaire(int id_personne, String nom, String prenom, String email, 
-						Adresse adresse, int telephonePrive, int telephonePro) {
+	public Proprietaire(Long id_personne, String nom, String prenom, String email, 
+						Adresse adresse, String telephonePrive, String telephonePro) {
 		super(id_personne, nom, prenom, email, adresse);
 		this.telephonePrive = telephonePrive;
 		this.telephonePro = telephonePro;
 	}
 
+	// ctor ALL PROPS SANS ID
+	public Proprietaire(String nom, String prenom, String email, 
+			Adresse adresse, String telephonePrive, String telephonePro) {
+		super(nom, prenom, email, adresse);
+		this.telephonePrive = telephonePrive;
+		this.telephonePro = telephonePro;
+	}
+	
 	// ctor SANS Adresse
-	public Proprietaire(int id_personne, String nom, String prenom, String email, int telephonePrive, int telephonePro) {
+	public Proprietaire(Long id_personne, String nom, String prenom, String email, String telephonePrive, String telephonePro) {
 		super(id_personne, nom, prenom, email);
 		this.telephonePrive = telephonePrive;
 		this.telephonePro = telephonePro;
 	}
 
 	// ctor SANS Id et Adresse
-	public Proprietaire(String nom, String prenom, String email, int telephonePrive, int telephonePro) {
+	public Proprietaire(String nom, String prenom, String email, String telephonePrive, String telephonePro) {
 		super(nom, prenom, email);
 		this.telephonePrive = telephonePrive;
 		this.telephonePro = telephonePro;
 	}
 	
-	
+	// Toutes Props avec listeDesBiensDuProprio et sans id
+	public Proprietaire(String nom, String prenom, String email, Adresse adresse, String telephonePrive, String telephonePro, List<BienImmobilier> listeDesBiensDuProprio) {
+		super(nom, prenom, email, adresse);
+		this.telephonePrive = telephonePrive;
+		this.telephonePro = telephonePro;
+		this.listeDesBiensDuProprio = listeDesBiensDuProprio;
+	}
 
 	// ====== METHODES ======
 	// ====== Getters / Setters ======
 
-	public int getTelephonePrive() {
+
+	public String getTelephonePrive() {
 		return telephonePrive;
 	}
 
-	public void setTelephonePrive(int telephonePrive) {
+	public void setTelephonePrive(String telephonePrive) {
 		this.telephonePrive = telephonePrive;
 	}
 
-	public int getTelephonePro() {
+	public String getTelephonePro() {
 		return telephonePro;
 	}
 
-	public void setTelephonePro(int telephonePro) {
+	public void setTelephonePro(String telephonePro) {
 		this.telephonePro = telephonePro;
 	}
 	

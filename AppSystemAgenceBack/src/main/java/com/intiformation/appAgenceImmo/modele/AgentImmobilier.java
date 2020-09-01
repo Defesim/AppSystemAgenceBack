@@ -26,13 +26,13 @@ public class AgentImmobilier extends Personne {
 	}
 	
 	// ctor ALL PROPS 
-	public AgentImmobilier(int id_personne, String nom, String prenom, String email, Adresse adresse, String motDePasse) {
+	public AgentImmobilier(Long id_personne, String nom, String prenom, String email, Adresse adresse, String motDePasse) {
 		super(id_personne, nom, prenom, email, adresse);
 		this.motDePasse = motDePasse;
 	}
 
 	// ctor SANS Adresse 
-	public AgentImmobilier(int id_personne, String nom, String prenom, String email, String motDePasse) {
+	public AgentImmobilier(Long id_personne, String nom, String prenom, String email, String motDePasse) {
 		super(id_personne, nom, prenom, email);
 		this.motDePasse = motDePasse;
 	}
@@ -43,6 +43,11 @@ public class AgentImmobilier extends Personne {
 		this.motDePasse = motDePasse;
 	}
 	
+	// ctor SANS Id
+	public AgentImmobilier(String nom, String prenom, String email, Adresse adresse, String motDePasse) {
+		super(nom, prenom, email, adresse);
+		this.motDePasse = motDePasse;
+	}
 	
 	
 	// ====== METHODES ======

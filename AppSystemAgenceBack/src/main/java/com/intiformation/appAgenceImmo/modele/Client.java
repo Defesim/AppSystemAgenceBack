@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.JoinColumn;
 
 /**
@@ -22,7 +25,7 @@ public class Client extends Personne{
 	
 	// ====== PROPRIETES ======
 	
-	private int telephonePrive;
+	private String telephonePrive;
 	
 	// liste des classes standards qui correspondent aux types de biens qui intéressent le client
 	@ManyToMany (cascade= CascadeType.ALL, mappedBy="clients")
@@ -33,24 +36,44 @@ public class Client extends Personne{
 	
 	public Client() {
 	}
-
+	
 	// ctor PROPS de Personne
-	public Client(int id_personne, String nom, String prenom, String email, Adresse adresse) {
+	public Client(Long id_personne, String nom, String prenom, String email, Adresse adresse) {
 		super(id_personne, nom, prenom, email, adresse);
 		// TODO Auto-generated constructor stub
 	}
 	
+	// ctor PROPS de Personne sans ID / Adresse
+	public Client(String nom, String prenom, String email) {
+		super(nom, prenom, email);
+		// TODO Auto-generated constructor stub
+	}
+		
+	// ctor PROPS de Personne sans ID
+	public Client(String nom, String prenom, String email, Adresse adresse) {
+		super(nom, prenom, email, adresse);
+		// TODO Auto-generated constructor stub
+	}
+	
 	// ctor ALL PROPS 
-	public Client(int id_personne, String nom, String prenom, String email, Adresse adresse,
-			int telephonePrive, List<ClasseStandard> listeClassesStandardsInteret) {
+	public Client(Long id_personne, String nom, String prenom, String email, Adresse adresse,
+			String telephonePrive, List<ClasseStandard> listeClassesStandardsInteret) {
 		super(id_personne, nom, prenom, email, adresse);
+		this.telephonePrive = telephonePrive;
+		this.listeClassesStandardsInteret = listeClassesStandardsInteret;
+	}
+	
+	// ctor ALL PROPS sans ID
+	public Client(String nom, String prenom, String email, Adresse adresse,
+			String telephonePrive, List<ClasseStandard> listeClassesStandardsInteret) {
+		super(nom, prenom, email, adresse);
 		this.telephonePrive = telephonePrive;
 		this.listeClassesStandardsInteret = listeClassesStandardsInteret;
 	}
 
 
 	// ctor SANS Id et Adresse
-	public Client(String nom, String prenom, String email, int telephonePrive, 
+	public Client(String nom, String prenom, String email, String telephonePrive, 
 			List<ClasseStandard> listeClassesStandardsInteret) {
 		super(nom, prenom, email);
 		this.telephonePrive = telephonePrive;
@@ -63,11 +86,11 @@ public class Client extends Personne{
 	// ====== Getters / Setters ======
 	
 
-	public int getTelephonePrive() {
+	public String getTelephonePrive() {
 		return telephonePrive;
 	}
 
-	public void setTelephonePrive(int telephonePrive) {
+	public void setTelephonePrive(String telephonePrive) {
 		this.telephonePrive = telephonePrive;
 	}
 
@@ -79,5 +102,12 @@ public class Client extends Personne{
 		this.listeClassesStandardsInteret = listeClassesStandardsInteret;
 	}
 
+	@Override
+	public String toString() {
+		return "Client [telephonePrive=" + telephonePrive + ", listeClassesStandardsInteret="
+				+ listeClassesStandardsInteret + "]";
+	}
+
+	
 
 }// end classe Client

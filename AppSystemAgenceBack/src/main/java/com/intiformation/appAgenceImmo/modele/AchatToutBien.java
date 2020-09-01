@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -18,8 +19,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "achats_tous_biens")
-@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
-public class AchatToutBien extends ModeOffre implements Serializable {
+@PrimaryKeyJoinColumn(name="achat_id",
+referencedColumnName="id_mode_offre")
+//@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+public class AchatToutBien extends ModeOffre{
 	
 	/*--------------- PROPRIETES ---------------*/
 	

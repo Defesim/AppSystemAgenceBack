@@ -23,7 +23,7 @@ public class Image implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_image")
-	private int id;
+	private Long id;
 
 	// l'url de l'image
 	private String image;
@@ -39,7 +39,7 @@ public class Image implements Serializable{
 	}	
 	
 	// ctors All Props 
-	public Image(int id, String image, BienImmobilier bienImmobilier) {
+	public Image(Long id, String image, BienImmobilier bienImmobilier) {
 		this.id = id;
 		this.image = image;
 		this.bienImmobilier = bienImmobilier;
@@ -55,11 +55,11 @@ public class Image implements Serializable{
 
 	// ====== METHODES ======
 	// ====== Getters / Setters ======
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

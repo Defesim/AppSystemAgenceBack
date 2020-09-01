@@ -10,10 +10,12 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Acheteur extends Client{
+
 	
 	// ====== PROPRIETES ======
 	
 	// ====== Ctors ======
+	
 	// ====== METHODES ======
 	// ====== Getters / Setters ======
 

@@ -88,6 +88,20 @@ public class ClasseStandard implements Serializable{
 	}// end constructeur
 
 	
+	
+	public ClasseStandard(String libelle, String typeDeBien, String usageDuBien, String description, double prixMaximum,
+			int superficieMinimum) {
+		super();
+		this.libelle = libelle;
+		this.typeDeBien = typeDeBien;
+		this.usageDuBien = usageDuBien;
+		this.description = description;
+		this.prixMaximum = prixMaximum;
+		this.superficieMinimum = superficieMinimum;
+	}
+
+
+
 	/*--------------- GETTER / SETTER ---------------*/
 
 	public Long getIdClasseStandard() {
@@ -164,6 +178,16 @@ public class ClasseStandard implements Serializable{
 
 	public void setClients(List<Client> clients) {
 		this.clients = clients;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "ClasseStandard [idClasseStandard=" + idClasseStandard + ", libelle=" + libelle + ", typeDeBien="
+				+ typeDeBien + ", usageDuBien=" + usageDuBien + ", description=" + description + ", prixMaximum="
+				+ prixMaximum + ", superficieMinimum=" + superficieMinimum + ", clients=" + clients
+				+ ", biensImmobiliers=" + biensImmobiliers + "]";
 	}
 	
 

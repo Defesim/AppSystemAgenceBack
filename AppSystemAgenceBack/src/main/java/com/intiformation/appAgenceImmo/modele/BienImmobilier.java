@@ -15,6 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * Modèle de données pour un bien immobilier
@@ -24,6 +28,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "biens_immobilliers")
+//@XmlRootElement
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+property = "id_bien_immobilier")
 public class BienImmobilier implements Serializable {
 
 	/*--------------- PROPRIETES ---------------*/
@@ -51,7 +58,7 @@ public class BienImmobilier implements Serializable {
 	 * One bien Immobilier to one adresse
 	 */
 	@OneToOne
-	@JoinColumn(name="adresse_id", referencedColumnName="id_adresse")
+	@JoinColumn(name="adresse_id", referencedColumnName="idAdresse")
 	private Adresse adresse;
 
 	@ManyToOne
@@ -91,13 +98,13 @@ public class BienImmobilier implements Serializable {
 	 * Association entre bien immobilier et propriétaire 
 	 * Many biens immobiliers pour one propriétaire
 	 */
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "proprietaire_id", referencedColumnName = "id_personne")
 	private Proprietaire proprietaire;
 	
 	/**
-	 * Association entre bien immobilier et propriétaire 
-	 * Many biens immobiliers pour one propriétaire
+	 * Association entre bien immobilier et liste d'images 
+	 * One bien immobilier pour Many images
 	 */
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<Image> listeImages;
@@ -108,6 +115,52 @@ public class BienImmobilier implements Serializable {
 	 */
 	public BienImmobilier() {
 	}// end constructeur
+	
+	
+
+	public BienImmobilier(String statut, Date dateDeSoumission, Date dateDeMiseADisposition, double revenuCadastral) {
+		super();
+		this.statut = statut;
+		this.dateDeSoumission = dateDeSoumission;
+		this.dateDeMiseADisposition = dateDeMiseADisposition;
+		this.revenuCadastral = revenuCadastral;
+	}
+	
+	
+
+	public BienImmobilier(String statut, Date dateDeSoumission, Date dateDeMiseADisposition, double revenuCadastral,
+			ClasseStandard classeStandard, Proprietaire proprietaire) {
+		super();
+		this.statut = statut;
+		this.dateDeSoumission = dateDeSoumission;
+		this.dateDeMiseADisposition = dateDeMiseADisposition;
+		this.revenuCadastral = revenuCadastral;
+		this.classeStandard = classeStandard;
+		this.proprietaire = proprietaire;
+	}
+
+
+	public BienImmobilier(String statut, Date dateDeSoumission, Date dateDeMiseADisposition, double revenuCadastral,
+			ClasseStandard classeStandard, Proprietaire proprietaire, List<Visite> visites) {
+		super();
+		this.statut = statut;
+		this.dateDeSoumission = dateDeSoumission;
+		this.dateDeMiseADisposition = dateDeMiseADisposition;
+		this.revenuCadastral = revenuCadastral;
+		this.classeStandard = classeStandard;
+		this.proprietaire = proprietaire;
+		this.visites = visites;
+	}
+
+
+
+	public BienImmobilier(String statut, double revenuCadastral) {
+		super();
+		this.statut = statut;
+		this.revenuCadastral = revenuCadastral;
+	}
+
+
 
 	/*--------------- GETTER / SETTER ---------------*/
 	public Long getIdBienImmobilier() {
