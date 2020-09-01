@@ -71,40 +71,53 @@ public class AcquisitionServiceImpl implements IAcquisitionService {
 		return acquisitionRep.save(pAcquisition);
 	}
 
+	/**
+	 * Modifier une acquisition dans la database
+	 */
 	@Override
-	public Acquisition modifier(Acquisition t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Acquisition modifier(Acquisition pAcquisition) {
+		return acquisitionRep.save(pAcquisition);
 	}
 
+	/**
+	 * Supprimer un acquistion dans la database
+	 */
 	@Override
-	public void supprimer(Acquisition t) {
-		// TODO Auto-generated method stub
-		
+	public void supprimer(Acquisition pAcquisition ) {
+		acquisitionRep.delete(pAcquisition);
 	}
 
+
+	/**
+	 * Supprimer un acquistion dans la database via son id
+	 */
 	@Override
 	public void supprimerViaId(Long pId) {
-		// TODO Auto-generated method stub
-		
+		acquisitionRep.deleteById(pId);	
 	}
 
+	/**
+	 * Récupération de la liste des acquisitions d'un client
+	 */
 	@Override
 	public List<Acquisition> trouverParClient(Client pClient) {
-		// TODO Auto-generated method stub
-		return null;
+		return acquisitionRep.findByClient(pClient);
 	}
 
+	/**
+	 * Récupération de la liste des acquisitions gérées par un agent immobilier
+	 */
 	@Override
 	public List<Acquisition> trouverParAgentImmobilier(AgentImmobilier pAgent) {
-		// TODO Auto-generated method stub
-		return null;
+		return acquisitionRep.findByAgentImmobilier(pAgent);
 	}
 
+	/**
+	 * Récupération de acquisitions liée à un bien immobilier
+	 */
 	@Override
 	public Acquisition trouverParBienImmobilier(BienImmobilier pBien) {
-		// TODO Auto-generated method stub
-		return null;
+		return acquisitionRep.findByBienImmobilier(pBien);
 	}
 
 }//end classe
