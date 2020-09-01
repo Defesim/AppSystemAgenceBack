@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,11 +23,13 @@ import com.intiformation.appAgenceImmo.modele.Proprietaire;
 import com.intiformation.appAgenceImmo.service.IBienImmobillierService;
 
 /**
- *
+ * Implémentation du Web Service Rest pour un bien immobilier
+ * 
+ * URL de base : http://localhost:8080/gestion-agence-immo/biensImmo/*
  * @author hannahlevardon
  *
  */
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController // déclaration de la classe comme WS Rest
 @RequestMapping("/biensImmo") // URL du WS REST pour des biens immobilier
 public class BienImmobilierWebService {
@@ -99,11 +102,9 @@ public class BienImmobilierWebService {
 	 * @return
 	 */
 	@PutMapping(value="/update")
-	public BienImmobilier modifierBienImmobilier(@RequestBody BienImmobilier pBIen) {
-		
+	public BienImmobilier modifierBienImmobilier(@RequestBody BienImmobilier pBIen) {		
 		repositoryRestConfiguration.exposeIdsFor(BienImmobilier.class);	
-		return bienImmoService.modifier(pBIen);
-		
+		return bienImmoService.modifier(pBIen);	
 	}//end modifierBienImmobilier
 	
 	/**
