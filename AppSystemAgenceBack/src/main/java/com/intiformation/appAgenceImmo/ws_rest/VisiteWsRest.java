@@ -33,7 +33,7 @@ import com.intiformation.appAgenceImmo.service.IVisiteService;
  */
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController // déclare la classe comme WS rest
-@RequestMapping("/ws-rest/visites/") // URL du WS rest
+@RequestMapping("/ws-rest/visites") // URL du WS rest
 public class VisiteWsRest {
 	
 	// déclaration de la couche service + injection de la couche avec spring

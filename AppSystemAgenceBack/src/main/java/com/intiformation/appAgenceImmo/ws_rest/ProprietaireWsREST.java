@@ -28,7 +28,7 @@ import com.intiformation.appAgenceImmo.service.IProprietaireService;
  */
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController // déclare la classe comme WS rest
-@RequestMapping("/ws-rest/proprietaire/") // URL du WS rest
+@RequestMapping("/ws-rest/proprietaire") // URL du WS rest
 public class ProprietaireWsREST {
 	
 	// déclaration de la couche service + injection de la couche avec spring

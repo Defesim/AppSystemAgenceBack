@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class AdressesService {
 
-  private WS_REST_BASE_URL = "http://localhost:8080/AppSystemAgenceBack/adresses";
+  private WS_REST_BASE_URL = "http://localhost:8080/gestion-agence-immo/ws-rest/adresse";
 
 
   constructor(private httpClient: HttpClient) { }
@@ -34,7 +34,7 @@ export class AdressesService {
 
   getAdresseByIdFromWsRest(pAdresseId : number): Observable<Adresse>{
 
-    return this.httpClient.get<Adresse>(`${this.WS_REST_BASE_URL}/findById/${pAdresseId}`);
+    return this.httpClient.get<Adresse>(`${this.WS_REST_BASE_URL}/get-by-id/${pAdresseId}`);
 
   }//end getAdresseByIdFromWsRest
 
