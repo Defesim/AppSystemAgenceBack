@@ -1,6 +1,8 @@
 <div class="row" style="margin-top:20px">
+    
+    <h3>Acheteur / Locataire :</h3>
     <div class="col-12 col-md-3" *ngFor="let client of clients" >
-
+        
         <div class="card-client">
             <span class="glyphicon glyphicon-user card-icon" ></span>
             <div class="card-content">
@@ -22,6 +24,48 @@
                     </div>
                     <div class="col-md-6 col-12 card-row-content">
                         {{client.telephonePrive}}
+                    </div>
+                </div>                
+
+            </div><!--end card-content-->
+
+            <div class="card-footer">
+                <button class="btn btn-primary" (click)="editClient(client.id_personne)">
+                    Edit
+                </button>
+                <span>|</span>
+                <button class="btn btn-danger" (click)="deleteClient(client)">
+                    Delete
+                </button>      
+            </div>
+        </div><!--end card-client-->
+
+    </div>
+    
+    <h3>Proprietaires :</h3>
+    <div class="col-12 col-md-3" *ngFor="let proprio of prorietaires" >
+       
+        <div class="card-client">
+            <span class="glyphicon glyphicon-user card-icon" ></span>
+            <div class="card-content">
+                
+                <h3>{{proprio.nom}} {{proprio.prenom}}</h3><hr width="50%">
+     
+                <div class="row" style="max-width:100% ;">
+                    <div class="col-md-6 col-12 card-row-header">
+                        <strong>Email :</strong>
+                    </div>
+                    <div class="col-md-6 col-12 card-row-content">
+                        {{proprio.email}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-12 card-row-header">
+                        <strong>Telephone :</strong>
+                    </div>
+                    <div class="col-md-6 col-12 card-row-content">
+                        {{proprio.telephonePrive}}
                     </div>
                 </div>                
 
