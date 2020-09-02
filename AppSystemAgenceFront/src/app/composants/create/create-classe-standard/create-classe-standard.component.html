@@ -21,44 +21,36 @@
             <div class="form-group">
                 <label for="tbtypeBien">Type de bien :</label>
                 <input type="text" id="tbtypeBien" class="form-control" placeholder="saisir un type de bien"
-                    [(ngModel)]="bienImmo.typeDeBien" name="typeDeBien">
+                    [(ngModel)]="classeStandard.typeDeBien" name="typeDeBien">
             </div>
 
 
-
-
-
-
-
-
-
-            
             <!-- champ texte (input) pour la date de soumission -->
             <div class="form-group">
-                <label for="tbdatesou">Date de soumission du dossier :</label>
-                <input type="text" id="tbdatesou" class="form-control" placeholder="saisir la date de soumission"
-                    [(ngModel)]="bienImmo.dateDeSoumission" name="dateSoumission">
+                <label for="tbdUsage">Usage du bien :</label>
+                <input type="text" id="tbdUsage" class="form-control" placeholder="saisir un usage"
+                    [(ngModel)]="classeStandard.usageDuBien" name="usageDuBien">
             </div>
 
             <!-- champ texte (input) pour la date de mise a dispo -->
             <div class="form-group">
-                <label for="tbdatedispo">Date de mise a disposition du bien :</label>
-                <input type="text" id="tbdatedispo" class="form-control" placeholder="saisir la date de mise a dispo"
-                    [(ngModel)]="bienImmo.dateDeMiseADisposition" name="dateDeMiseADisposition">
+                <label for="tbdescription">Description :</label>
+                <input type="text" id="tbdescription" class="form-control" placeholder="saisir la date description"
+                    [(ngModel)]="classeStandard.description" name="description">
             </div>
 
             <!-- champ texte (input) pour la date de mise a dispo -->
-
             <div class="form-group">
-                <label for="tdProprietaire">Propriétaire du bien :</label>
+                <label for="tbPrix">Prix Maximum :</label>
+                <input type="text" id="tbPrix" class="form-control" placeholder="saisir le prix maximum"
+                    [(ngModel)]="classeStandard.prixMaximum" name="prixMaximum">
+            </div>
 
-                <select class="form-control" [(ngModel)]="bienImmo.proprietaire.id_personne" name="proprietaire">
-
-                    <option *ngFor="let proprietaire of proprietaires" [value]="proprietaire.id_personne">
-                        {{proprietaire.nom}} {{proprietaire.prenom}} {{proprietaire.id_personne}}
-                    </option>
-
-                </select>
+            <!-- champ texte (input) pour la date de mise a dispo -->
+            <div class="form-group">
+                <label for="tbSurface">Surface minumum :</label>
+                <input type="text" id="tbSurface" class="form-control" placeholder="saisir la surface minumum"
+                    [(ngModel)]="classeStandard.superficieMinimum" name="superficieMinimum">
             </div>
 
         </div>
