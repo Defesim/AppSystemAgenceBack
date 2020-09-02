@@ -44,7 +44,7 @@ export class BiensImmobiliersComponent implements OnInit {
 
   editBienImmo(idBienImmobilier :number){
 
-    this.route.navigate(['editBien', idBienImmobilier]);
+    this.route.navigate(['listBiens/edit', idBienImmobilier]);
 
   }//end editBienImmo
  

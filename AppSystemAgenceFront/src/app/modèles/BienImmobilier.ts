@@ -1,5 +1,6 @@
 import{Adresse} from './Adresse'
 import{ClasseStandard} from './ClasseStandard';
+import { Proprietaire } from "./Proprietaire";
 
 
 export class BienImmobilier{
@@ -13,5 +14,7 @@ export class BienImmobilier{
     revenuCadastral:number;
     adresse:Adresse;
     classeStandard:ClasseStandard;
+    proprietaire:Proprietaire;
+
 
 }
