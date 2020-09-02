@@ -34,7 +34,7 @@ export class ProprietairesService {
 
   getProprietaireByIdFromWsRest(pProprietaireId : number): Observable<Proprietaire>{
 
-    return this.httpClient.get<Proprietaire>(`${this.WS_REST_BASE_URL}/findById/${pProprietaireId}`);
+    return this.httpClient.get<Proprietaire>(`${this.WS_REST_BASE_URL}/get-by-id/${pProprietaireId}`);
 
   }//end getProprietaireByIdFromWsRest
 
