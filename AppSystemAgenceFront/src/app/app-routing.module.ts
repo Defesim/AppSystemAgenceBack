@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './composants/login/login.component';
 
 import { BiensImmobiliersComponent } from './composants/biens-immobiliers/biens-immobiliers.component';
-import { ClientsProprioComponent } from './composants/clients-proprio/clients-proprio.component';
+import { FormBiensImmobiliersComponent } from './composants/form-biens-immobiliers/form-biens-immobiliers.component';
 
 const routes: Routes = [
 
@@ -13,13 +13,13 @@ const routes: Routes = [
   //route pour la gestion des biens immobiliers
   {path:"listBiens", component:BiensImmobiliersComponent},
 
+  {path:"edit/:id", component:FormBiensImmobiliersComponent},
+
   //route pour les gestion des visites
   
 
   //route pour la gestion des proprietaire/locataire
 
-  //route pour la gestion des clients
-  {path:"clients", component:ClientsProprioComponent}
 
 ];
 

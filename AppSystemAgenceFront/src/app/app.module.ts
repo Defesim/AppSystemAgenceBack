@@ -15,10 +15,13 @@ import { ClientsProprioComponent } from './composants/clients-proprio/clients-pr
 import { LoginComponent } from './composants/login/login.component';
 import { BiensImmobiliersComponent } from './composants/biens-immobiliers/biens-immobiliers.component';
 
+
 // Pour l'internationalization 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
+import { FormBiensImmobiliersComponent } from './composants/form-biens-immobiliers/form-biens-immobiliers.component';
+import { FormClientsComponent } from './composants/form-clients/form-clients.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import {HttpClient} from '@angular/common/http';
     VisitesComponent,
     ClientsProprioComponent,
     LoginComponent,
-    BiensImmobiliersComponent
+    BiensImmobiliersComponent,
+    FormBiensImmobiliersComponent,
+    FormClientsComponent
   ],
   imports: [
     BrowserModule,

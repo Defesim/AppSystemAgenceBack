@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BiensImmobiliersService} from 'src/app/services/biens-immobiliers.service';
 import {BienImmobilier} from 'src/app/modèles/BienImmobilier';
 import {Adresse} from 'src/app/modèles/Adresse';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
