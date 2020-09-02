@@ -40,12 +40,13 @@ const routes: Routes = [
 
   //route pour la gestion des proprietaire
   {path:"proprio", component:ProprietairesComponent},
+  {path:"clients/editProprietaire/:id", component:CreateProprietaireComponent},
   {path:"proprio/edit/:id", component:CreateProprietaireComponent},
 
 
   //route pour la gestion des clients
   {path:"clients", component:ClientsComponent},
-  {path:"clients/edit/:id", component:CreateClientsComponent}
+  {path:"clients/edit/:id", component:CreateClientsComponent},
 
 ];
 

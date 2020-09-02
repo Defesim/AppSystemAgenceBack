@@ -1,7 +1,13 @@
 <div class="row" style="margin-top:20px">
 
+
+    <button type="button" class="btn btn-sucess" routerLink="clients/edit/0"> Ajouter un Client</button>
+    ||
+    <button type="button" class="btn btn-sucess" routerLink="editProprietaire/0"> Ajouter un Proprietaire</button>
+
     <h3>Acheteur / Locataire :</h3>
     <div class="col-6 col-md-3" *ngFor="let client of clients">
+    
 
         <div class="card-client">
             <span class="glyphicon glyphicon-user card-icon"></span>
@@ -50,6 +56,7 @@
 
 <div class="row" style="margin-top:20px">
     <h3>Proprietaires :</h3>
+    
     <div class="col-6 col-md-3" *ngFor="let proprio of prorietaires">
 
         <div class="card-client">
@@ -81,11 +88,11 @@
             <!--end card-content-->
 
             <div class="card-footer">
-                <button class="btn btn-primary" (click)="editClient(client.id_personne)">
+                <button class="btn btn-primary" (click)="editProprietaire(proprio.id_personne)">
                     Edit
                 </button>
                 <span>|</span>
-                <button class="btn btn-danger" (click)="deleteClient(client)">
+                <button class="btn btn-danger" (click)="deleteProprietaire(proprio)">
                     Delete
                 </button>
             </div>
