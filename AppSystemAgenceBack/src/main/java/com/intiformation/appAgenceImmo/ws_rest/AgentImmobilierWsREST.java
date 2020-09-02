@@ -119,7 +119,35 @@ public class AgentImmobilierWsREST {
 			
 		}// end deleteProprietaire
 		
-	
+		
+		
+		/** GET BY NOM
+		 * ============
+		 * meth exposée dans le ws rest pour récup un agent immobilier via son nom
+		 * requete en GET 
+		 * sera invoquée via l'url : http://localhost:8080/gestion-agence-immo/ws-rest/agentImmobilier/get-by-nom/<nom-agent>
+		 * @return l'agent immo
+		 */
+		@RequestMapping(value="/get-by-nom/{nom}", method=RequestMethod.GET)
+		public AgentImmobilier agentImmobiliertByNom(@PathVariable("nom") String pNomClient) {
+			return agentImmobilierService.findByNom(pNomClient);
+			
+		}// end agentImmobiliertByNom
+		
+		
+		/** Get Agent immobilier via Acquisition 
+		 * =======================================
+		 * meth exposée dans le ws rest pour récup un agent immobilier qui a réalisé une acquisition
+		 * requete en GET 
+		 * sera invoquée via l'url : http://localhost:8080/gestion-agence-immo/ws-rest/agentImmobilier/get-by-acquisition/<id-acquisition>
+		 * @return l' agent immobilier
+		 */
+		@RequestMapping(value="/get-by-acquisition/{idAcquisition}", method=RequestMethod.GET)
+		public AgentImmobilier agentImmobilierByAcquisition(@PathVariable("idAcquisition") Long pIdAcquisition) {
+			
+			return agentImmobilierService.findByAcquisition(pIdAcquisition);
+			
+		}// end agentImmobilierByAcquisition
 		
 
 }// end classe

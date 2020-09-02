@@ -65,4 +65,16 @@ public class AgentImmobilierService implements IAgentImmobilierService {
 		agentImmobilierRepository.deleteById(pIdAgentImmobilier);
 	}
 
+	// trouver un agent via son nom
+	@Override
+	public AgentImmobilier findByNom(String pNom) {
+		return agentImmobilierRepository.findByNom(pNom);
+	}
+
+	// meth pour récupérer l'Agent Immobilier qui a réalisé une acquisition
+	@Override
+	public AgentImmobilier findByAcquisition(Long pIdAcquisition) {
+		return agentImmobilierRepository.findByAcquisitionIdAcquisition(pIdAcquisition);
+	}
+
 }// end classe
