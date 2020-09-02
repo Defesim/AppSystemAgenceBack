@@ -49,4 +49,9 @@ export class BiensImmobiliersComponent implements OnInit {
   }//end editBienImmo
  
 
+  attribuerAdresse(pIdBienImmobilier){
+    console.log("bonjour on est dans attribution d'adresse !!" + pIdBienImmobilier);
+    
+  }
+
 }//end class

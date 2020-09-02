@@ -1,1 +1,57 @@
-<p>create-visite works!</p>
+
+<form (ngSubmit)="saveOrUpdateVisite()">
+
+
+    <div class="panel panel-primary">
+    
+        <!-- ++++++ En-tete du panel +++++-->
+        <div class="panel-heading">
+            <h3 class="panel-title">Ajout/Modif d'une visite</h3>
+        </div>
+
+        <!--++++++++ Body du panel +++++++++-->
+        <div class="panel-body">
+    
+            <!-- champ texte (input) pour l'agent immobiler -->
+            <div class="form-group">
+                <label for="tbagentImmobilier">Agent Immobilier :</label>
+                <select class="form-control" [(ngModel)]="visite.agentImmobilier.id_personne" name="agentImmobilier">   
+                    <option *ngFor="let agent of agentsImmobiliers" [value]="agent.id_personne">{{agent.id_personne}} {{agent.nom}}</option> 
+                </select>
+            </div>
+    
+            <!-- champ texte (input) pour le bien immobilier -->
+            <div class="form-group">
+                <label for="tbbienImmobilier">Bien Immobilier :</label>
+                <select class="form-control" [(ngModel)]="visite.bienImmobilier.idBienImmobilier" name="bienImmobilier">   
+                    <option *ngFor="let bien of biensImmobiliers" [value]="bien.idBienImmobilier">{{bien.idBienImmobilier}}</option> 
+                </select>
+            </div>   
+
+            <!-- champ texte (input) pour la dare de la visite -->
+            <div class="form-group">
+                <label for="tbidVisite">Date de la visite :</label>
+                <input type="text" id="tbidVisite" class="form-control" placeholder="saisir la date de la visite"
+                [(ngModel)]="visite.dateVisite" name="idVisite">
+            </div>
+    
+            <!-- champ hidden (input) pour l'idvisite -->
+            
+            <div class="form-group">
+                <input type="hidden" id="tbidVisite" class="form-control"
+                [(ngModel)]="visite.idVisite" name="idVisite">
+            </div>
+
+        </div>
+    
+    
+        <!--++++++++ Footer du panel +++++++-->
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Ajout/Modif</button>
+        </div>
+    
+    </div>
+    
+    
+    </form>
+    
