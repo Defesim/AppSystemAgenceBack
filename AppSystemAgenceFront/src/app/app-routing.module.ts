@@ -33,17 +33,17 @@ const routes: Routes = [
 
   //route pour les gestion des visites
   {path:"visites", component:VisitesComponent},
-  {path:"editVisite/:id", component:CreateVisiteComponent},
+  {path:"visites/edit/:id", component:CreateVisiteComponent},
   
 
   //route pour la gestion des proprietaire
   {path:"proprio", component:ProprietairesComponent},
-  {path:"editProprietaire/:id", component:CreateProprietaireComponent},
+  {path:"proprio/edit/:id", component:CreateProprietaireComponent},
 
 
   //route pour la gestion des clients
   {path:"clients", component:ClientsComponent},
-  {path:"editClient/:id", component:CreateClientsComponent}
+  {path:"clients/edit/:id", component:CreateClientsComponent}
 
 ];
 
