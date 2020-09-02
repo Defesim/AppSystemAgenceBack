@@ -1,4 +1,4 @@
-<a routerLink="editVisite/0">AJOUT VISITE</a>
+<a routerLink="edit/0">AJOUT VISITE</a>
 
 <div class="panel panel-primary" *ngFor="let visite of visites">
 
@@ -29,7 +29,7 @@
                             Agent Immobilier :
                         </div>
                         <div class="col-xs-6">
-                            {{visite.agentImmobilier}} 
+                            {{visite.agentImmobilier.nom}}  {{visite.agentImmobilier.prenom}} 
                         </div>
                     </div><!--end row-->
 
@@ -39,7 +39,7 @@
                             Bien Immobilier :
                         </div>
                         <div class="col-xs-6">
-                            {{visite.bienImmobilier}} 
+                            {{visite.bienImmobilier.statut}} 
                         </div>
                     </div><!--end row-->
 

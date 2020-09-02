@@ -28,7 +28,7 @@ const routes: Routes = [
 
   //route pour la gestion des biens immobiliers
   {path:"listBiens", component:BiensImmobiliersComponent},
-  {path:"listBiens/editBien/:id",component:CreateBiensImmobiliersComponent },
+  {path:"listBiens/edit/:id",component:CreateBiensImmobiliersComponent },
 
 
   //route pour la gestion des Adresses
@@ -37,8 +37,7 @@ const routes: Routes = [
 
   //route pour les gestion des visites
   {path:"visites", component:VisitesComponent},
-
-  {path:"visites/editVisite/:id", component:CreateVisiteComponent},
+  {path:"visites/edit/:id", component:CreateVisiteComponent},
 
 
   //route pour la gestion des proprietaire
