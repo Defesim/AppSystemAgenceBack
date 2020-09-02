@@ -8,7 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * classe modele pour les photos/images utilisées dans la description des biens immobiliers 
@@ -27,6 +30,10 @@ public class Image implements Serializable{
 
 	// l'url de l'image
 	private String image;
+	
+	@Lob
+	@JsonIgnore
+	private byte[] photo;
 	
 	// lien de l'image avec un bien immobilier : Many images To 1 bien immobilier
 	@ManyToOne
@@ -79,7 +86,15 @@ public class Image implements Serializable{
 		this.bienImmobilier = bienImmobilier;
 	}
 	
-	
+
+	public byte[] getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
+
 	
 	
 }// end image 

@@ -76,7 +76,8 @@ export class CreateVisiteComponent implements OnInit {
         dateDeSoumission: null,
         idBienImmobilier: null,
         revenuCadastral: null,
-        statut: null
+        statut: null,
+        proprietaire:null
       };
 
       this.visite.agentImmobilier = {
@@ -103,7 +104,6 @@ export class CreateVisiteComponent implements OnInit {
 
 
   saveOrUpdateVisite(){
-
     // test de l'id du Visite (AJOUT ou MODIF)
     if(this.visite.idVisite == null){
 
@@ -111,6 +111,13 @@ export class CreateVisiteComponent implements OnInit {
       this.visiteService.ajouterVisiteViaWsRest(this.visite).subscribe();
 
     }else{
+      this.agentsImmobiliersService.getAgentImmobilierByIdFromWsRest(this.visite.agentImmobilier.id_personne).subscribe(
+        (agentImmobilierRetrouve) => {this.visite.agentImmobilier = agentImmobilierRetrouve;}
+      );
+ 
+      this.biensImmobiliersService.getBienImmoByIdFromWsRest(this.visite.bienImmobilier.idBienImmobilier).subscribe(
+       (bienImmobilierRetrouve) => {this.visite.bienImmobilier = bienImmobilierRetrouve;}
+     );
       // => modification
       this.visiteService.modifierVisiteViaWsRest(this.visite).subscribe();
 

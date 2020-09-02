@@ -2,6 +2,7 @@ package com.intiformation.appAgenceImmo.ws_rest;
 
 import java.util.List;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.intiformation.appAgenceImmo.modele.BienImmobilier;
 import com.intiformation.appAgenceImmo.modele.ClasseStandard;
+import com.intiformation.appAgenceImmo.modele.Image;
 import com.intiformation.appAgenceImmo.modele.Personne;
 import com.intiformation.appAgenceImmo.modele.Proprietaire;
 import com.intiformation.appAgenceImmo.service.IBienImmobillierService;
@@ -65,7 +67,13 @@ public class BienImmobilierWebService {
 	 */
 	@PostMapping(value="/save")	
 	public BienImmobilier ajouterBienImmobilier(@RequestBody BienImmobilier pBien){
+		
+		for (Image img : pBien.getListeImages()) {
+			img.setPhoto(Base64.decodeBase64(img.getImage()));
+		}
+
 		return bienImmoService.ajouter(pBien);
+		
 	}//end ajouterBienImmobilier
 
 	
