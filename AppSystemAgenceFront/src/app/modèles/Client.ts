@@ -3,7 +3,7 @@ import {ClasseStandard} from './ClasseStandard';
 
 export class Client extends Personne{
 
-    telephonePrive:number;
+    telephonePrive:string;
     listeClassesStandardsInteret: ClasseStandard[];
 
 

@@ -5,11 +5,11 @@ import {Client} from 'src/app/modèles/Client';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-clients-proprio',
-  templateUrl: './clients-proprio.component.html',
-  styleUrls: ['./clients-proprio.component.css']
+  selector: 'app-clients',
+  templateUrl: './clients.component.html',
+  styleUrls: ['./clients.component.css']
 })
-export class ClientsProprioComponent implements OnInit {
+export class ClientsComponent implements OnInit {
 
   /*__________________props_______________ */
   clients =[] ;
@@ -30,4 +30,22 @@ export class ClientsProprioComponent implements OnInit {
                       .subscribe(data=> this.clients = data);
   }//end findAllBiensImmo
 
-}
+
+  deleteClient(client:Client){
+    
+    this.clientService.supprimerClientViaWsRest(client).subscribe( ()=>{
+
+      this.findAllClient();
+    });
+
+  }//end deleteClient
+
+
+  editClient(idClient :number){
+
+    this.route.navigate(['editClient', idClient]);
+
+  }//end editClient
+   
+
+}//end class

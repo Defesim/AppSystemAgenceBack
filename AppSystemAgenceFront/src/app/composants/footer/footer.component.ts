@@ -19,13 +19,12 @@ export class FooterComponent implements OnInit {
 
 
   ngOnInit(): void {
-    setInterval(this.DisplayNextColor, 200, ["#000088","#004444","#008800","#444400","#880000"]);
+    setInterval(this.DisplayNextColor, 400, ["#000088","#004444","#008800","#444400","#880000"]);
   }
   
 
 
   DisplayNextColor(listeColor:string[]){
-    let refNum :number = Math.floor(Math.random()*5) +1;
 
     for (let index = 1; index < 6; index++) {
 
