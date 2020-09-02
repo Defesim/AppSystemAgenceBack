@@ -15,7 +15,7 @@
             <!-- champ texte (input) pour l'agent immobiler -->
             <div class="form-group">
                 <label for="tbagentImmobilier">Agent Immobilier :</label>
-                <select class="form-control" [(ngModel)]="visite.agentImmobilier" id="tbagentImmobilier">   
+                <select class="form-control" [(ngModel)]="visite.agentImmobilier.id_personne" name="agentImmobilier">   
                     <option *ngFor="let agent of agentsImmobiliers" [value]="agent.id_personne">{{agent.id_personne}} {{agent.nom}}</option> 
                 </select>
             </div>
@@ -31,13 +31,14 @@
             <!-- champ texte (input) pour la dare de la visite -->
             <div class="form-group">
                 <label for="tbidVisite">Date de la visite :</label>
-                <input type="hidden" id="tbidVisite" class="form-control" placeholder="saisir la date de la visite"
+                <input type="text" id="tbidVisite" class="form-control" placeholder="saisir la date de la visite"
                 [(ngModel)]="visite.dateVisite" name="idVisite">
             </div>
     
             <!-- champ hidden (input) pour l'idvisite -->
+            
             <div class="form-group">
-                <input type="text" id="tbidVisite" class="form-control"
+                <input type="hidden" id="tbidVisite" class="form-control"
                 [(ngModel)]="visite.idVisite" name="idVisite">
             </div>
 

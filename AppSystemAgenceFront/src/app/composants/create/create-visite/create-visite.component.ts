@@ -66,7 +66,8 @@ export class CreateVisiteComponent implements OnInit {
         agentImmobilier:null,
         bienImmobilier:null,
         dateVisite:null,
-        idVisite:null
+        idVisite:null,
+        client:null
       };
 
       this.visite.bienImmobilier = {
@@ -89,6 +90,17 @@ export class CreateVisiteComponent implements OnInit {
         motDePasse:null
       };
 
+      this.visite.client = {
+        id_personne:null,
+        nom:null,
+        prenom:null,
+        email:null,
+        adresse:null,
+        telephonePrive:null,
+        listeClassesStandardsInteret: null
+
+      };
+
     }else{
 
       this.visiteService.getVisiteByIdFromWsRest(idVisite).subscribe(
@@ -105,19 +117,26 @@ export class CreateVisiteComponent implements OnInit {
 
   saveOrUpdateVisite(){
     // test de l'id du Visite (AJOUT ou MODIF)
-    if(this.visite.idVisite == null){
+    this.agentsImmobiliersService.getAgentImmobilierByIdFromWsRest(this.visite.agentImmobilier.id_personne).subscribe(
+      (agentImmobilierRetrouve) => {this.visite.agentImmobilier = agentImmobilierRetrouve;}
+    );
 
+    this.biensImmobiliersService.getBienImmoByIdFromWsRest(this.visite.bienImmobilier.idBienImmobilier).subscribe(
+      (bienImmobilierRetrouve) => {this.visite.bienImmobilier = bienImmobilierRetrouve;}
+     );
+
+    if(this.visite.idVisite == null){
+      console.log(this.visite.idVisite)
+      console.log(this.visite.agentImmobilier.id_personne)
+      console.log(this.visite.bienImmobilier.idBienImmobilier)
+      console.log(this.visite.client.id_personne)
       // => le bien n'a pas encore d'id <=> ajout
       this.visiteService.ajouterVisiteViaWsRest(this.visite).subscribe();
 
-    }else{
-      this.agentsImmobiliersService.getAgentImmobilierByIdFromWsRest(this.visite.agentImmobilier.id_personne).subscribe(
-        (agentImmobilierRetrouve) => {this.visite.agentImmobilier = agentImmobilierRetrouve;}
-      );
- 
-      this.biensImmobiliersService.getBienImmoByIdFromWsRest(this.visite.bienImmobilier.idBienImmobilier).subscribe(
-       (bienImmobilierRetrouve) => {this.visite.bienImmobilier = bienImmobilierRetrouve;}
-     );
+    }
+    
+    else{
+    
       // => modification
       this.visiteService.modifierVisiteViaWsRest(this.visite).subscribe();
 

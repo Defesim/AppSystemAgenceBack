@@ -56,7 +56,7 @@ export class ClientsComponent implements OnInit {
 
   editClient(idClient :number){
 
-    this.route.navigate(['editClient', idClient]);
+    this.route.navigate(['clients/edit', idClient]);
 
   }//end editClient
    
