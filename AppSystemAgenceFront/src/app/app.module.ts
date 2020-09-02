@@ -11,7 +11,7 @@ import {FormsModule} from '@angular/forms'
 import { HeaderComponent } from './composants/header/header.component';
 import { FooterComponent } from './composants/footer/footer.component';
 import { VisitesComponent } from './composants/visites/visites.component';
-import { ClientsProprioComponent } from './composants/clients-proprio/clients-proprio.component';
+import { ClientsComponent } from './composants/clients/clients.component';
 import { LoginComponent } from './composants/login/login.component';
 import { BiensImmobiliersComponent } from './composants/biens-immobiliers/biens-immobiliers.component';
 
@@ -25,6 +25,9 @@ import {HttpClient} from '@angular/common/http';
 import { CreateClientsComponent } from './composants/create/create-clients/create-clients.component';
 import { CreateBiensImmobiliersComponent } from './composants/create/create-biens-immobiliers/create-biens-immobiliers.component';
 import { CreateAdresseComponent } from './composants/create/create-adresse/create-adresse.component';
+import { ProprietairesComponent } from './composants/proprietaires/proprietaires.component';
+import { CreateVisiteComponent } from './composants/create/create-visite/create-visite.component';
+import { CreateProprietaireComponent } from './composants/create/create-proprietaire/create-proprietaire.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +35,15 @@ import { CreateAdresseComponent } from './composants/create/create-adresse/creat
     HeaderComponent,
     FooterComponent,
     VisitesComponent,
-    ClientsProprioComponent,
+    ClientsComponent,
     LoginComponent,
     BiensImmobiliersComponent,
     CreateClientsComponent,
     CreateBiensImmobiliersComponent,
-    CreateAdresseComponent
+    CreateAdresseComponent,
+    ProprietairesComponent,
+    CreateVisiteComponent,
+    CreateProprietaireComponent
   ],
   imports: [
     BrowserModule,
