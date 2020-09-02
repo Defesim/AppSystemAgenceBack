@@ -43,6 +43,7 @@ public class AcquisitionServiceImpl implements IAcquisitionService {
 		return acquisitionRep.findAll();
 	}
 	
+	
 	/**
 	 * Récupération d'une acquisition par son id
 	 */

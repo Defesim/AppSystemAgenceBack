@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClientsProprioComponent } from './clients-proprio.component';
+import { CreateAdresseComponent } from './create-adresse.component';
 
-describe('ClientsProprioComponent', () => {
-  let component: ClientsProprioComponent;
-  let fixture: ComponentFixture<ClientsProprioComponent>;
+describe('CreateAdresseComponent', () => {
+  let component: CreateAdresseComponent;
+  let fixture: ComponentFixture<CreateAdresseComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ClientsProprioComponent ]
+      declarations: [ CreateAdresseComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClientsProprioComponent);
+    fixture = TestBed.createComponent(CreateAdresseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

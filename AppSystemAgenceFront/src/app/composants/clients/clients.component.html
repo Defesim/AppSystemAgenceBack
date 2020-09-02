@@ -28,11 +28,11 @@
             </div><!--end card-content-->
 
             <div class="card-footer">
-                <button class="btn btn-primary" >
+                <button class="btn btn-primary" (click)="editClient(client.id_personne)">
                     Edit
                 </button>
                 <span>|</span>
-                <button class="btn btn-danger" >
+                <button class="btn btn-danger" (click)="deleteClient(client)">
                     Delete
                 </button>      
             </div>
