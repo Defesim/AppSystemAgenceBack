@@ -32,12 +32,12 @@ const routes: Routes = [
 
   //route pour la gestion des proprietaire
   {path:"proprio", component:ProprietairesComponent},
-  {path:"editProprietaire/:id", component:CreateProprietaireComponent},
+  {path:"clients/editProprietaire/:id", component:CreateProprietaireComponent},
 
 
   //route pour la gestion des clients
   {path:"clients", component:ClientsComponent},
-  {path:"editClient/:id", component:CreateClientsComponent}
+  {path:"clients/editClient/:id", component:CreateClientsComponent}
 
 ];
 

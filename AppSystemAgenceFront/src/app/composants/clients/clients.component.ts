@@ -4,6 +4,7 @@ import { ProprietairesService } from "src/app/services/proprietaires.service";
 import {Client} from 'src/app/modèles/Client';
 
 import { Router } from '@angular/router';
+import { Proprietaire } from 'src/app/modèles/Proprietaire';
 
 @Component({
   selector: 'app-clients',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
-
+ 
   /*__________________props_______________ */
   clients =[] ;
   prorietaires =[] ; // prop qui récupère la liste de sprop
@@ -57,6 +58,23 @@ export class ClientsComponent implements OnInit {
   editClient(idClient :number){
 
     this.route.navigate(['editClient', idClient]);
+
+  }//end editClient
+
+
+  deleteProprietaire(proprietaire:Proprietaire){
+    
+    this.proprietaireService.supprimerProprietaireViaWsRest(proprietaire).subscribe( ()=>{
+
+      this.findAllProprietaires();
+    });
+
+  }//end deleteClient
+
+
+  editProprietaire(idProprietaire :number){
+
+    this.route.navigate(['editProprietaire', idProprietaire]);
 
   }//end editClient
    

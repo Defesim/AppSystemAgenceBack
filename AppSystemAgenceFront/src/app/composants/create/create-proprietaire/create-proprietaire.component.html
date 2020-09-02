@@ -1,1 +1,63 @@
-<p>create-proprietaire works!</p>
+
+<form (ngSubmit)="saveOrUpdateProprietaire()">
+
+
+    <div class="panel panel-primary">
+    
+        <!-- ++++++ En-tete du panel +++++-->
+        <div class="panel-heading">
+            <h3 class="panel-title">Ajout/Modif d'un Propriétaire</h3>
+        </div>
+     
+    
+        <!--++++++++ Body du panel +++++++++-->
+        <div class="panel-body">
+    
+            <!-- champ texte (input) poiur le nom -->
+            <div class="form-group">
+                <label for="tbnom">Nom :</label>
+                <input type="text" id="tbnom" class="form-control" placeholder="saisir le nom"
+                [(ngModel)]="prorpietaire.nom" name="nom">
+            </div>
+    
+            <!-- champ texte (input) poiur le prenom -->
+            <div class="form-group">
+                <label for="tbprenom">Prénom :</label>
+                <input type="text" id="tbprenom" class="form-control" placeholder="saisir le prenom"
+                [(ngModel)]="prorpietaire.prenom" name="prenom">
+            </div>   
+
+            <!-- champ texte (input) poiur l'email -->
+            <div class="form-group">
+                <label for="tbemail">Email :</label>
+                <input type="text" id="tbemail" class="form-control" placeholder="saisir l'email"
+                [(ngModel)]="prorpietaire.email" name="email">
+            </div>
+    
+            <!-- champ texte (input) poiur l'email -->
+            <div class="form-group">
+                <label for="tbtel">Numero de téléphone :</label>
+                <input type="text" id="tbtel" class="form-control" placeholder="saisir le numero de telephone"
+                [(ngModel)]="prorpietaire.telephonePrive" name="telephonePrive">
+            </div>
+
+            <!-- champ texte (input) poiur l'email -->
+            <div class="form-group">
+                <label for="tbtel">Numero de téléphone professionnel :</label>
+                <input type="text" id="tbtel" class="form-control" placeholder="saisir le numero de telephone"
+                [(ngModel)]="prorpietaire.telephonePro" name="telephonePrive">
+            </div>
+
+        </div>
+    
+    
+        <!--++++++++ Footer du panel +++++++-->
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Ajout/Modif</button>
+        </div>
+    
+    </div>
+    
+    
+    </form>
+    
