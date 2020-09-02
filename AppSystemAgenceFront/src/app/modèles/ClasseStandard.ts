@@ -1,3 +1,4 @@
+import { BienImmobilier } from './BienImmobilier';
 
 export class ClasseStandard{
     
@@ -9,6 +10,7 @@ export class ClasseStandard{
     description:string;
     prixMaximum:number;
     superficieMinimum:number;
+    listeDesBienImmobilier: BienImmobilier[]; 
 
 
 }

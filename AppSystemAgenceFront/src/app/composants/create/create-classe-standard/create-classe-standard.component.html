@@ -1,0 +1,73 @@
+<form (ngSubmit)="saveOrUpdateClasseStandard()">
+
+    <div class="panel panel-primary">
+        <!-- ++++++ En-tete du panel +++++-->
+        <div class="panel-heading">
+            <h3 class="panel-title">Ajout d'une classe standard :</h3>
+        </div>
+
+        <!--++++++++ Body du panel +++++++++-->
+        <div class="panel-body">
+
+            <!-- champ texte (input) poiur le libellé -->
+            <div class="form-group">
+                <label for="tblibelle">Libellé :</label>
+                <input type="text" id="tblibelle" class="form-control" placeholder="saisir le libellé"
+                    [(ngModel)]="classeStandard.libelle" name="libelle">
+            </div>
+
+
+            <!-- champ texte (input) pour le type de bien -->
+            <div class="form-group">
+                <label for="tbtypeBien">Type de bien :</label>
+                <input type="text" id="tbtypeBien" class="form-control" placeholder="saisir un type de bien"
+                    [(ngModel)]="bienImmo.typeDeBien" name="typeDeBien">
+            </div>
+
+
+
+
+
+
+
+
+
+            
+            <!-- champ texte (input) pour la date de soumission -->
+            <div class="form-group">
+                <label for="tbdatesou">Date de soumission du dossier :</label>
+                <input type="text" id="tbdatesou" class="form-control" placeholder="saisir la date de soumission"
+                    [(ngModel)]="bienImmo.dateDeSoumission" name="dateSoumission">
+            </div>
+
+            <!-- champ texte (input) pour la date de mise a dispo -->
+            <div class="form-group">
+                <label for="tbdatedispo">Date de mise a disposition du bien :</label>
+                <input type="text" id="tbdatedispo" class="form-control" placeholder="saisir la date de mise a dispo"
+                    [(ngModel)]="bienImmo.dateDeMiseADisposition" name="dateDeMiseADisposition">
+            </div>
+
+            <!-- champ texte (input) pour la date de mise a dispo -->
+
+            <div class="form-group">
+                <label for="tdProprietaire">Propriétaire du bien :</label>
+
+                <select class="form-control" [(ngModel)]="bienImmo.proprietaire.id_personne" name="proprietaire">
+
+                    <option *ngFor="let proprietaire of proprietaires" [value]="proprietaire.id_personne">
+                        {{proprietaire.nom}} {{proprietaire.prenom}} {{proprietaire.id_personne}}
+                    </option>
+
+                </select>
+            </div>
+
+        </div>
+
+        <!--++++++++ Footer du panel +++++++-->
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Ajout/Modif</button>
+        </div>
+
+    </div>
+
+</form>

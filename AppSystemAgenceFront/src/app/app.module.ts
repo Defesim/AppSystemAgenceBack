@@ -32,6 +32,7 @@ import { ProprietairesComponent } from './composants/proprietaires/proprietaires
 import { CreateVisiteComponent } from './composants/create/create-visite/create-visite.component';
 import { CreateProprietaireComponent } from './composants/create/create-proprietaire/create-proprietaire.component';
 import { AdressesComponent } from './composants/adresses/adresses.component';
+import { CreateClasseStandardComponent } from './create/create-classe-standard/create-classe-standard.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AdressesComponent } from './composants/adresses/adresses.component';
     ProprietairesComponent,
     CreateVisiteComponent,
     CreateProprietaireComponent,
-    AdressesComponent
+    AdressesComponent,
+    CreateClasseStandardComponent
   ],
   imports: [
     BrowserModule,
