@@ -1,1 +1,66 @@
-<p>visites works!</p>
+<a routerLink="editVisite/0">AJOUT VISITE</a>
+
+<div class="panel panel-primary" *ngFor="let visite of visites">
+
+
+    <!--===================================-->
+    <!--===== body du panneau =============-->
+    <!--===================================-->
+    <div class="panel-body">
+        <div class="col-xs-10">
+            <div class="row vertical-align">
+
+                <!--++++++++ details de la visite ++++++++++++++++-->
+                <div class="col-xs-8">
+
+                    <!--++++++++ Date visite ++++++++++++++++-->
+                    <div class="row">
+                        <div class="col-xs-6 font-title">
+                            Date de la visite  :
+                        </div>
+                        <div class="col-xs-6">
+                            {{visite.dateVisite}}
+                        </div>
+                    </div>
+
+                    <!--++++++++ Agent Immobilier ++++++++++++++++++-->
+                    <div class="row ">
+                        <div class="col-xs-6">
+                            Agent Immobilier :
+                        </div>
+                        <div class="col-xs-6">
+                            {{visite.agentImmobilier}} 
+                        </div>
+                    </div><!--end row-->
+
+                    <!--++++++++ Bien Immobilier ++++++++++++++++++-->
+                    <div class="row ">
+                        <div class="col-xs-6">
+                            Bien Immobilier :
+                        </div>
+                        <div class="col-xs-6">
+                            {{visite.bienImmobilier}} 
+                        </div>
+                    </div><!--end row-->
+
+                </div>
+
+            </div><!--end row vertical align-->
+        </div><!--end div col-xs-10-->
+    </div><!--end body-->
+
+    <!--===================================-->
+    <!--===== footer du panneau ===========-->
+    <!--===================================-->
+    <div class="panel-footer">
+
+        <button class="btn btn-primary" (click)="editVisite(visite.idVisite)">
+            Edit
+        </button>
+        ||
+        <button class="btn btn-danger" (click)=" deleteVisite(visite.idVisite)" >
+            Delete
+        </button>
+
+    </div>
+</div> 

@@ -28,7 +28,7 @@ const routes: Routes = [
 
   //route pour les gestion des visites
   {path:"visites", component:VisitesComponent},
-  {path:"editVisite/:id", component:CreateVisiteComponent},
+  {path:"visites/editVisite/:id", component:CreateVisiteComponent},
   
 
   //route pour la gestion des proprietaire
