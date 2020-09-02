@@ -12,7 +12,7 @@ import { Proprietaire } from 'src/app/modèles/Proprietaire';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
- 
+  
   /*__________________props_______________ */
   clients =[] ;
   prorietaires =[] ; // prop qui récupère la liste de sprop

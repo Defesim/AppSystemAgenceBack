@@ -74,6 +74,8 @@ export class CreateClasseStandardComponent implements OnInit {
       this.classeStandardService.modifierClasseStdViaWsRest(this.classeStandard).subscribe();
     }
 
+    //redirection vers list
+    this.router.navigate(['/classesStandard']);
   }// saveOrUpdateClasseStandard
 
 

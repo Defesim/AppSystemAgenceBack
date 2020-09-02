@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ClassesStandardsService {
 
-  private WS_REST_BASE_URL = "http://localhost:8080/AppSystemAgenceBack/classes-standard";
+  private WS_REST_BASE_URL = "http://localhost:8080/gestion-agence-immo/classeStandard";
 
 
   constructor(private httpClient: HttpClient) { }

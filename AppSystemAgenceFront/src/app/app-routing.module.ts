@@ -8,6 +8,8 @@ import  {AdressesComponent } from './composants/adresses/adresses.component';
 import { ClientsComponent } from './composants/clients/clients.component';
 import { VisitesComponent } from './composants/visites/visites.component';
 import { ProprietairesComponent } from './composants/proprietaires/proprietaires.component';
+import { ClassesStandardComponent} from "./composants/classes-standard/classes-standard.component";
+import { ClasseStandard } from './modèles/ClasseStandard';
 
 //composants pour la creation d'entité
 import { CreateVisiteComponent } from './composants/create/create-visite/create-visite.component';
@@ -16,6 +18,7 @@ import { CreateClientsComponent } from './composants/create/create-clients/creat
 import { CreateProprietaireComponent } from './composants/create/create-proprietaire/create-proprietaire.component';
 import { AdressesService } from './services/adresses.service';
 import { CreateAdresseComponent } from './composants/create/create-adresse/create-adresse.component';
+import { CreateClasseStandardComponent} from "./composants/create/create-classe-standard/create-classe-standard.component";
 
 
 const routes: Routes = [
@@ -47,6 +50,10 @@ const routes: Routes = [
   //route pour la gestion des clients
   {path:"clients", component:ClientsComponent},
   {path:"clients/edit/:id", component:CreateClientsComponent},
+
+  // route pour la gestion des classes stnadards
+  { path:"classesStandard", component: ClassesStandardComponent},
+  { path:"classesStandard/edit/:id", component: CreateClasseStandardComponent },
 
 ];
 
