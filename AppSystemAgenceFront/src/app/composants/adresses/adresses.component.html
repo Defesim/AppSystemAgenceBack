@@ -1,0 +1,57 @@
+<div class="row" style="margin-top:20px">
+
+    <h3>Adresses :</h3>
+    <div class="col-6 col-md-3" *ngFor="let adresse of adresses">
+
+        <div class="card-adress">
+            <span class="glyphicon glyphicon-home card-icon"></span>
+            <div class="card-content">
+
+                <h3>Adresses n° {{adresse.idAdresse }}</h3>
+                <hr width="50%">
+
+                <div class="row" style="max-width:100% ;">
+                    <div class="col-md-6 col-12 card-row-header">
+                        <strong>rue :</strong>
+                    </div>
+                    <div class="col-md-6 col-12 card-row-content">
+                        {{adresse.rue}}
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-6 col-12 card-row-header">
+                        <strong>Code postal :</strong>
+                    </div>
+                    <div class="col-md-6 col-12 card-row-content">
+                        {{adresse.codePostal}}
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-6 col-12 card-row-header">
+                        <strong>Ville :</strong>
+                    </div>
+                    <div class="col-md-6 col-12 card-row-content">
+                        {{adresse.ville}}
+                    </div>
+                </div>
+            </div>
+            <!--end card-content-->
+
+            <div class="card-footer">
+                <button class="btn btn-primary" (click)="editAdresse(adresse.idAdresse)">
+                    Edit
+                </button>
+                <span>|</span>
+                <button class="btn btn-danger" (click)="deleteAdresse(adresse)">
+                    Delete
+                </button>
+            </div>
+        </div>
+        <!--end card-adress-->
+
+    </div>
+
+
+</div>

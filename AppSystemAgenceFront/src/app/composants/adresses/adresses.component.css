@@ -1,0 +1,45 @@
+.card-adress{
+    border:1px solid gray;
+    border-radius: 10px;
+
+    text-align: center;
+    padding: 15px 10px 0px 10px; 
+    box-shadow: 5px 3px 5px darkgray;
+}
+
+.card-icon{
+    font-size: 5em;
+    margin: 0 0 15px 0;
+}
+
+
+.card-content{
+    margin: 0 0 25px 0;
+    padding: 0 5px 10px 5px;
+    border:1px ridge rgb(224, 224, 224);
+    border-radius: 5px;
+    height:60%;
+    
+}
+
+.card-row-header{
+    text-align: left;
+    padding-left: 20px ;
+}
+
+.card-row-content {
+    text-align: left;
+    padding-left: 20px ;
+}
+
+.card-footer{
+    margin: 0 0 20px 0;
+
+}
+.card-footer span{
+    margin: 10px 8px 0 8px;
+    color: lightgray;
+    font-size: 1.5em;
+    
+
+}
