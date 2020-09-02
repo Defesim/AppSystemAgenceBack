@@ -60,16 +60,16 @@ public class PersonneWsREST {
 	}// end listAllEmployesBdd
 	
 	
-	/** ADD
+	/** ADD => METHODE INUTILE CAR ON NE PEUT PAS SAVE UNE PERSONNE CAR CLASSE ABSTRAITE
 	 * ======
 	 * Méthode exposée dans le web service pour ajouter une personne
 	 * sera invoquée via l'url : http://localhost:8080/gestion-agence-immo/ws-rest/personnes/save
-	 */
+	 
 	@PostMapping(value="/save")	
 	public Personne ajouterPersonne(@RequestBody Personne pPersonne){
 		return personneService.ajouter(pPersonne);
 	}//end ajouterPersonne
-
+*/
 	
 	/** GET BY ID
 	 * ===========
@@ -85,7 +85,7 @@ public class PersonneWsREST {
 	}// end personneById
 	
 	 
-	/** UPDATE
+	/** UPDATE => METHODE INUTILE CAR ON NE PEUT PAS UPDATE UNE PERSONNE CAR CLASSE ABSTRAITE => update client ou agent immo
 	 * =========
 	 * meth exposée dans le ws rest pour modifier une personne
 	 * recoit les données en JSON et les transforme en java via Jackson
@@ -93,22 +93,22 @@ public class PersonneWsREST {
 	 * requete en PUT
 	 * sera invoquée via l'url : http://localhost:8080/gestion-agence-immo/ws-rest/personnes/update/<id-employe>
 	 * @return
-	 */
+	 
 	@RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
 	public void updatePersonne(@RequestBody Personne pPersonne, @PathVariable("id") Long pIdPersonne) {
 		personneService.modifier(pPersonne);
 		
 	}// end updatePersonne
-	
+*/	
 
-	/** DELETE
+	/** DELETE => METHODE INUTILE CAR ON NE PEUT PAS SAVE UNE PERSONNE CAR CLASSE ABSTRAITE => delete client ou agent immo
 	 * =========
 	 * meth exposée dans le ws rest pour supprimer une personne via son id
 	 * requete en GET 
 	 * sera invoquée via l'url : http://localhost:8080/gestion-agence-immo/ws-rest/personnes/delete/<id-employe>
 	 * 
 	 * @return
-	 */
+	
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Boolean> deletePersonne(@PathVariable("id") Long pIdPersonne){
 		
@@ -116,14 +116,10 @@ public class PersonneWsREST {
 		personneService.supprimerViaId(pIdPersonne);
 		
 		// config de la réponse à renvoyer 
-		/**
-		 * Boolean.TRUE ==> pour suppression OK 
-		 * HttpStatus.OK ==> renvoi d'un 200 OK
-		 */
 		return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
 		
 	}// end deletePersonne
-	
+*/	
 	
 	
 	/** GET BY NOM

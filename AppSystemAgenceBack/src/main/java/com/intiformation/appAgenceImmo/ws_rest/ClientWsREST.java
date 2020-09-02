@@ -40,6 +40,7 @@ public class ClientWsREST {
 	public void setClientService(IClientService clientService) {
 		this.clientService = clientService;
 	}
+
 	
 	// ----------- Methodes à exposer dans le WS REST ----------------
 	/** GET ALL
@@ -151,8 +152,19 @@ public class ClientWsREST {
 		
 	}// end clientByCS
 	
-
-	
+	/** Get Client via Acquisition 
+	 * ===========================
+	 * meth exposée dans le ws rest pour récup du client qui a fait une acquisition
+	 * requete en GET 
+	 * sera invoquée via l'url : http://localhost:8080/gestion-agence-immo/ws-rest/clients/get-by-acquisition/<id-acquisition>
+	 * @return le client
+	 */
+	@RequestMapping(value="/get-by-acquisition/{idAcquisition}", method=RequestMethod.GET)
+	public Client clientByAcquisition(@PathVariable("idAcquisition") Long pIdAcquisition) {
+		
+		return clientService.findByAcquisition(pIdAcquisition);
+		
+	}// end clientByAcquisition
 	
 
 }// end class 
