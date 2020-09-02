@@ -1,1 +1,49 @@
-<p>create-adresse works!</p>
+
+<form (ngSubmit)="saveOrUpdateAdresse()">
+
+
+    <div class="panel panel-primary">
+    
+        <!-- ++++++ En-tete du panel +++++-->
+        <div class="panel-heading">
+            <h3 class="panel-title">Ajout/Modif d'une Adresse</h3>
+        </div>
+    
+    
+        <!--++++++++ Body du panel +++++++++-->
+        <div class="panel-body">
+    
+            <!-- champ texte (input) poiur l'adresse -->
+            <div class="form-group">
+                <label for="tbrue">Rue :</label>
+                <input type="text" id="tbrue" class="form-control" placeholder="saisir la rue"
+                [(ngModel)]="adresse.rue" name="rue">
+            </div>
+
+            <!-- champ texte (input) poiur le codePostal -->
+            <div class="form-group">
+                <label for="tbcp">Code postal :</label>
+                <input type="text" id="tbcp" class="form-control" placeholder="saisir la rue"
+                [(ngModel)]="adresse.codePostal" name="codePostal">
+            </div>
+         
+            <!-- champ texte (input) poiur l'adresse -->
+            <div class="form-group">
+                <label for="tbville">Ville :</label>
+                <input type="text" id="tbville" class="form-control" placeholder="saisir la rue"
+                [(ngModel)]="adresse.ville" name="ville">
+            </div>            
+
+        </div>
+    
+    
+        <!--++++++++ Footer du panel +++++++-->
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Ajout/Modif</button>
+        </div>
+    
+    </div>
+    
+    
+    </form>
+    

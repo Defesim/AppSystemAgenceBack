@@ -31,6 +31,7 @@ import { CreateAdresseComponent } from './composants/create/create-adresse/creat
 import { ProprietairesComponent } from './composants/proprietaires/proprietaires.component';
 import { CreateVisiteComponent } from './composants/create/create-visite/create-visite.component';
 import { CreateProprietaireComponent } from './composants/create/create-proprietaire/create-proprietaire.component';
+import { AdressesComponent } from './composants/adresses/adresses.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CreateProprietaireComponent } from './composants/create/create-propriet
     CreateAdresseComponent,
     ProprietairesComponent,
     CreateVisiteComponent,
-    CreateProprietaireComponent
+    CreateProprietaireComponent,
+    AdressesComponent
   ],
   imports: [
     BrowserModule,
