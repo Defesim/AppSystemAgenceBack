@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -33,6 +35,21 @@ public class Client extends Personne{
 	// liste des classes standards qui correspondent aux types de biens qui intéressent le client
 	@ManyToMany (cascade= CascadeType.ALL, mappedBy="clients")
 	private List<ClasseStandard> listeClassesStandardsInteret;
+	
+	/**
+	 * Association entre client et visite 
+	 * One client to Many visites
+	 */	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+	private List<Visite> listeVisitesDuClient;
+	
+	/**
+	 * Association entre acquisition et client
+	 * One acquisition to One client
+	 */
+	@OneToOne
+	@JoinColumn(name = "acquisition_id", referencedColumnName = "id_acquisition")
+	private Acquisition acquisition;
 
 	
 	// ====== Ctors ======
@@ -95,6 +112,23 @@ public class Client extends Personne{
 	public void setListeClassesStandardsInteret(List<ClasseStandard> listeClassesStandardsInteret) {
 		this.listeClassesStandardsInteret = listeClassesStandardsInteret;
 	}
+
+	public List<Visite> getListeVisitesDuClient() {
+		return listeVisitesDuClient;
+	}
+
+	public void setListeVisitesDuClient(List<Visite> listeVisitesDuClient) {
+		this.listeVisitesDuClient = listeVisitesDuClient;
+	}
+
+	public Acquisition getAcquisition() {
+		return acquisition;
+	}
+
+	public void setAcquisition(Acquisition acquisition) {
+		this.acquisition = acquisition;
+	}
+	
 
 
 }// end classe Client

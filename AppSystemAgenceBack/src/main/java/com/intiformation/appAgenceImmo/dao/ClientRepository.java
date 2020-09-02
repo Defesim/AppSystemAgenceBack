@@ -28,7 +28,16 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 	 * @param pIdClasseStandard : id de la classe d'interet
 	 * @return liste de clients
 	 */
-// A VERIF 
 	public List<Client> findByListeClassesStandardsInteretIdClasseStandard(Long pIdClasseStandard); 
+	
+	
+	/**
+	 * Méthode de requête qui permet de récupérer la liste des clients 
+	 * @param pIdVisite : id de la visite
+	 * @return liste de clients
+	 */
+	public Client findByAcquisition(Long pIdAcquisition);
+	
+	
 
 }// end interface

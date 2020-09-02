@@ -1,7 +1,13 @@
 package com.intiformation.appAgenceImmo.modele;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
@@ -19,6 +25,21 @@ public class AgentImmobilier extends Personne {
 	
 	@Column(length=200)
 	private String motDePasse;
+	
+	/**
+	 * Association entre agent immobilier et visite 
+	 * One Agent to Many visites
+	 */	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "agentImmobilier")
+	private List<Visite> listeVisitesDunAgentImmo;
+	
+	/**
+	 * Association entre acquisition et agent immobilier
+	 * One acquisition to One agent immobilier
+	 */
+	@OneToOne
+	@JoinColumn(name = "acquisition_id", referencedColumnName = "id_acquisition")
+	private Acquisition acquisition;
 	
 	
 	// ====== Ctors ======
@@ -55,6 +76,23 @@ public class AgentImmobilier extends Personne {
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
+
+	public List<Visite> getListeVisitesDunAgentImmo() {
+		return listeVisitesDunAgentImmo;
+	}
+
+	public void setListeVisitesDunAgentImmo(List<Visite> listeVisitesDunAgentImmo) {
+		this.listeVisitesDunAgentImmo = listeVisitesDunAgentImmo;
+	}
+
+	public Acquisition getAcquisition() {
+		return acquisition;
+	}
+
+	public void setAcquisition(Acquisition acquisition) {
+		this.acquisition = acquisition;
+	}
+	
 	
 
 }// end classe AgentImmobilier
