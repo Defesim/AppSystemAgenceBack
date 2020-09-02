@@ -1,11 +1,28 @@
-/* classe css active */
-navbar-brand{
+/* Import des polices de GoogleFont */
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans");
+
+
+.navbar-brand{
     color: rgb(86, 86, 86);
+    /*font-family: 'Lobster', cursive;*/
+    font-family: 'Pacifico', cursive;
 }
 
+nav a{
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+
 nav a.active{
-    color: blue;
+    color: rgb(64, 64, 140); /* couleur du lien actif*/
     font-weight: bold;
+    background-color: #e3f2fd; /* couleur pour que le bouton n'est pas de couleur après click*/
+}
+
+nav a:hover{
+    background-color: #cfe6f7; /* couleur au passage de la souris  */
 }
 
 nav a.decoration{

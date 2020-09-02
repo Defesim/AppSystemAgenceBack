@@ -51,6 +51,8 @@ export class BiensImmobiliersComponent implements OnInit {
 
   attribuerAdresse(pIdBienImmobilier){
     console.log("bonjour on est dans attribution d'adresse !!" + pIdBienImmobilier);
+
+    this.route.navigate(['adresses/edit', 0]);
     
   }
 

@@ -1,4 +1,4 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans");
 
 .Color1{
     color : #000088;
@@ -14,4 +14,9 @@
 }
 .Color5{
     color : #880000;
+}
+
+
+.page-footer{
+    font-family: 'Balsamiq Sans', cursive;
 }

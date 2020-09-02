@@ -1,11 +1,22 @@
 
+.add-link{
+    padding: 5px 10px 5px 10px;
+}
+
+.add-link:hover{
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+    background-color:  #e3f2fd;
+}
+
 .contour{
     width: 100%;
     border: 5px rgb(191, 49, 49) solid;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding: 10px 10px 10px 10px;
+    padding: 20px 20px 20px 20px;
 }
 
 .h1-panel{

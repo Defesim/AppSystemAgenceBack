@@ -1,3 +1,17 @@
+.panel{
+    margin: 20px 20px 10px 20px;
+}
+
+.add-link{
+    padding: 5px 10px 5px 10px;
+}
+
+.add-link:hover{
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+    background-color:  #e3f2fd;
+}
 
 a:hover{
     text-decoration: none;
@@ -18,6 +32,7 @@ a:hover{
 
 .add-adress:hover{
     box-shadow: 3px 2px 5px lightblue;
+ 
 }
 
 
