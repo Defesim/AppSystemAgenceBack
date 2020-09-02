@@ -77,4 +77,11 @@ public class ClientService implements IClientService{
 		return clientRepository.findByListeClassesStandardsInteretIdClasseStandard(pIdClasseStandard);
 	}
 
+	
+	// meth pour récupérer le client qui a fait une acquisition
+	@Override
+	public Client findByAcquisition(Long pIdAcquisition) {
+		return clientRepository.findByAcquisitionIdAcquisition(pIdAcquisition);
+	}
+
 }// end classe

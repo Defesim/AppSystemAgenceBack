@@ -32,12 +32,11 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 	
 	
 	/**
-	 * Méthode de requête qui permet de récupérer la liste des clients 
-	 * @param pIdVisite : id de la visite
-	 * @return liste de clients
+	 * Méthode de requête qui permet de récupérer le client qui a fait une acquisition
+	 * @param pIdAcquisition : id de l'acquisition
+	 * @return le client
 	 */
-	public Client findByAcquisition(Long pIdAcquisition);
-	
+	public Client findByAcquisitionIdAcquisition(Long pIdAcquisition);
 	
 
 }// end interface
