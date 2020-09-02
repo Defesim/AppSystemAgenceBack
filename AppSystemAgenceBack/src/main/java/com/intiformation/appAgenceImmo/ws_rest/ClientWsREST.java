@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.intiformation.appAgenceImmo.modele.Acquisition;
 import com.intiformation.appAgenceImmo.modele.Client;
-import com.intiformation.appAgenceImmo.service.IAcquisitionService;
 import com.intiformation.appAgenceImmo.service.IClientService;
 
 /**
