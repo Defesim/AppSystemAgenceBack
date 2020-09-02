@@ -18,5 +18,8 @@ public interface IAgentImmobilierService extends IGenericService<AgentImmobilier
 	
 	// meth pour récupérer l'Agent Immobilier qui a réalisé une acquisition
 	public AgentImmobilier findByAcquisition(Long pIdAcquisition);
+	
+	// méthode pour trouver un Agent Immobilier via son email
+	public AgentImmobilier findByMail(String pMail); 
 
 }// end interface

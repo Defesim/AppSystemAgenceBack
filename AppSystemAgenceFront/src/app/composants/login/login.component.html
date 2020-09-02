@@ -1,7 +1,7 @@
 <div style="text-align: center;">
 
 
-    <form #LoginForm="ngForm" (ngSubmit)="seConnecter(LoginForm.value)" class="form-signin" >
+    <form #LoginForm="ngForm" (ngSubmit)="doLogin()" class="form-signin" >
 
         <!-- Inserer un logo/image ici-->
         <span class="glyphicon glyphicon-user" style="font-size: 10em;margin-top:10px"></span>
@@ -10,12 +10,12 @@
         <h1 class="h3 mb-3 font-weight-normal">{{'demo.SeConnecter' | translate }}</h1>
         <br>
 
-        <input type="text" [(ngModel)]="utilisateur.login" name="identifiant"
-               class="form-control" placeholder="Identifiant" 
+        <input type="text" [(ngModel)]="username" name="username"
+               class="form-control" placeholder="Username" 
                required autofocus/>
 
-        <input type="password" [(ngModel)]="utilisateur.password" name="mdp"
-               class="form-control"   placeholder="Mot De Passe"
+        <input type="password" [(ngModel)]="password" name="password"
+               class="form-control"   placeholder="Password"
                required/>
 
         <div class="checkbox mb-3">
@@ -25,7 +25,7 @@
             </label>
         </div>
 
-        <button class="btn btn-primary btn-lg btn-block" type="submit"> Se connecter</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" (click)=doLogin()> Se connecter</button>
     </form>
 
 

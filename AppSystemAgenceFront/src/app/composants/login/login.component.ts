@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgFlashMessageService } from 'ng-flash-messages';
+
+import { AuthentificationService } from "src/app/services/auth/authentification.service";
 
 @Component({
   selector: 'app-login',
@@ -8,16 +12,19 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   /*______________props_________________ */
-  utilisateur = {login:"test" , password:"test"};
+  invalidLogin = false
+  username: String = '';
+  password: String = '';
 
-  constructor() { }
+  constructor(private router: Router,
+    private loginservice: AuthentificationService,
+    private ngFlashMessageService: NgFlashMessageService) { }
 
   ngOnInit(): void {
   }
 
-  seConnecter(saisie:any){
-
-
-  }//end seConnecter
+  doLogin(){
+    this.loginservice.authenticate(this.username, this.password);
+  }//end doLogin()
 
 }
