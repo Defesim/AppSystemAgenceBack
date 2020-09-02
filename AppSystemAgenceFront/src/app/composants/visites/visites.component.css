@@ -1,7 +1,7 @@
 
 .contour{
     width: 100%;
-    border: 5px red solid;
+    border: 5px rgb(191, 49, 49) solid;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -9,11 +9,11 @@
 }
 
 .h1-panel{
-    background: red;
+    background: rgb(191, 49, 49) ;
     color: whitesmoke;
     width: 30%;
     height: 40px;
-    padding-top: 5px ;
+    padding-top: 10px ;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     margin-bottom: 0;
