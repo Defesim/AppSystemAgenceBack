@@ -29,9 +29,9 @@
 
                     <!-- Sinon boutton pour ajouter l'adresse-->
                     <a class="add-adress-link" *ngIf="bien.adresse == null" 
-                       routerLink="adresses">
+                       (click)="attribuerAdresse(bien.idBienImmobilier)">
 
-                        <div class="add-adress"  >
+                        <div class="add-adress" >
                             <span class="glyphicon glyphicon-plus"></span> <br>
                             Ajouter une adresse
                         </div>
