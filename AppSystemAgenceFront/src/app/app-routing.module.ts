@@ -30,6 +30,7 @@ const routes: Routes = [
   //route pour la gestion des biens immobiliers
   { path: "listBiens", component: BiensImmobiliersComponent },
   { path: "listBiens/edit/:id", component: CreateBiensImmobiliersComponent },
+  { path: "classesStandard/listeBiens/:id/edit/:id", component: CreateBiensImmobiliersComponent },
 
 
 
@@ -52,12 +53,12 @@ const routes: Routes = [
   { path: "clients", component: ClientsComponent },
   { path: "clients/edit/:id", component: CreateClientsComponent },
 
-  // route pour la gestion des classes stnadards
+  // route pour la gestion des classes standards
   { path: "classesStandard", component: ClassesStandardComponent },
   { path: "classesStandard/edit/:id", component: CreateClasseStandardComponent },
   { path: "classesStandard/listeBiens/:id", component: BienImmoParClasseStandardComponent }
  
-
+  
 ];
 
 @NgModule({
