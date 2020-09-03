@@ -29,7 +29,7 @@ export class BienImmoParClasseStandardComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRouter.paramMap.subscribe(
       (paramsMap => {
-        const idClasseStandard = +paramsMap.get("idClasseStandard");
+        const idClasseStandard = +paramsMap.get("id");
         this.findBienImmoByClasseStandard(idClasseStandard);
       })
     ) //end subscribe

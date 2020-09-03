@@ -55,8 +55,8 @@ const routes: Routes = [
   // route pour la gestion des classes stnadards
   { path: "classesStandard", component: ClassesStandardComponent },
   { path: "classesStandard/edit/:id", component: CreateClasseStandardComponent },
-  { path: "classesStandard/listeBiens", component: BienImmoParClasseStandardComponent }
-
+  { path: "classesStandard/listeBiens/:id", component: BienImmoParClasseStandardComponent }
+ 
 
 ];
 

@@ -52,7 +52,6 @@ export class ClassesStandardComponent implements OnInit {
 
   findBienImmoByClasseStandard(idClasseStandard: number){
 
-    //this.BienService.trouverBienImmoParClasseStandardViaWsREST(idClasseStandard).subscribe();
 
     this.route.navigate(['classesStandard/listeBiens', idClasseStandard])
 
