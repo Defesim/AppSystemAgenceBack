@@ -21,6 +21,7 @@ import { CreateAdresseComponent } from './composants/create/create-adresse/creat
 import { CreateClasseStandardComponent } from "./composants/create/create-classe-standard/create-classe-standard.component";
 import { BienImmoParClasseStandardComponent } from './composants/classes-standard/bien-immo-par-classe-standard/bien-immo-par-classe-standard.component';
 import { PageAccueilComponent } from './composants/accueil/page-accueil/page-accueil.component';
+import { BienImmobilierDetailsComponent } from './composants/bien-immobilier-details/bien-immobilier-details.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,9 @@ const routes: Routes = [
   { path: "listBiens/edit/:id", component: CreateBiensImmobiliersComponent },
   { path: "classesStandard/listeBiens/:id/edit/:id", component: CreateBiensImmobiliersComponent },
 
-
+    //route pour la gestion des biens immobiliers
+  {path: "bienImmo", component: BienImmobilierDetailsComponent},
+  
 
   //route pour la gestion des Adresses
   { path: "adresses", component: AdressesComponent },
