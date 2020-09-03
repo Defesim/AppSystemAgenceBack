@@ -20,9 +20,13 @@ import { AdressesService } from './services/adresses.service';
 import { CreateAdresseComponent } from './composants/create/create-adresse/create-adresse.component';
 import { CreateClasseStandardComponent } from "./composants/create/create-classe-standard/create-classe-standard.component";
 import { BienImmoParClasseStandardComponent } from './composants/classes-standard/bien-immo-par-classe-standard/bien-immo-par-classe-standard.component';
+import { PageAccueilComponent } from './composants/accueil/page-accueil/page-accueil.component';
 
 
 const routes: Routes = [
+
+  // Route vers la page d'accueil
+  {path:"accueil", component: PageAccueilComponent},
 
   //route vers le login
   { path: "login", component: LoginComponent },
