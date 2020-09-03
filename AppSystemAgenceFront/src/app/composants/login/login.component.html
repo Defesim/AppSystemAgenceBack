@@ -7,7 +7,7 @@
         <span class="glyphicon glyphicon-user" style="font-size: 10em;margin-top:10px"></span>
         <br><br>
         
-        <h1 class="h3 mb-3 font-weight-normal">{{'demo.SeConnecter' | translate }}</h1>
+        <h1 class="h3 mb-3 font-weight-normal">{{'login.SeConnecter' | translate }}</h1>
         <br>
 
         <input type="text" [(ngModel)]="utilisateur.login" name="identifiant"
@@ -21,11 +21,11 @@
         <div class="checkbox mb-3">
             <label >
                 <input type="checkbox" value="remember-me"/>
-                Se souvenir de moi
+                {{'login.SeSouvenir' | translate }}
             </label>
         </div>
 
-        <button class="btn btn-primary btn-lg btn-block" type="submit"> Se connecter</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit"> {{'login.ConnectionButton' | translate }}</button>
     </form>
 
 

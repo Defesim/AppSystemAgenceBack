@@ -3,7 +3,7 @@
 <div class="container-fluid" style="margin-left: 20px;margin-right: 20px;">
 
 
-<a class="add-link" style="float: right;" routerLink="edit/0"> <span class="glyphicon glyphicon-plus"></span> Ajouter un bien</a>
+<a class="add-link" style="float: right;" routerLink="edit/0"> <span class="glyphicon glyphicon-plus"></span>{{'BienImmobilier.Ajout' | translate}}</a>
 <br><br>
 
 
@@ -27,7 +27,7 @@
                 <div class="col-xs-3" >
                     <!-- Si l'adresse n'est pas nulle on la montre-->
                     <div style="width: 100%; height: 100%;" *ngIf="bien.adresse != null">
-                        <h3>Adresse:</h3>
+                        <h3>{{'BienImmobilier.Adresse' | translate}}</h3>
                         <br>
                         <p><strong></strong> {{bien.adresse.rue}} </p>
                         <br>
@@ -40,7 +40,7 @@
 
                         <div class="add-adress" >
                             <span class="glyphicon glyphicon-plus"></span> <br>
-                            Ajouter une adresse
+                            {{'BienImmobilier.AjoutAdresse' | translate}}
                         </div>
 
                     </a>
@@ -52,7 +52,7 @@
                     <!--++++++++ Fonction ++++++++++++++++-->
                     <div class="row">
                         <div class="col-xs-6 font-title">
-                            Revenu cadastral  :
+                            {{'BienImmobilier.RevenuCadastral' | translate}}
                         </div>
                         <div class="col-xs-6">
                             {{bien.revenuCadastral}}
@@ -62,7 +62,7 @@
                     <!--++++++++ Salaire ++++++++++++++++++-->
                     <div class="row ">
                         <div class="col-xs-6">
-                            Date de mise à disposition :
+                            {{'BienImmobilier.DateDisposition' | translate}} 
                         </div>
                         <div class="col-xs-6">
                             {{bien.dateDeMiseADisposition}} 
@@ -81,11 +81,11 @@
     <div class="panel-footer">
 
         <button class="btn btn-primary"  (click)="editBienImmo(bien.idBienImmobilier)">
-            Edit
+            {{'Modifier' | translate}} 
         </button>
         ||
         <button class="btn btn-danger" (click)="deleteBienImmo(bien)" >
-            Delete
+            {{'Supprimer' | translate}} 
         </button>
 
     </div>

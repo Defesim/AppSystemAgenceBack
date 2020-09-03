@@ -1,5 +1,46 @@
 {
-    "demo": {
-        "SeConnecter": "Veuillez vous connecter"
+    "Modifier": "Modifier",
+    "Supprimer": "Supprimer",
+    "login": {
+        "SeConnecter": "Veuillez vous connecter",
+        "SeSouvenir": "Se souvenir de moi",
+        "ConnectionButton": "Se connecter"
+    },
+    "Header": {   
+        "biensImmobiliers": "Biens à acheter/louer",
+        "visites": "Mes visites",
+        "rechercheBien": "Rechercher un bien",
+        "clients": "Mes clients",
+        "connection": "Se connecter"
+    },
+    "Footer":{
+        "AboutUs": "A propos",
+        "AboutUsApparition": "Nous sommes une société de vente et de location de biens immobiliers",
+        "Products": "Nos produits",
+        "ProductApparition": "Nous vendons et louons les biens de propriétaires afin de leur faciliter la vie!",
+        "Awards": "Nos récompenses",
+        "AwardsApparition": "Nous avons le Global Musical Chair Awards 2020!",
+        "Help": "Aide",
+        "HelpApparition": "Si vous avez besoin d'aide, vous serez facturé 2€ la minute",
+        "Contact": "Nous contacter",
+        "ContactApparition": "Pour nous contacter, veuillez envoyer un mail à ImmoParfait@gmail.com",
+        "Slogan1": "Un ",
+        "Slogan2": "logement ",
+        "Slogan3": "pour tous ",
+        "Slogan4": "tous pour nous donner de l'argent!"
+    },
+    "BienImmobilier":{
+        "Ajout":"Ajouter un bien",
+        "Adresse":"Adresse :",
+        "AjoutAdresse":"Ajouter une adresse",
+        "RevenuCadastral":"Revenu cadastral :",
+        "DateDisposition":"Date de mise à disposition :"
+    },
+    "Adresse":{
+        "Adresses":"Adresses :",
+        "NumAdresse":"Adresse n°",
+        "Rue":"rue :",
+        "CodePostal":"Code postal :",
+        "Ville":"Ville :"
     }
 }
