@@ -6,6 +6,11 @@ import { BienImmobilier } from 'src/app/modèles/BienImmobilier'
 import { AgentImmobilier } from 'src/app/modèles/AgentImmobilier'
 import { Client } from 'src/app/modèles/Client'
 
+// Import des services
+import { BiensImmobiliersService } from 'src/app/services/biens-immobiliers.service';
+import { AcquisitionsService } from 'src/app/services/acquisitions.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-create-acquisition',
   templateUrl: './create-acquisition.component.html',
@@ -14,21 +19,48 @@ import { Client } from 'src/app/modèles/Client'
 export class CreateAcquisitionComponent implements OnInit {
 
   acquisition : Acquisition;
-  bienImmobilier : BienImmobilier;
   agentImmobilier : AgentImmobilier;
   client : Client;
 
-  idAcquisition:number;
-  typeAcquisition:string;
-  dateAchat: string; //Date
-  prixAchat:number;
-  bienImmobilier:BienImmobilier;
-  agentImmobilier: AgentImmobilier;
-  client:Client;
 
-  constructor() { }
+  constructor(private bienImmobilierService:BiensImmobiliersService,
+              private acquisitionService:AcquisitionsService,
+              private router:Router,
+              private activatedRouter: ActivatedRoute
+              ) { 
+
+  }//end constructor
 
   ngOnInit(): void {
+
+    this.activatedRouter.paramMap.subscribe((paramsMap)=> {
+
+      const idBien = +paramsMap.get("idBien");
+
+      this.findBienImmoById(idBien);
+
+    })
+  }//end ngOnInit
+
+
+  /**
+   * Permet de récupérer le bien en cours d'acquisition
+   * 
+   * @param idEmploye 
+   */
+  findBienImmoById(idBien: number){
+
+  this.bienImmobilierService.getBienImmoByIdFromWsRest(idBien).subscribe(
+
+        (bienToUpdate) => {
+          this.acquisition.bienImmobilier = bienToUpdate;
+        }
+      );
+
+  }//end findBienImmoById
+
+  saveOrUpdateBienImmo(){
+
   }
 
 }
