@@ -30,7 +30,7 @@
         "Slogan4": "all to give us money!"
     },
     "BienImmobilier":{
-        "Ajout":"Add a propertie",
+        "Ajout":"Add a property",
         "Adresse":"Address :",
         "AjoutAdresse":"Add an address",
         "RevenuCadastral":"Cadastral income :",
@@ -42,5 +42,64 @@
         "rue":"street :",
         "CodePostal":"Postal code :",
         "Ville":"City :"
+    },
+    "Client":{
+        "Type":"Buyer/Tenant :",
+        "Ajout":"Add customer",
+        "Email":"Email :",
+        "Telephone":"Phone number :"
+    },
+    "Proprietaire":{
+        "Proprietaires":"Owners :",
+        "Ajout":"Add owner",
+        "Email":"Email :",
+        "Telephone":"Phone number :"
+    },
+    "Visite":{
+        "Ajout":"Add visit",
+        "Liste":"My visits :",
+        "Date":"Date of the visit :",
+        "Agent":"Real Estate Agent :",
+        "Bien":"Property :"
+    },
+    "AjoutModifAdresse":{
+        "Titre":"Adding/Editing and address ",
+        "Rue":"Street :",
+        "CodePostal":"Postal code :",
+        "Ville":"City :",
+        "Bouton":"Add/Edit"
+    },
+    "AjoutModifBienImmobilier":{
+        "Titre":"Adding/Editing a property",
+        "Statut":"Status :",
+        "RevenuCadastral":"Cadastral income :",
+        "DateSoumission":"File submission date :",
+        "DateDisposition":"Date of provision of the property :",
+        "Proprietaire":"Property's owner :",
+        "Bouton":"Add/Edit"
+    },
+    "AjoutModifClient":{
+        "Titre":"Adding/Editing a client",
+        "Nom":"Last name :",
+        "Prenom":"First name :",
+        "Email":"Email :",
+        "Telephone":"Phone number :",
+        "Bouton":"Add/Edit"
+    },
+    "AjoutModifProprietaire":{
+        "Titre":"Adding/Editing a owner",
+        "Nom":"Last name :",
+        "Prenom":"First name :",
+        "Email":"Email :",
+        "Telephone":"Phone number :",
+        "TelephonePro":"Business phone number :",
+        "Bouton":"Add/Edit"
+    },
+    "AjoutModifVisite":{
+        "Titre":"Adding/Editing a visit",
+        "Agent":"Real estate agent :",
+        "Bien":"Property :",
+        "Date":"Date of the visit :",
+        "Bouton":"Add/Edit"
     }
 }

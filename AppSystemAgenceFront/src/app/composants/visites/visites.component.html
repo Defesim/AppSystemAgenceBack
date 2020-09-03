@@ -1,9 +1,9 @@
 
 <div class="container-fluid" style="margin-left: 20px;margin-right: 20px;">
 
-<a class="add-link" routerLink="edit/0" style="float: right;"> <span class="glyphicon glyphicon-plus"></span> Ajout d'une visite</a>
+<a class="add-link" routerLink="edit/0" style="float: right;"> <span class="glyphicon glyphicon-plus"></span>{{'Visite.Ajout' | translate}}</a>
 
-<h3 class="h1-panel"> <span class="glyphicon glyphicon-calendar icone"></span> Mes visites</h3>
+<h3 class="h1-panel"> <span class="glyphicon glyphicon-calendar icone"></span> {{'Visite.Liste' | translate}}</h3>
 
 
 
@@ -24,7 +24,7 @@
                     <!--++++++++ Date visite ++++++++++++++++-->
                     <div class="row">
                         <div class="col-xs-6 font-title">
-                            Date de la visite  :
+                            {{'Visite.Date' | translate}}
                         </div>
                         <div class="col-xs-6">
                             {{visite.dateVisite}}
@@ -34,7 +34,7 @@
                     <!--++++++++ Agent Immobilier ++++++++++++++++++-->
                     <div class="row ">
                         <div class="col-xs-6">
-                            Agent Immobilier :
+                            {{'Visite.Agent' | translate}}
                         </div>
                         <div class="col-xs-6">
                             {{visite.agentImmobilier.nom}}  {{visite.agentImmobilier.prenom}} 
@@ -44,7 +44,7 @@
                     <!--++++++++ Bien Immobilier ++++++++++++++++++-->
                     <div class="row ">
                         <div class="col-xs-6">
-                            Bien Immobilier :
+                            {{'Visite.Bien' | translate}}
                         </div>
                         <div class="col-xs-6">
                             {{visite.bienImmobilier.statut}} 
@@ -63,11 +63,11 @@
     <div class="panel-footer">
 
         <button class="btn btn-primary" (click)="editVisite(visite.idVisite)">
-            Edit
+            {{'Modifier' | translate}} 
         </button>
         ||
         <button class="btn btn-danger" (click)=" deleteVisite(visite.idVisite)" >
-            Delete
+            {{'Supprimer' | translate}}
         </button>
 
     </div>
