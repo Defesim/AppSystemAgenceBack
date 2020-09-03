@@ -5,6 +5,8 @@ import { BienImmobilier } from 'src/app/modèles/BienImmobilier';
 import { ProprietairesService } from 'src/app/services/proprietaires.service';
 import { Proprietaire } from 'src/app/modèles/Proprietaire';
 import { NgModel } from '@angular/forms';
+import { ClasseStandard } from 'src/app/modèles/ClasseStandard'
+import { ClassesStandardsService } from 'src/app/services/classes-standards.service'
 
 @Component({
   selector: 'app-create-biens-immobiliers',
@@ -17,13 +19,16 @@ export class CreateBiensImmobiliersComponent implements OnInit {
   bienImmo: BienImmobilier ;
   proprietaires = [];
   proprietaire : Proprietaire;
-
+  classesStandards = [];
+  classeStandard : ClasseStandard;
 
   constructor(private biensImmoService:BiensImmobiliersService, 
     private router:Router,
     private activatedRouter: ActivatedRoute,
-    private proprietaireService : ProprietairesService,) {
+    private proprietaireService : ProprietairesService,
+    private classesStandardService : ClassesStandardsService) {
       this.findAllPrioprietaires();
+      this.findAllClassesStandards();
    
   }//end ctor
 
@@ -43,6 +48,12 @@ export class CreateBiensImmobiliersComponent implements OnInit {
   findAllPrioprietaires(){
     this.proprietaireService.getAllProprietaireFromWsRest()
                             .subscribe(data => this.proprietaires = data)
+  }
+
+
+  findAllClassesStandards(){
+    this.classesStandardService.getAllClasseStandardFromWsRest()
+                                .subscribe(data => this.classesStandards = data )
   }
 
   /**
@@ -79,6 +90,17 @@ export class CreateBiensImmobiliersComponent implements OnInit {
         telephonePrive : null,
         telephonePro : null
       };
+
+      this.bienImmo.classeStandard = {
+        description: null,
+        idClasseStandard: null,
+        libelle: null,
+        listeDesBienImmobilier: null,
+        prixMaximum: null,
+        superficieMinimum: null,
+        typeDeBien: null,
+        usageDuBien: null
+      }
 
     }else{
 

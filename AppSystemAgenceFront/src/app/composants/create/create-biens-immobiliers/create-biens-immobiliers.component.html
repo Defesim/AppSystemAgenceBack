@@ -55,6 +55,23 @@
                 </select>
             </div>
 
+             <!-- Select pour la classe standard  -->
+
+             <div class="form-group">
+                <label for="tdClasseStandard">{{'AjoutModifBienImmobilier.ClasseStandard' | translate}}</label>
+
+                <select class="form-control" [(ngModel)]="bienImmo.classeStandard.idClasseStandard" name="classeStandard">
+                                     
+                    <option *ngFor="let classeStandard of classesStandards"  [value]="classeStandard.idClasseStandard" >
+                        {{classeStandard.idClasseStandard}}: {{classeStandard.libelle}} = {{classeStandard.typeDeBien}}, 
+                        {{classeStandard.usageDuBien}},  {{classeStandard.description}}, {{classeStandard.prixMaximum}}, 
+
+                    </option>
+
+                </select>
+            </div>
+
+
         </div>
 
         <!--++++++++ Footer du panel +++++++-->
