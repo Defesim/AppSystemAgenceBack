@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Adresse } from 'src/app/modèles/Adresse';
+import { BienImmobilier } from 'src/app/modèles/BienImmobilier';
 import {AdressesService} from 'src/app/services/adresses.service'
+import {BiensImmobiliersService} from 'src/app/services/biens-immobiliers.service'
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,6 +15,7 @@ export class CreateAdresseComponent implements OnInit {
   adresse: Adresse ;
 
   constructor(private adresseService:AdressesService, 
+              private bienService:BiensImmobiliersService,
               private router:Router,
               private activatedRouter: ActivatedRoute) { 
             
@@ -24,11 +27,13 @@ export class CreateAdresseComponent implements OnInit {
     this.activatedRouter.paramMap.subscribe((paramsMap)=> {
 
       const idAdresse = +paramsMap.get("id");
+      
 
       this.findAdresseById(idAdresse);
 
 
     })
+
   }//end ngOnInit
 
   /**
@@ -55,6 +60,7 @@ export class CreateAdresseComponent implements OnInit {
 
         (adresseToUpdate) => {
           this.adresse = adresseToUpdate;
+          
         }
       );
 
@@ -68,10 +74,9 @@ export class CreateAdresseComponent implements OnInit {
     // test de l'id du Adresse (AJOUT ou MODIF)
     if(this.adresse.idAdresse == null){
       
-      
       // => le bien n'a pas encore d'id <=> ajout
       this.adresseService.ajouterAdresseViaWsRest(this.adresse).subscribe();
-
+    
     }else{
       // => modification
       this.adresseService.modifierAdresseViaWsRest(this.adresse).subscribe();
