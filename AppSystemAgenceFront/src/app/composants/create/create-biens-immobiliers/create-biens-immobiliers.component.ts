@@ -33,7 +33,7 @@ export class CreateBiensImmobiliersComponent implements OnInit {
   }//end ctor
 
   ngOnInit(): void {
-
+    
     // recup du param de l'id de l'url ( ref : route 'editBien/:id' de  app-routing.module.ts)
     this.activatedRouter.paramMap.subscribe((paramsMap)=> {
 

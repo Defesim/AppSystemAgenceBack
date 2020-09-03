@@ -41,9 +41,9 @@ export class VisitesComponent implements OnInit {
 
 
   editVisite(idVisite :number){
-
+    
     this.route.navigate(['visites/edit', idVisite]);
-
+    
   }//end editVisite
    
 
