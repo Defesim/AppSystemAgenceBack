@@ -51,10 +51,10 @@ export class BiensImmobiliersComponent implements OnInit {
   /**
    * Méthode pour renvoyer le bien immobilier vers une nouvelle page html avec les détails associés
    */
-  detailsBienImmo(bienImmobilier:BienImmobilier){
+  detailsBienImmo(IdbienImmobilier: number){
 
     
-    this.route.navigate(['bienImmo', bienImmobilier]);
+    this.route.navigate(['bienImmo', IdbienImmobilier]);
 
   }//end detailsBienImmo
  

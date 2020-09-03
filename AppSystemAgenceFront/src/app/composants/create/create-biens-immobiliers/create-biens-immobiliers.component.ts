@@ -24,7 +24,7 @@ export class CreateBiensImmobiliersComponent implements OnInit {
     private activatedRouter: ActivatedRoute,
     private proprietaireService : ProprietairesService,) {
       this.findAllPrioprietaires();
-  
+   
   }//end ctor
 
   ngOnInit(): void {
@@ -64,7 +64,9 @@ export class CreateBiensImmobiliersComponent implements OnInit {
         statut : null,
         adresse : null,
         classeStandard : null,
-        proprietaire: null
+        proprietaire: null,
+        acquisition:null,
+        modeOffre:null
       };
 
       this.bienImmo.proprietaire = {

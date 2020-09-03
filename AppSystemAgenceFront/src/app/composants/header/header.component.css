@@ -10,12 +10,18 @@
     font-family: 'Pacifico', cursive;
 }
 
-nav a{
+.navbar-brand.active{
+    color: rgb(74, 74, 74);
+    font-weight: bold;
+    background-color: #e3f2fd;
+}
+
+nav li a{
     font-family: 'Balsamiq Sans', cursive;
 }
 
 
-nav a.active{
+nav li a.active{
     color: rgb(64, 64, 140); /* couleur du lien actif*/
     font-weight: bold;
     background-color: #e3f2fd; /* couleur pour que le bouton n'est pas de couleur après click*/

@@ -22,6 +22,7 @@ import { CreateClasseStandardComponent } from "./composants/create/create-classe
 import { BienImmoParClasseStandardComponent } from './composants/classes-standard/bien-immo-par-classe-standard/bien-immo-par-classe-standard.component';
 import { PageAccueilComponent } from './composants/accueil/page-accueil/page-accueil.component';
 import { BienImmobilierDetailsComponent } from './composants/bien-immobilier-details/bien-immobilier-details.component';
+import { CreateAcquisitionComponent } from './composants/create/create-acquisition/create-acquisition.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,7 @@ const routes: Routes = [
   { path: "classesStandard/listeBiens/:id/edit/:id", component: CreateBiensImmobiliersComponent },
 
     //route pour la gestion des biens immobiliers
-  {path: "bienImmo", component: BienImmobilierDetailsComponent},
+  {path: "bienImmo/:id", component: BienImmobilierDetailsComponent},
   
 
   //route pour la gestion des Adresses
@@ -63,8 +64,10 @@ const routes: Routes = [
   // route pour la gestion des classes standards
   { path: "classesStandard", component: ClassesStandardComponent },
   { path: "classesStandard/edit/:id", component: CreateClasseStandardComponent },
-  { path: "classesStandard/listeBiens/:id", component: BienImmoParClasseStandardComponent }
+  { path: "classesStandard/listeBiens/:id", component: BienImmoParClasseStandardComponent },
  
+  // route pour la gestion des acquisitions
+  {path: "acquisition/:idBien", component : CreateAcquisitionComponent}
   
 ];
 
