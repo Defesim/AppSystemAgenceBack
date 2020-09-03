@@ -54,7 +54,8 @@ export class BienImmobilierDetailsComponent implements OnInit {
 
   acquerirBienImmo(idBien: number){
 
-    this.router.navigate(['acquisition', idBien]);
+
+    this.router.navigate(['acquisition',  idBien]);
 
   }//end acquerirBienImmo
 

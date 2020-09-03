@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AcquisitionsService {
 
-  private WS_REST_BASE_URL = "http://localhost:8080/AppSystemAgenceBack/acquisitions";
+  private WS_REST_BASE_URL = "http://localhost:8080/gestion-agence-immo/acquisition";
 
 
   constructor(private httpClient: HttpClient) { }

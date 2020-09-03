@@ -10,6 +10,8 @@ import { Client } from 'src/app/modèles/Client'
 import { BiensImmobiliersService } from 'src/app/services/biens-immobiliers.service';
 import { AcquisitionsService } from 'src/app/services/acquisitions.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AgentsService } from 'src/app/services/agents.service';
+import { ClientsService } from 'src/app/services/clients.service';
 
 @Component({
   selector: 'app-create-acquisition',
@@ -18,6 +20,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CreateAcquisitionComponent implements OnInit {
 
+  bienImmobilier: BienImmobilier;
   acquisition : Acquisition;
   agentImmobilier : AgentImmobilier;
   client : Client;
@@ -26,7 +29,9 @@ export class CreateAcquisitionComponent implements OnInit {
   constructor(private bienImmobilierService:BiensImmobiliersService,
               private acquisitionService:AcquisitionsService,
               private router:Router,
-              private activatedRouter: ActivatedRoute
+              private activatedRouter: ActivatedRoute,
+              private agentService: AgentsService,
+              private cleintService: ClientsService
               ) { 
 
   }//end constructor
@@ -39,6 +44,49 @@ export class CreateAcquisitionComponent implements OnInit {
 
       this.findBienImmoById(idBien);
 
+      this.acquisition ={
+        agentImmobilier: null,
+        bienImmobilier:null,
+        client:null,
+        dateAchat:null,
+        idAcquisition:null,
+        prixAchat:null,
+        typeAcquisition:null,
+
+      }
+      
+      this.acquisition.agentImmobilier={
+        adresse:null, 
+        email:null,
+        id_personne:null,
+        motDePasse:null,
+        nom:null,
+        prenom:null,
+      }
+
+      this.acquisition.client={
+        adresse:null,
+        email:null,
+        id_personne:null,
+        listeClassesStandardsInteret:null,
+        nom:null,
+        prenom:null,
+        telephonePrive:null
+      }
+
+      this.acquisition.bienImmobilier={
+        acquisition:null,
+        adresse:null, 
+        classeStandard:null,
+        dateDeMiseADisposition:null,
+        dateDeSoumission:null,
+        idBienImmobilier:null,
+        modeOffre:null,
+        proprietaire:null,
+        revenuCadastral:null,
+        statut:null
+      }
+     
     })
   }//end ngOnInit
 
@@ -46,21 +94,67 @@ export class CreateAcquisitionComponent implements OnInit {
   /**
    * Permet de récupérer le bien en cours d'acquisition
    * 
-   * @param idEmploye 
+   * 
    */
   findBienImmoById(idBien: number){
 
-  this.bienImmobilierService.getBienImmoByIdFromWsRest(idBien).subscribe(
+    if(idBien == 0){
+
+      this.bienImmobilier =  {
+        idBienImmobilier : null,
+        dateDeMiseADisposition :  null,
+        dateDeSoumission : null,
+        revenuCadastral : null,
+        statut : null,
+        adresse : null,
+        classeStandard : null,
+        proprietaire: null,
+        acquisition:null,
+        modeOffre:null
+      };
+
+      this.bienImmobilier.acquisition = {
+        agentImmobilier: null,
+        bienImmobilier:null,
+        client:null,
+        dateAchat:null,
+        idAcquisition:null,
+        prixAchat:null,
+        typeAcquisition:null,
+      };
+
+    }else{
+
+      this.bienImmobilierService.getBienImmoByIdFromWsRest(idBien).subscribe(
 
         (bienToUpdate) => {
-          this.acquisition.bienImmobilier = bienToUpdate;
-        }
+          this.bienImmobilier = bienToUpdate;
+        }   
       );
-
+    }
   }//end findBienImmoById
 
   saveOrUpdateBienImmo(){
 
-  }
+    
+    this.cleintService.getClientByIdFromWsRest(this.acquisition.client.id_personne).subscribe(
+      (clientRetrouve) => {this.client = clientRetrouve}
+    );
 
-}
+    this.agentService.getAgentImmobilierByIdFromWsRest(this.acquisition.agentImmobilier.id_personne).subscribe(
+      (agentRetrouve) => { this.agentImmobilier = agentRetrouve}
+    );
+
+    console.log(this.client.id_personne);
+
+    console.log(this.agentImmobilier.id_personne);
+
+    this.acquisitionService.ajouterAcquisitionViaWsRest(this.acquisition).subscribe();
+    
+    console.log(this.acquisition.idAcquisition)
+
+    
+
+  }// end saveOrUpdateBienImmo
+
+}//end classe

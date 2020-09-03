@@ -93,20 +93,17 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
   }//end findBienImmoById
 
-
   saveOrUpdateBienImmo(){
 
     console.log(this.bienImmo.proprietaire.id_personne)
+
     /**
      * Récupération ID et proprio
      */
-    
     this.proprietaireService.getProprietaireByIdFromWsRest(this.bienImmo.proprietaire.id_personne).subscribe(  
        (proprietaireRetrouve)  =>  {this.bienImmo.proprietaire = proprietaireRetrouve;}
       );
-  
-
-
+ 
     // test de l'id du bienImmo (AJOUT ou MODIF)
     if(this.bienImmo.idBienImmobilier == null){
       

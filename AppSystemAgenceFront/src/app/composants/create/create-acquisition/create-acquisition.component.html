@@ -37,23 +37,23 @@
 
             <!-- champ texte (input) pour le bien immobilier concerné -->
             <div class="form-group">
-                <label for="tbbienImmobilier">Bien immobilier :</label>
-                <input type="text" id="tbbienImmobilier" class="form-control" placeholder="saisir le bien immobilier concerné"
-                    [(ngModel)]="acquisition.bienImmobilier" name="bienImmobilier">
-            </div>
+                <label for="tbbienImmobilier">Bien immobilier :  </label>
+                <input type="text" id="tbbienImmobilier" class="form-control" 
+                    [(ngModel)]="acquisition.bienImmobilier.idBienImmobilier" name="bienImmobilier.idBienImmobilier" >
+            </div> 
 
             <!-- champ texte (input) pour l'agent immobilier qui valide l'achat -->
             <div class="form-group">
                 <label for="tbagent">Agent immobilier :</label>
                 <input type="text" id="tbagent" class="form-control" placeholder="saisir l'agent immobilier"
-                    [(ngModel)]="acquisition.agentImmobilier" name="agent">
+                    [(ngModel)]="acquisition.agentImmobilier.id_personne" name="agent.id_personne">
             </div>
 
             <!-- champ texte (input) pour le client acquéreur -->
             <div class="form-group">
                 <label for="tbclient">Client Acquéreur :</label>
                 <input type="text" id="tbclient" class="form-control" placeholder="saisir le client acquéreur"
-                    [(ngModel)]="acquisition.client" name="client">
+                    [(ngModel)]="acquisition.client.id_personne" name="client.id_personne">
             </div>
 
         </div>
