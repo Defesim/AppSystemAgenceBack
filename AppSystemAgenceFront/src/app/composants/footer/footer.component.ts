@@ -9,9 +9,11 @@ import { rendererTypeName } from '@angular/compiler';
 })
 export class FooterComponent implements OnInit {
 
-  x = 0;
-
-  
+  AboutUsCondition : boolean = false;
+  ProductsCondition : boolean = false;
+  AwardsCondition : boolean = false;
+  HelpCondition : boolean = false;
+  ContactCondition : boolean = false;
 
   constructor(elementRef:ElementRef, 
               renderer:Renderer2) {
@@ -48,4 +50,41 @@ export class FooterComponent implements OnInit {
       }
     }
   }
+
+  ClickOnAboutUs(){
+    this.AboutUsCondition = !this.AboutUsCondition;
+    this.ProductsCondition = false;
+    this.AwardsCondition = false;
+    this.HelpCondition = false;
+    this.ContactCondition = false;
+  }
+  ClickOnProducts(){
+    this.AboutUsCondition = false;
+    this.ProductsCondition = !this.ProductsCondition;
+    this.AwardsCondition = false;
+    this.HelpCondition = false;
+    this.ContactCondition = false;
+  }
+  ClickOnAwards(){
+    this.AboutUsCondition = false;
+    this.ProductsCondition = false;
+    this.AwardsCondition = !this.AwardsCondition;
+    this.HelpCondition = false;
+    this.ContactCondition = false;
+  }
+  ClickOnHelp(){
+    this.AboutUsCondition = false;
+    this.ProductsCondition = false;
+    this.AwardsCondition = false;
+    this.HelpCondition = !this.HelpCondition;
+    this.ContactCondition = false;
+  }
+  ClickOnContact(){
+    this.AboutUsCondition = false;
+    this.ProductsCondition = false;
+    this.AwardsCondition = false;
+    this.HelpCondition = false;
+    this.ContactCondition = !this.ContactCondition;
+  }
+  
 }
