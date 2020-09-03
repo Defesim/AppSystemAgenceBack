@@ -6,7 +6,7 @@
     
         <!-- ++++++ En-tete du panel +++++-->
         <div class="panel-heading">
-            <h3 class="panel-title">Ajout/Modif d'un Client</h3>
+            <h3 class="panel-title">{{'AjoutModifClient.Titre' | translate}}</h3> 
         </div>
      
     
@@ -15,28 +15,28 @@
     
             <!-- champ texte (input) poiur le nom -->
             <div class="form-group">
-                <label for="tbnom">Nom :</label>
+                <label for="tbnom">{{'AjoutModifClient.Nom' | translate}}</label>
                 <input type="text" id="tbnom" class="form-control" placeholder="saisir le nom"
                 [(ngModel)]="client.nom" name="nom">
             </div>
     
             <!-- champ texte (input) poiur le prenom -->
             <div class="form-group">
-                <label for="tbprenom">Prénom :</label>
+                <label for="tbprenom">{{'AjoutModifClient.Prenom' | translate}}</label>
                 <input type="text" id="tbprenom" class="form-control" placeholder="saisir le prenom"
                 [(ngModel)]="client.prenom" name="prenom">
             </div>   
 
             <!-- champ texte (input) poiur l'email -->
             <div class="form-group">
-                <label for="tbemail">Email :</label>
+                <label for="tbemail">{{'AjoutModifClient.Email' | translate}}</label>
                 <input type="text" id="tbemail" class="form-control" placeholder="saisir l'email"
                 [(ngModel)]="client.email" name="email">
             </div>
     
             <!-- champ texte (input) poiur l'email -->
             <div class="form-group">
-                <label for="tbtel">Numero de téléphone :</label>
+                <label for="tbtel">{{'AjoutModifClient.Telephone' | translate}}</label>
                 <input type="text" id="tbtel" class="form-control" placeholder="saisir le numero de telephone"
                 [(ngModel)]="client.telephonePrive" name="telephonePrive">
             </div>
@@ -46,7 +46,7 @@
     
         <!--++++++++ Footer du panel +++++++-->
         <div class="panel-footer">
-            <button type="submit" class="btn btn-primary">Ajout/Modif</button>
+            <button type="submit" class="btn btn-primary">{{'AjoutModifClient.Bouton' | translate}}</button>
         </div>
     
     </div>
