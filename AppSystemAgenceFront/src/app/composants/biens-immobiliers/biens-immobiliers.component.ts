@@ -44,9 +44,26 @@ export class BiensImmobiliersComponent implements OnInit {
 
   editBienImmo(idBienImmobilier :number){
 
-    this.route.navigate(['editBien', idBienImmobilier]);
+    this.route.navigate(['listBiens/edit', idBienImmobilier]);
 
   }//end editBienImmo
+
+  /**
+   * Méthode pour renvoyer le bien immobilier vers une nouvelle page html avec les détails associés
+   */
+  detailsBienImmo(IdbienImmobilier: number){
+
+    
+    this.route.navigate(['bienImmo', IdbienImmobilier]);
+
+  }//end detailsBienImmo
  
+
+  attribuerAdresse(pIdBienImmobilier){
+    console.log("bonjour on est dans attribution d'adresse !!" + pIdBienImmobilier);
+
+    this.route.navigate(['adresses/edit', 0]);
+    
+  }
 
 }//end class

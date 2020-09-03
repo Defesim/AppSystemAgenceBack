@@ -1,0 +1,106 @@
+<div class="container-fluid" style="margin-left: 20px;margin-right: 20px;">
+
+    <a class="add-link" style="float: right;" routerLink="edit/0"> <span class="glyphicon glyphicon-plus"></span>
+        Ajouter une classe Standard</a>
+    <br><br>
+
+    <div class="panel panel-primary" *ngFor="let classe of classesStandards">
+
+        <!--===================================-->
+        <!--===== Header du panneau ===========-->
+        <!--===================================-->
+        <div class="panel-heading">
+            <h3 class="panel-title">{{classe.idClasseStandard}} --- {{classe.libelle}}</h3>
+        </div>
+
+        <!--===================================-->
+        <!--===== body du panneau =============-->
+        <!--===================================-->
+        <div class="panel-body">
+            <div class="col-xs-10">
+                <div class="row vertical-align">
+
+                    <!--++++++++ details de le classe ++++++++++++++++-->
+                    <div class="col-xs-8">
+
+                         <!--++++++++ Usage du bien ++++++++++++++++-->
+                         <div class="row">
+                            <div class="col-xs-6 font-title">
+                                Usage du bien :
+                            </div>
+                            <div class="col-xs-6">
+                                {{classe.usageDuBien}}
+                            </div>
+                        </div>
+
+                        <!--++++++++ Type de bien ++++++++++++++++-->
+                        <div class="row">
+                            <div class="col-xs-6 font-title">
+                                Type de bien :
+                            </div>
+                            <div class="col-xs-6">
+                                {{classe.typeDeBien}}
+                            </div>
+                        </div>
+
+                        <!--++++++++ Description ++++++++++++++++-->
+                        <div class="row">
+                            <div class="col-xs-6 font-title">
+                                Description :
+                            </div>
+                            <div class="col-xs-6">
+                                {{classe.description}}
+                            </div>
+                        </div>
+
+
+                        <!--++++++++ Prix maximum ++++++++++++++++-->
+                        <div class="row">
+                            <div class="col-xs-6 font-title">
+                                Prix d'achat / Loyer Maximum :
+                            </div>
+                            <div class="col-xs-6">
+                                {{classe.prixMaximum}}
+                            </div>
+                        </div>
+
+                        <!--++++++++  superficie Minimum du bien ++++++++++++++++-->
+                        <div class="row">
+                            <div class="col-xs-6 font-title">
+                                Superficie minimum :
+                            </div>
+                            <div class="col-xs-6">
+                                {{classe.superficieMinimum}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>          
+        </div> <!-- end div panel-->
+
+        <!--===================================-->
+        <!--===== footer du panneau ===========-->
+        <!--===================================-->
+        <div class="panel-footer">
+
+            <button class="btn btn-primary" (click)="findBienImmoByClasseStandard(classe.idClasseStandard)">
+                Voir la liste des biens de cette classe
+            </button>
+            ||
+            <button class="btn btn-primary" (click)="editClasseStandard(classe.idClasseStandard)">
+                Edit
+            </button>
+            ||
+            <button class="btn btn-danger" (click)="deleteClasseStandard(classe)">
+                Delete
+            </button>
+
+
+        </div>
+
+
+
+    </div>
+
+</div>

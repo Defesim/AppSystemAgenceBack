@@ -1,0 +1,65 @@
+<form (ngSubmit)="saveOrUpdateClasseStandard()">
+
+    <div class="panel panel-primary">
+        <!-- ++++++ En-tete du panel +++++-->
+        <div class="panel-heading">
+            <h3 class="panel-title">Ajout d'une classe standard :</h3>
+        </div>
+ 
+        <!--++++++++ Body du panel +++++++++-->
+        <div class="panel-body">
+
+            <!-- champ texte (input) poiur le libellé -->
+            <div class="form-group">
+                <label for="tblibelle">Libellé :</label>
+                <input type="text" id="tblibelle" class="form-control" placeholder="saisir le libellé"
+                    [(ngModel)]="classeStandard.libelle" name="libelle">
+            </div>
+
+
+            <!-- champ texte (input) pour le type de bien -->
+            <div class="form-group">
+                <label for="tbtypeBien">Type de bien :</label>
+                <input type="text" id="tbtypeBien" class="form-control" placeholder="saisir un type de bien"
+                    [(ngModel)]="classeStandard.typeDeBien" name="typeDeBien">
+            </div>
+
+
+            <!-- champ texte (input) pour la date de soumission -->
+            <div class="form-group">
+                <label for="tbdUsage">Usage du bien :</label>
+                <input type="text" id="tbdUsage" class="form-control" placeholder="saisir un usage"
+                    [(ngModel)]="classeStandard.usageDuBien" name="usageDuBien">
+            </div>
+
+            <!-- champ texte (input) pour la date de mise a dispo -->
+            <div class="form-group">
+                <label for="tbdescription">Description :</label>
+                <input type="text" id="tbdescription" class="form-control" placeholder="saisir la date description"
+                    [(ngModel)]="classeStandard.description" name="description">
+            </div>
+
+            <!-- champ texte (input) pour la date de mise a dispo -->
+            <div class="form-group">
+                <label for="tbPrix">Prix Maximum :</label>
+                <input type="text" id="tbPrix" class="form-control" placeholder="saisir le prix maximum"
+                    [(ngModel)]="classeStandard.prixMaximum" name="prixMaximum">
+            </div>
+
+            <!-- champ texte (input) pour la date de mise a dispo -->
+            <div class="form-group">
+                <label for="tbSurface">Surface minumum :</label>
+                <input type="text" id="tbSurface" class="form-control" placeholder="saisir la surface minumum"
+                    [(ngModel)]="classeStandard.superficieMinimum" name="superficieMinimum">
+            </div>
+
+        </div>
+
+        <!--++++++++ Footer du panel +++++++-->
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Ajout/Modif</button>
+        </div>
+
+    </div>
+
+</form>

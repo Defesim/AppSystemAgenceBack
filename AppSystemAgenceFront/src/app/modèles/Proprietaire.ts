@@ -9,4 +9,8 @@ export class Proprietaire extends Personne{
     telephonePro:string;
     listeDesBiensDuProprio:BienImmobilier[];
 
+    constructor(){
+        super()
+    };
 }
+

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { BiensImmobiliersService } from 'src/app/services/biens-immobiliers.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BienImmobilier } from 'src/app/modèles/BienImmobilier';
+import { ProprietairesService } from 'src/app/services/proprietaires.service';
+import { Proprietaire } from 'src/app/modèles/Proprietaire';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-create-biens-immobiliers',
@@ -12,11 +15,16 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
 
   bienImmo: BienImmobilier ;
+  proprietaires = [];
+  proprietaire : Proprietaire;
+
 
   constructor(private biensImmoService:BiensImmobiliersService, 
     private router:Router,
-    private activatedRouter: ActivatedRoute) { 
-  
+    private activatedRouter: ActivatedRoute,
+    private proprietaireService : ProprietairesService,) {
+      this.findAllPrioprietaires();
+   
   }//end ctor
 
   ngOnInit(): void {
@@ -30,7 +38,12 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
 
     })
-  }//end ngOnInit
+  }//end ngOnInit 
+
+  findAllPrioprietaires(){
+    this.proprietaireService.getAllProprietaireFromWsRest()
+                            .subscribe(data => this.proprietaires = data)
+  }
 
   /**
    * Permet de  :
@@ -50,7 +63,21 @@ export class CreateBiensImmobiliersComponent implements OnInit {
         revenuCadastral : null,
         statut : null,
         adresse : null,
-        classeStandard : null
+        classeStandard : null,
+        proprietaire: null,
+        acquisition:null,
+        modeOffre:null
+      };
+
+      this.bienImmo.proprietaire = {
+        adresse: null,
+        email: null,
+        id_personne : null,
+        listeDesBiensDuProprio : null,
+        nom : null,
+        prenom :null,
+        telephonePrive : null,
+        telephonePro : null
       };
 
     }else{
@@ -69,12 +96,25 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
   saveOrUpdateBienImmo(){
 
+    console.log(this.bienImmo.proprietaire.id_personne)
+    /**
+     * Récupération ID et proprio
+     */
+    
+    this.proprietaireService.getProprietaireByIdFromWsRest(this.bienImmo.proprietaire.id_personne).subscribe(  
+       (proprietaireRetrouve)  =>  {this.bienImmo.proprietaire = proprietaireRetrouve;}
+      );
+  
+
+
     // test de l'id du bienImmo (AJOUT ou MODIF)
     if(this.bienImmo.idBienImmobilier == null){
       
-      
+
+      // this.bien
       // => le bien n'a pas encore d'id <=> ajout
-      this.biensImmoService.ajouterBienImmoViaWsRest(this.bienImmo).subscribe();
+      this.biensImmoService.ajouterBienImmoViaWsRest(this.bienImmo).subscribe(
+      );
 
     }else{
       console.log(this.bienImmo.revenuCadastral);
@@ -83,8 +123,17 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
     }
 
-    //redirection vers list
-    this.router.navigate(['/listBiens']);
+    if (this.bienImmo.classeStandard == null) {
+
+       //redirection vers list
+      this.router.navigate(['/listBiens']);
+      
+    }else{
+
+      this.router.navigate(['classesStandard/listeBiens', this.bienImmo.classeStandard.idClasseStandard])
+
+    }
+   
 
   }//end saveOrUpdateBienImmo
 

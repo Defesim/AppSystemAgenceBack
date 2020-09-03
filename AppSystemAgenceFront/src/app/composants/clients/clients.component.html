@@ -1,15 +1,20 @@
-<div class="row" style="margin-top:20px">
-    <div class="col-12 col-md-3" *ngFor="let client of clients" >
+<div class="row" style="margin:20px 20px 0 20px">
+
+    <h3 > {{'Client.Type' | translate}}   <span style="float: right;"><button class="btn btn-success" routerLink="edit/0">{{'Client.Ajout' | translate}} </button></span> </h3> 
+    
+    <div class="col-6 col-md-3" *ngFor="let client of clients">
+    
 
         <div class="card-client">
-            <span class="glyphicon glyphicon-user card-icon" ></span>
+            <span class="glyphicon glyphicon-user card-icon"></span>
             <div class="card-content">
-                
-                <h3>{{client.nom}} {{client.prenom}}</h3><hr width="50%">
-     
-                <div class="row" style="max-width:100% ;">
+
+                <h3>{{client.nom}} {{client.prenom}}</h3>
+                <hr width="50%">
+
+                <div class="row" >
                     <div class="col-md-6 col-12 card-row-header">
-                        <strong>Email :</strong>
+                        <strong>{{'Client.Email' | translate}}</strong>
                     </div>
                     <div class="col-md-6 col-12 card-row-content">
                         {{client.email}}
@@ -18,26 +23,77 @@
 
                 <div class="row">
                     <div class="col-md-6 col-12 card-row-header">
-                        <strong>Telephone :</strong>
+                        <strong>{{'Client.Telephone' | translate}}</strong>
                     </div>
                     <div class="col-md-6 col-12 card-row-content">
                         {{client.telephonePrive}}
                     </div>
-                </div>                
+                </div>
 
-            </div><!--end card-content-->
+            </div>
+            <!--end card-content-->
 
             <div class="card-footer">
                 <button class="btn btn-primary" (click)="editClient(client.id_personne)">
-                    Edit
+                    {{'Modifier' | translate}} 
                 </button>
                 <span>|</span>
                 <button class="btn btn-danger" (click)="deleteClient(client)">
-                    Delete
-                </button>      
+                    {{'Supprimer' | translate}} 
+                </button>
             </div>
-        </div><!--end card-client-->
+        </div>
+        <!--end card-client-->
+
+    </div>
+
+
+</div>
+
+<div class="row" style="margin:20px 20px 0 20px">
+    <h3>{{'Proprietaire.Proprietaires' | translate}} <span style="float: right;"><button class="btn btn-success" routerLink="editProprietaire/0">{{'Proprietaire.Ajout' | translate}} </button></span></h3>
+    
+    <div class="col-6 col-md-3" *ngFor="let proprio of prorietaires">
+
+        <div class="card-client">
+            <span class="glyphicon glyphicon-user card-icon"></span>
+            <div class="card-content">
+
+                <h3>{{proprio.nom}} {{proprio.prenom}}</h3>
+                <hr width="50%">
+
+                <div class="row" style="max-width:100% ;">
+                    <div class="col-md-6 col-12 card-row-header">
+                        <strong>{{'Proprietaire.Email' | translate}}</strong>
+                    </div>
+                    <div class="col-md-6 col-12 card-row-content">
+                        {{proprio.email}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-12 card-row-header">
+                        <strong>{{'Proprietaire.Telephone' | translate}}</strong>
+                    </div>
+                    <div class="col-md-6 col-12 card-row-content">
+                        {{proprio.telephonePrive}}
+                    </div>
+                </div>
+
+            </div>
+            <!--end card-content-->
+
+            <div class="card-footer">
+                <button class="btn btn-primary" (click)="editProprietaire(proprio.id_personne)">
+                    {{'Modifier' | translate}} 
+                </button>
+                <span>|</span>
+                <button class="btn btn-danger" (click)="deleteProprietaire(proprio)">
+                    {{'Supprimer' | translate}} 
+                </button>
+            </div>
+        </div>
+        <!--end card-client-->
 
     </div>
 </div>
-<br>

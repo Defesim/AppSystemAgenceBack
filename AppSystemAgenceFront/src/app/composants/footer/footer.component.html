@@ -1,10 +1,41 @@
 <!-- Footer -->
 <footer class="page-footer font-small indigo" style="background-color: #e3f2fd;">
-
+    
     <!-- Footer Links -->
-    <div class="container" style="margin-top:20px;">
-  
 
+    <!-- affichage d'images au passage de la souris sur les différentes parties du Footer (About us, Products etc.) -->
+    <div class="container" style="margin-top:20px;">
+
+      <div class="row text-center d-flex justify-content-center pt-5 mb-3" style="margin-top:10px">
+  
+        <div class="col-md-1 mb-3"></div>
+          <!--ABOUT US-->
+          <div class="col-md-2 mb-3" >
+            <h4 *ngIf="AboutUsCondition">{{'Footer.AboutUsApparition' | translate}}</h4>
+          </div>
+          
+          <!--PRODUCTS-->
+          <div class="col-md-2 mb-3" >
+            <h4 *ngIf="ProductsCondition">{{'Footer.ProductApparition' | translate}}</h4>
+          </div>
+
+          <!--AWARDS-->
+          <div class="col-md-2 mb-3" >
+            <h4 *ngIf="AwardsCondition">{{'Footer.AwardsApparition' | translate}}</h4>
+          </div>
+
+          <!--HELP-->
+          <div class="col-md-2 mb-3" >
+            <h4 *ngIf="HelpCondition">{{'Footer.HelpApparition' | translate}}</h4>
+          </div>
+
+          <!--CONTACT-->
+          <div class="col-md-2 mb-3" >
+            <h4 *ngIf="ContactCondition">{{'Footer.ContactApparition' | translate}}</h4>
+          </div>
+      
+    </div>
+    <!-- Fin affichage d'images -->
 
       <!-- Grid row-->
       <div class="row text-center d-flex justify-content-center pt-5 mb-3" style="margin-top:10px">
@@ -15,9 +46,9 @@
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
 
-            <a #href1ts href="" id="Color1" style="color: #000088; font-size: 20px;">
+            <a id="Color1" style="color: #000088; font-size: 20px;" (click)="ClickOnAboutUs()">
               <span class="glyphicon glyphicon-info-sign" style="height: 30px;width: 30px;"></span><br>
-              About us
+              {{'Footer.AboutUs' | translate}}
             </a>
           </h6>
         </div>
@@ -27,9 +58,9 @@
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
             
-            <a href="" id="Color2" style="color: #004444; font-size: 20px;">
+            <a id="Color2" style="color: #004444; font-size: 20px;" (click)="ClickOnProducts()">
               <span class="glyphicon glyphicon-tags" style="height: 30px;width: 30px;"></span><br>
-              Products
+              {{'Footer.Products' | translate}}
             </a>
 
           </h6>
@@ -39,9 +70,9 @@
         <!-- Grid column -->
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="" id="Color3" style="color: #008800; font-size: 20px;">
+            <a id="Color3" style="color: #008800; font-size: 20px;" (click)="ClickOnAwards()">
               <span class="glyphicon glyphicon-flag" style="height: 30px;width: 30px;"></span><br>
-              Awards
+              {{'Footer.Awards' | translate}}
             </a>
           </h6>
         </div>
@@ -50,21 +81,23 @@
         <!-- Grid column -->
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="" id="Color4" style="color: #444400; font-size: 20px;">
+            <a id="Color4" style="color: #444400; font-size: 20px;" (click)="ClickOnHelp()"> 
               <span class="glyphicon glyphicon-question-sign" style="height: 30px;width: 30px;"></span><br>
-              Help
+              {{'Footer.Help' | translate}}
             </a>
           </h6>
         </div>
         <!-- Grid column -->
   
         <!-- Grid column -->
+        
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-
-            <a href="" id="Color5" style="color: #880000; font-size: 20px;">
+            <a id="Color5" style="color: #880000; font-size: 20px;" (click)="ClickOnContact()">
               <span class="glyphicon glyphicon-envelope" style="height: 30px;width: 30px;"></span>
-              <br>Contact</a>
+              <br>{{'Footer.Contact' | translate}}
+            </a>
+            
           </h6>
         </div>
         <!-- Grid column -->
@@ -80,13 +113,15 @@
       <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
   
         <!-- Grid column -->
-        <div class="col-md-12 col-12 mt-5">
-          <p style="line-height: 1.7rem;font-size: 2rem;"><b>Un</b> logement <b>pour tous</b>, tous pour nous donner de l'argent!</p>
+        <div class="col-md-12 col-12 mt-5 punchline">
+          <p style="line-height: 1.7rem;font-size: 2rem;">
+            <b>{{'Footer.Slogan1' | translate}} </b> {{'Footer.Slogan2' | translate}} <b>{{'Footer.Slogan3' | translate}}</b> {{'Footer.Slogan4' | translate}}
         </div>
         <!-- Grid column -->
   
       </div>
       <!-- Grid row-->
+
       <hr class="clearfix d-md-none rgba-white-light" style="margin: 25px 10px;">
   
       </div>

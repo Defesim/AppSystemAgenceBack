@@ -1,57 +1,68 @@
-
 <form (ngSubmit)="saveOrUpdateBienImmo()">
 
 
     <div class="panel panel-primary">
-    
+
         <!-- ++++++ En-tete du panel +++++-->
         <div class="panel-heading">
-            <h3 class="panel-title">Ajout d'un Bien Immobilier</h3>
+            <h3 class="panel-title">{{'AjoutModifBienImmobilier.Titre' | translate}}</h3> 
         </div>
-    
-    
+
+
         <!--++++++++ Body du panel +++++++++-->
         <div class="panel-body">
-    
+
             <!-- champ texte (input) poiur le statut -->
             <div class="form-group">
-                <label for="tbstatut">Statut :</label>
+                <label for="tbstatut">{{'AjoutModifBienImmobilier.Statut' | translate}}</label>
                 <input type="text" id="tbstatut" class="form-control" placeholder="saisir le status du bien"
-                [(ngModel)]="bienImmo.statut" name="statut">
+                    [(ngModel)]="bienImmo.statut" name="statut">
             </div>
-    
-   
-             <!-- champ texte (input) pour le RC -->
-             <div class="form-group">
-                <label for="tbrc">Revenu cadastral :</label>
-                <input type="text" id="tbrc" class="form-control" placeholder="saisir son revenu cadastral"
-                [(ngModel)]="bienImmo.revenuCadastral" name="revenuCadastral">
-            </div>   
 
-             <!-- champ texte (input) pour la date de soumission -->
-             <div class="form-group">
-                <label for="tbdatesou">Date de soumission du dossier :</label>
+
+            <!-- champ texte (input) pour le RC -->
+            <div class="form-group">
+                <label for="tbrc">{{'AjoutModifBienImmobilier.RevenuCadastral' | translate}}</label>
+                <input type="text" id="tbrc" class="form-control" placeholder="saisir son revenu cadastral"
+                    [(ngModel)]="bienImmo.revenuCadastral" name="revenuCadastral">
+            </div>
+
+            <!-- champ texte (input) pour la date de soumission -->
+            <div class="form-group">
+                <label for="tbdatesou">{{'AjoutModifBienImmobilier.DateSoumission' | translate}}</label>
                 <input type="text" id="tbdatesou" class="form-control" placeholder="saisir la date de soumission"
-                [(ngModel)]="bienImmo.dateDeSoumission" name="dateSoumission">
-            </div>              
-        
-             <!-- champ texte (input) pour la date de mise a dispo -->
-             <div class="form-group">
-                <label for="tbdatedispo">Date de mise a disposition du bien :</label>
+                    [(ngModel)]="bienImmo.dateDeSoumission" name="dateSoumission">
+            </div>
+
+            <!-- champ texte (input) pour la date de mise a dispo -->
+            <div class="form-group">
+                <label for="tbdatedispo">{{'AjoutModifBienImmobilier.DateDisposition' | translate}}</label>
                 <input type="text" id="tbdatedispo" class="form-control" placeholder="saisir la date de mise a dispo"
-                [(ngModel)]="bienImmo.dateDeMiseADisposition" name="dateDeMiseADisposition">
-            </div>   
-    
+                    [(ngModel)]="bienImmo.dateDeMiseADisposition" name="dateDeMiseADisposition">
+            </div>
+
+            <!-- Select pour le propriétaire -->
+
+            <div class="form-group">
+                <label for="tdProprietaire">{{'AjoutModifBienImmobilier.Proprietaire' | translate}}</label>
+
+                <select class="form-control" [(ngModel)]="bienImmo.proprietaire.id_personne" name="proprietaire">
+                                     
+                    <option *ngFor="let proprietaire of proprietaires"  [value]="proprietaire.id_personne" >
+                        {{proprietaire.nom}} {{proprietaire.prenom}} {{proprietaire.id_personne}}
+                    </option>
+
+                </select>
+            </div>
+
         </div>
-    
-    
+
         <!--++++++++ Footer du panel +++++++-->
         <div class="panel-footer">
-            <button type="submit" class="btn btn-primary">Ajout/Modif</button>
+            <button type="submit" class="btn btn-primary">{{'AjoutModifBienImmobilier.Bouton' | translate}}</button>
         </div>
-    
+
     </div>
-    
-    
-    </form>
-    
+
+
+</form>

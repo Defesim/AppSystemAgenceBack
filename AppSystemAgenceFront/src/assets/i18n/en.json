@@ -1,5 +1,105 @@
 {
-    "demo": {
-        "SeConnecter": "Please login"
+    "Modifier": "Edit",
+    "Supprimer": "Delete",
+    "login": {
+        "SeConnecter": "Please login",
+        "SeSouvenir": "Remember me",
+        "ConnectionButton": "Log in"
+    },
+    "Header": {   
+        "biensImmobiliers": "Properties to sell/rent",
+        "visites": "My visits",
+        "rechercheBien": "Look for a property",
+        "clients": "My clients",
+        "connection": "Log in"
+    },
+    "Footer":{
+        "AboutUs": "About us",
+        "AboutUsApparition": "We are a society that sells and rents properties",
+        "Products": "Products",
+        "ProductApparition": "We sell and rent properties from owners in order to their life easier!",
+        "Awards": "Awards",
+        "AwardsApparition": "We obtained the Global Musical Chair Awards 2020!",
+        "Help": "Help",
+        "HelpApparition": "If you need help, you will be charged 2€ per minute",
+        "Contact": "Contact",
+        "ContactApparition": "To contact us, please send an e-mail to ImmoParfait@gmail.com",
+        "Slogan1": "One ",
+        "Slogan2": "housing ",
+        "Slogan3": "for all, ",
+        "Slogan4": "all to give us money!"
+    },
+    "BienImmobilier":{
+        "Ajout":"Add a property",
+        "Adresse":"Address :",
+        "AjoutAdresse":"Add an address",
+        "RevenuCadastral":"Cadastral income :",
+        "DateDisposition":"Date of availability :"
+    },
+    "Adresse":{
+        "Adresses":"Address :",
+        "NumAdresse":"Address n°",
+        "rue":"street :",
+        "CodePostal":"Postal code :",
+        "Ville":"City :"
+    },
+    "Client":{
+        "Type":"Buyer/Tenant :",
+        "Ajout":"Add customer",
+        "Email":"Email :",
+        "Telephone":"Phone number :"
+    },
+    "Proprietaire":{
+        "Proprietaires":"Owners :",
+        "Ajout":"Add owner",
+        "Email":"Email :",
+        "Telephone":"Phone number :"
+    },
+    "Visite":{
+        "Ajout":"Add visit",
+        "Liste":"My visits :",
+        "Date":"Date of the visit :",
+        "Agent":"Real Estate Agent :",
+        "Bien":"Property :"
+    },
+    "AjoutModifAdresse":{
+        "Titre":"Adding/Editing and address ",
+        "Rue":"Street :",
+        "CodePostal":"Postal code :",
+        "Ville":"City :",
+        "Bouton":"Add/Edit"
+    },
+    "AjoutModifBienImmobilier":{
+        "Titre":"Adding/Editing a property",
+        "Statut":"Status :",
+        "RevenuCadastral":"Cadastral income :",
+        "DateSoumission":"File submission date :",
+        "DateDisposition":"Date of provision of the property :",
+        "Proprietaire":"Property's owner :",
+        "Bouton":"Add/Edit"
+    },
+    "AjoutModifClient":{
+        "Titre":"Adding/Editing a client",
+        "Nom":"Last name :",
+        "Prenom":"First name :",
+        "Email":"Email :",
+        "Telephone":"Phone number :",
+        "Bouton":"Add/Edit"
+    },
+    "AjoutModifProprietaire":{
+        "Titre":"Adding/Editing a owner",
+        "Nom":"Last name :",
+        "Prenom":"First name :",
+        "Email":"Email :",
+        "Telephone":"Phone number :",
+        "TelephonePro":"Business phone number :",
+        "Bouton":"Add/Edit"
+    },
+    "AjoutModifVisite":{
+        "Titre":"Adding/Editing a visit",
+        "Agent":"Real estate agent :",
+        "Bien":"Property :",
+        "Date":"Date of the visit :",
+        "Bouton":"Add/Edit"
     }
 }

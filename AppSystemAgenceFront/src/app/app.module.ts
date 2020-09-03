@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//import { MaterialAngularSelectModule } from 'material-angular-select';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import {HttpClientModule} from '@angular/common/http';
 
 import {FormsModule} from '@angular/forms'
@@ -29,6 +31,13 @@ import { CreateAdresseComponent } from './composants/create/create-adresse/creat
 import { ProprietairesComponent } from './composants/proprietaires/proprietaires.component';
 import { CreateVisiteComponent } from './composants/create/create-visite/create-visite.component';
 import { CreateProprietaireComponent } from './composants/create/create-proprietaire/create-proprietaire.component';
+import { AdressesComponent } from './composants/adresses/adresses.component';
+import { CreateClasseStandardComponent } from './composants/create/create-classe-standard/create-classe-standard.component';
+import { ClassesStandardComponent } from './composants/classes-standard/liste-classes-standards/classes-standard.component';
+import { BienImmoParClasseStandardComponent } from './composants/classes-standard/bien-immo-par-classe-standard/bien-immo-par-classe-standard.component';
+import { PageAccueilComponent } from './composants/accueil/page-accueil/page-accueil.component';
+import { CreateAcquisitionComponent } from './composants/create/create-acquisition/create-acquisition.component';
+import { BienImmobilierDetailsComponent } from './composants/bien-immobilier-details/bien-immobilier-details.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +53,21 @@ import { CreateProprietaireComponent } from './composants/create/create-propriet
     CreateAdresseComponent,
     ProprietairesComponent,
     CreateVisiteComponent,
-    CreateProprietaireComponent
+    CreateProprietaireComponent,
+    AdressesComponent,
+    CreateClasseStandardComponent,
+    ClassesStandardComponent,
+    BienImmoParClasseStandardComponent,
+    PageAccueilComponent,
+    CreateAcquisitionComponent,
+    BienImmobilierDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    //MaterialAngularSelectModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

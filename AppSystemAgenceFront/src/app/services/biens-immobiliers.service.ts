@@ -43,4 +43,8 @@ export class BiensImmobiliersService {
 
   }//end modifierBienImmoViaWsRest
 
+  trouverBienImmoParClasseStandardViaWsREST(pIdClasseStandard : number): Observable<BienImmobilier[]>{
+    return this.httpClient.get<BienImmobilier[]>(`${this.WS_REST_BASE_URL}/getByClasseStandard/${pIdClasseStandard}`);
+  }
+
 }//end classe
