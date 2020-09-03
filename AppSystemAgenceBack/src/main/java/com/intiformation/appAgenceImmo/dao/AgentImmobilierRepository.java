@@ -28,12 +28,6 @@ public interface AgentImmobilierRepository extends JpaRepository<AgentImmobilier
 	 * @return l'agent immobilier
 	 */
 	public AgentImmobilier findByAcquisitionIdAcquisition(Long pIdAcquisition);
-	
-	/**
-	 * Méthode de requête qui permet de récupérer l'agent immobilier avec son adresse mail
-	 * @param pMail
-	 * @return l'agent immobilier correspondant
-	 */
-	public AgentImmobilier findByMail(String pMail);
+
 
 }// end interface

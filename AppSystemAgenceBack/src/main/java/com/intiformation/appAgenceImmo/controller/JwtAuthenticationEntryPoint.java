@@ -1,27 +1,20 @@
-package com.intiformation.appAgenceImmo.authentification;
+package com.intiformation.appAgenceImmo.controller;
 
 import java.io.IOException;
 import java.io.Serializable;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JwtValidationAuthentification implements AuthenticationEntryPoint, Serializable {
-
-	// ...
-	// I AM FERDINAND VON AEGIR
+public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {
 	private static final long serialVersionUID = -7858869558953243875L;
-	
+
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response,
-		AuthenticationException authException) throws IOException {
-		response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Vous n'êtes pas autorisé à effectuer cette action");
+			AuthenticationException authException) throws IOException {
+		response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
 	}
-	
-}//end class
+}
