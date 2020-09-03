@@ -33,7 +33,8 @@ import { CreateVisiteComponent } from './composants/create/create-visite/create-
 import { CreateProprietaireComponent } from './composants/create/create-proprietaire/create-proprietaire.component';
 import { AdressesComponent } from './composants/adresses/adresses.component';
 import { CreateClasseStandardComponent } from './composants/create/create-classe-standard/create-classe-standard.component';
-import { ClassesStandardComponent } from './composants/classes-standard/classes-standard.component';
+import { ClassesStandardComponent } from './composants/classes-standard/liste-classes-standards/classes-standard.component';
+import { BienImmoParClasseStandardComponent } from './composants/classes-standard/bien-immo-par-classe-standard/bien-immo-par-classe-standard.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ClassesStandardComponent } from './composants/classes-standard/classes-
     CreateProprietaireComponent,
     AdressesComponent,
     CreateClasseStandardComponent,
-    ClassesStandardComponent
+    ClassesStandardComponent,
+    BienImmoParClasseStandardComponent
   ],
   imports: [
     BrowserModule,
