@@ -103,6 +103,8 @@ export class CreateBiensImmobiliersComponent implements OnInit {
        (proprietaireRetrouve)  =>  {this.bienImmo.proprietaire = proprietaireRetrouve;}
       );
   
+
+
     // test de l'id du bienImmo (AJOUT ou MODIF)
     if(this.bienImmo.idBienImmobilier == null){
       
@@ -119,8 +121,17 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
     }
 
-    //redirection vers list
-    this.router.navigate(['/listBiens']);
+    if (this.bienImmo.classeStandard == null) {
+
+       //redirection vers list
+      this.router.navigate(['/listBiens']);
+      
+    }else{
+
+      this.router.navigate(['classesStandard/listeBiens', this.bienImmo.classeStandard.idClasseStandard])
+
+    }
+   
 
   }//end saveOrUpdateBienImmo
 

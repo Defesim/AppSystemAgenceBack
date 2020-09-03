@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BiensImmobiliersService } from 'src/app/services/biens-immobiliers.service';
 import { ClassesStandardsService } from 'src/app/services/classes-standards.service';
 import { ClasseStandard } from 'src/app/modèles/ClasseStandard';
+import { BienImmobilier } from 'src/app/modèles/BienImmobilier';
 
 @Component({
   selector: 'app-bien-immo-par-classe-standard',
@@ -59,6 +60,23 @@ export class BienImmoParClasseStandardComponent implements OnInit {
 
     )//end subscride
   }//end getClasseStdByIdFromWsRe
+
+  deleteBienImmo(bienImmobilier:BienImmobilier, idClasseStandard: number){
+
+    this.BienService.supprimerBienImmoViaWsRest(bienImmobilier).subscribe( ()=>{
+
+      this.findBienImmoByClasseStandard(idClasseStandard);
+    });
+
+  }//end deleteBienImmo
+
+  editBienImmo(idBienImmobilier :number){
+
+    
+    this.route.navigate(['listBiens/edit', idBienImmobilier]);
+
+  }//end editBienImmo
+
 
 
 }//end classe

@@ -67,11 +67,11 @@ public class BienImmobilierWebService {
 	 */
 	@PostMapping(value="/save")	
 	public BienImmobilier ajouterBienImmobilier(@RequestBody BienImmobilier pBien){
-		
+		/*
 		for (Image img : pBien.getListeImages()) {
 			img.setPhoto(Base64.decodeBase64(img.getImage()));
 		}
-
+*/
 		return bienImmoService.ajouter(pBien);
 		
 	}//end ajouterBienImmobilier
