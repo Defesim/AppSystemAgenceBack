@@ -36,6 +36,8 @@ import { CreateClasseStandardComponent } from './composants/create/create-classe
 import { ClassesStandardComponent } from './composants/classes-standard/liste-classes-standards/classes-standard.component';
 import { BienImmoParClasseStandardComponent } from './composants/classes-standard/bien-immo-par-classe-standard/bien-immo-par-classe-standard.component';
 import { PageAccueilComponent } from './composants/accueil/page-accueil/page-accueil.component';
+import { CreateAcquisitionComponent } from './composants/create/create-acquisition/create-acquisition.component';
+import { BienImmobilierDetailsComponent } from './composants/bien-immobilier-details/bien-immobilier-details.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { PageAccueilComponent } from './composants/accueil/page-accueil/page-acc
     CreateClasseStandardComponent,
     ClassesStandardComponent,
     BienImmoParClasseStandardComponent,
-    PageAccueilComponent
+    PageAccueilComponent,
+    CreateAcquisitionComponent,
+    BienImmobilierDetailsComponent
   ],
   imports: [
     BrowserModule,

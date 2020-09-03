@@ -47,6 +47,16 @@ export class BiensImmobiliersComponent implements OnInit {
     this.route.navigate(['listBiens/edit', idBienImmobilier]);
 
   }//end editBienImmo
+
+  /**
+   * Méthode pour renvoyer le bien immobilier vers une nouvelle page html avec les détails associés
+   */
+  detailsBienImmo(bienImmobilier:BienImmobilier){
+
+    
+    this.route.navigate(['bienImmo', bienImmobilier]);
+
+  }//end detailsBienImmo
  
 
   attribuerAdresse(pIdBienImmobilier){
