@@ -77,10 +77,4 @@ public class AgentImmobilierService implements IAgentImmobilierService {
 		return agentImmobilierRepository.findByAcquisitionIdAcquisition(pIdAcquisition);
 	}
 
-	// méth pour récupérer l'agent immobilier via son adresse mail
-	@Override
-	public AgentImmobilier findByMail(String pMail) {
-		return agentImmobilierRepository.findByMail(pMail);
-	}
-
 }// end classe
