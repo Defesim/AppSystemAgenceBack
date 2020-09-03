@@ -120,16 +120,16 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		for (BienImmobilier bienImmobilier : listeBiensImmoBDD) {
 			System.out.println(bienImmobilier.getStatut());
 		}
-		 
+		*/ 
 	
 		
 		// TEST sur : PERSONNE
 		// Test AJOUT
 		Personne personne1 = new AgentImmobilier("jean", "pierre", "agentiImmo@mail", "123");
-		Personne personne2 = new Client("paul", "jacques", "Client@mail");
+//		Personne personne2 = new Client("paul", "jacques", "Client@mail");
 		
 		personneService.ajouter(personne1);
-		personneWsREST.ajouterPersonne(personne2);
+//		personneWsREST.ajouterPersonne(personne2);
 	
 		// Test GetAll
 		List<Personne> listePersonneBDD =  personneWsREST.listAllPersonneBdd();
@@ -141,7 +141,7 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		// ------ Test : Get by ID -----------
 		Personne personneARecup = personneWsREST.personneById((long) 1);
 			System.out.println("\t > " + personneARecup.getNom());
-		*/
+		
 /*		// Test find by Id
 		
 		BienImmobilier BienImmoaTrouver = bienImmoWS.trouverBienImmoViaId(2L); 

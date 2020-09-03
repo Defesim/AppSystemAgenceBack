@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgFlashMessageService } from 'ng-flash-messages';
+//import { NgFlashMessageService } from 'ng-flash-messages';
 
 import { AuthentificationService } from "src/app/services/auth/authentification.service";
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +18,8 @@ export class LoginComponent implements OnInit {
   password: String = '';
 
   constructor(private router: Router,
-    private loginservice: AuthentificationService,
-    private ngFlashMessageService: NgFlashMessageService) { }
+    private loginservice: AuthentificationService/*,
+    private ngFlashMessageService: NgFlashMessageService*/) { }
 
   ngOnInit(): void {
   }

@@ -21,7 +21,8 @@ import com.intiformation.appAgenceImmo.controller.JwtRequest;
 import com.intiformation.appAgenceImmo.controller.JwtResponse;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/authenticate")
 public class JwtAuthenticationController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
