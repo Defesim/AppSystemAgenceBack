@@ -1,20 +1,16 @@
-
-
 <div class="container-fluid" style="margin-left: 20px;margin-right: 20px;">
-
 
 <a class="add-link" style="float: right;" routerLink="edit/0"> <span class="glyphicon glyphicon-plus"></span>{{'BienImmobilier.Ajout' | translate}}</a>
 <br><br>
 
+    <div class="panel panel-primary" *ngFor="let bien of biensImmobiliers">
 
-<div class="panel panel-primary" *ngFor="let bien of biensImmobiliers">
-
-    <!--===================================-->
-    <!--===== Header du panneau ===========-->
-    <!--===================================-->
-    <div class="panel-heading">
-        <h3 class="panel-title">{{bien.statut}}</h3>
-    </div>
+        <!--===================================-->
+        <!--===== Header du panneau ===========-->
+        <!--===================================-->
+        <div class="panel-heading">
+            <h3 class="panel-title">{{bien.statut}}</h3>
+        </div>
 
     <!--===================================-->
     <!--===== body du panneau =============-->
@@ -53,11 +49,11 @@
                     <div class="row">
                         <div class="col-xs-6 font-title">
                             {{'BienImmobilier.RevenuCadastral' | translate}}
+                            </div>
+                            <div class="col-xs-6">
+                                {{bien.revenuCadastral}}
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            {{bien.revenuCadastral}}
-                        </div>
-                    </div>
 
                     <!--++++++++ Salaire ++++++++++++++++++-->
                     <div class="row ">
@@ -88,9 +84,10 @@
             {{'Supprimer' | translate}} 
         </button>
 
-    </div>
-</div> 
+        </div>
 
-<br>
+    </div>
+
+    <br>
 
 </div>

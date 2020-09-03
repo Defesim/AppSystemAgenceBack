@@ -1,0 +1,100 @@
+<div class="container-fluid" style="margin-left: 20px;margin-right: 20px;">
+
+    <h3>Liste des biens immobiliers pour la classe Standard: {{classeStandardSelect.libelle}} </h3>
+
+    <a class="add-link" style="float: right;" routerLink="edit/0"> <span class="glyphicon glyphicon-plus"></span>
+        Ajouter un bien</a>
+    <br><br>
+
+
+    <div class="panel panel-primary" *ngFor="let bien of biensImmobiliersByCS">
+
+        <!--===================================-->
+        <!--===== Header du panneau ===========-->
+        <!--===================================-->
+        <div class="panel-heading">
+            <h3 class="panel-title">{{bien.statut}}</h3>
+        </div>
+
+        <!--===================================-->
+        <!--===== body du panneau =============-->
+        <!--===================================-->
+        <div class="panel-body">
+            <div class="col-xs-10">
+                <div class="row vertical-align">
+
+                    <!--+++++++++++++++++ Adresse +++++++++++++++++++++-->
+                    <div class="col-xs-3">
+                        <!-- Si l'adresse n'est pas nulle on la montre-->
+                        <div style="width: 100%; height: 100%;" *ngIf="bien.adresse != null">
+                            <h3>Adresse:</h3>
+                            <br>
+                            <p><strong></strong> {{bien.adresse.rue}} </p>
+                            <br>
+                            <p><strong>{{bien.adresse.codePostal}} </strong> {{bien.adresse.ville}} </p>
+                        </div>
+
+                        <!-- Sinon boutton pour ajouter l'adresse-->
+                        <a class="add-adress-link" *ngIf="bien.adresse == null"
+                            (click)="attribuerAdresse(bien.idBienImmobilier)">
+
+                            <div class="add-adress">
+                                <span class="glyphicon glyphicon-plus"></span> <br>
+                                Ajouter une adresse
+                            </div>
+
+                        </a>
+                    </div>
+
+                    <!--++++++++ details de l'employe ++++++++++++++++-->
+                    <div class="col-xs-8">
+
+                        <!--++++++++ Fonction ++++++++++++++++-->
+                        <div class="row">
+                            <div class="col-xs-6 font-title">
+                                Revenu cadastral :
+                            </div>
+                            <div class="col-xs-6">
+                                {{bien.revenuCadastral}}
+                            </div>
+                        </div>
+
+                        <!--++++++++ Salaire ++++++++++++++++++-->
+                        <div class="row ">
+                            <div class="col-xs-6">
+                                Date de mise à disposition :
+                            </div>
+                            <div class="col-xs-6">
+                                {{bien.dateDeMiseADisposition}}
+                            </div>
+                        </div>
+                        <!--end row-->
+
+                    </div>
+
+                </div>
+                <!--end row vertical align-->
+            </div>
+            <!--end div col-xs-10-->
+        </div>
+        <!--end body-->
+
+        <!--===================================-->
+        <!--===== footer du panneau ===========-->
+        <!--===================================-->
+        <div class="panel-footer">
+
+            <button class="btn btn-primary" (click)="editBienImmo(bien.idBienImmobilier)">
+                Edit
+            </button>
+            ||
+            <button class="btn btn-danger" (click)="deleteBienImmo(bien)">
+                Delete
+            </button>
+
+        </div>
+    </div>
+
+    <br>
+
+</div>
