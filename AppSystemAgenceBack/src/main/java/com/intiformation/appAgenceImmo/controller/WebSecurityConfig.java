@@ -50,13 +50,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-
+		httpSecurity.cors().disable();
+		System.out.println("Cors disabled");
 		//==============================================================================
 		//==============================================================================
 			// COMMENTAIRE ANAIS : ligne commenté pour test
 		//==============================================================================
 		//==============================================================================
-/*
+
 		
 // We don't need CSRF for this example
 		httpSecurity.csrf().disable()
@@ -99,6 +100,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 // Add a filter to validate the tokens with every request
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-*/	}
+	}
 
 }

@@ -8,9 +8,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.intiformation.appAgenceImmo.dao.BienImmobilierRepository;
 import com.intiformation.appAgenceImmo.modele.AgentImmobilier;
@@ -125,14 +128,14 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 		
 		// TEST sur : PERSONNE
 		// Test AJOUT
-		Personne personne1 = new AgentImmobilier("jean", "pierre", "agentiImmo@mail", "123");
+//		Personne personne1 = new AgentImmobilier("jean", "pierre", "agentiImmo@mail", "123");
 //		Personne personne2 = new Client("paul", "jacques", "Client@mail");
 		
-		personneService.ajouter(personne1);
+//		personneService.ajouter(personne1);
 //		personneWsREST.ajouterPersonne(personne2);
 	
 		// Test GetAll
-		List<Personne> listePersonneBDD =  personneWsREST.listAllPersonneBdd();
+/*		List<Personne> listePersonneBDD =  personneWsREST.listAllPersonneBdd();
 		for (Personne personne : listePersonneBDD) {
 			System.out.println(personne.getNom());
 		}	
@@ -155,6 +158,26 @@ public class AppSystemAgenceBackApplication implements CommandLineRunner {
 
 	}// end run()
 
+	@Bean
+    public WebMvcConfigurer corsConfigurer() {
+    	return new WebMvcConfigurer() {
+
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				System.out.println("AppSystem - entrée dans WebMvcConfigurer()");
+				WebMvcConfigurer.super.addCorsMappings(registry);
+				System.out.println("Etape 1");
+				registry.addMapping("/*").allowedOrigins("*").allowedMethods("GET", "POST", "OPTIONS", "PUT")
+                .allowedHeaders("Content-Type", "X-Requested-With", "accept", "Origin", "Access-Control-Request-Method",
+                        "Access-Control-Request-Headers")
+                .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
+                .allowCredentials(true).maxAge(3600);
+				System.out.println("Etape 2");
+			}
+    		
+		};
+    	
+    }
 
 
 	

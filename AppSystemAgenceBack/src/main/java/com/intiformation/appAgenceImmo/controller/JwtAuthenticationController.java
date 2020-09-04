@@ -14,15 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.intiformation.appAgenceImmo.controller.JwtTokenUtil;
-import com.intiformation.appAgenceImmo.controller.JwtUserDetailsService;
 import com.intiformation.appAgenceImmo.modele.AgentImmobilier;
-import com.intiformation.appAgenceImmo.controller.JwtRequest;
-import com.intiformation.appAgenceImmo.controller.JwtResponse;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/authenticate")
+@RequestMapping("/ws-rest/authenticate")
 public class JwtAuthenticationController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -33,6 +29,7 @@ public class JwtAuthenticationController {
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+		System.out.println("JwtAuthentificationController - rentré dans createAuthenticationToken()");
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 		System.out.println(" AUTHORITIES : " + userDetails.getAuthorities() );
@@ -45,6 +42,7 @@ public class JwtAuthenticationController {
 	}
 
 	private void authenticate(String username, String password) throws Exception {
+		System.out.println("JwtAuthentificationController - rentré dans authenticate()");
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 		} catch (DisabledException e) {
@@ -57,6 +55,7 @@ public class JwtAuthenticationController {
 	
 	@RequestMapping(value="/registerAdmin", method = RequestMethod.POST)
 	public AgentImmobilier register(@RequestBody AgentImmobilier cons) {
+		System.out.println("JwtAuthentificationController - rentré dans register()");
 		System.out.println("REGISTER ADMIN :: " + cons);
 		return userDetailsService.saveAdmin(cons);
 	}
