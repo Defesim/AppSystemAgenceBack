@@ -1,7 +1,98 @@
-<p>Fiche de détails du bien ( A IMPLEMENTER )</p>
- 
-{{bienImmo.statut}}
+<div class="container-fluid" style="margin-left: 20px;margin-right: 20px;">
 
-<button class="btn btn-primary"  (click)="acquerirBienImmo(bienImmo.idBienImmobilier)">
-    {{'Choisir ce bien' | translate}} 
-</button>
+    <h3>Fiche de détails du bien: {{bienImmo.statut}} </h3>
+    <br/>
+    <div class="panel panel-primary" >
+      
+
+        <!--===================================-->
+        <!--===== Header du panneau ===========-->
+        <!--===================================-->
+        <div class="panel-heading">
+            <h3 class="panel-title">{{bienImmo.statut}}</h3>
+        </div>
+
+        <!--===================================-->
+        <!--===== body du panneau =============-->
+        <!--===================================-->
+        <div class="panel-body">
+            <div class="col-xs-10">
+                <div class="row vertical-align">
+
+                   
+
+                    <!--++++++++ details du bien immo ++++++++++++++++-->
+                    <div class="col-xs-8">
+
+                        <!--++++++++  Revenu cadastral : ++++++++++++++++-->
+                        <div class="row">
+                            <div class="col-xs-6 font-title">
+                                Revenu cadastral :
+                            </div>
+                            <div class="col-xs-6">
+                                {{bienImmo.revenuCadastral}}
+                            </div>
+                        </div>
+
+                        <!--++++++++ Date de mise à disposition : ++++++++++++++++++-->
+                        <div class="row ">
+                            <div class="col-xs-6">
+                                Date de mise à disposition :
+                            </div>
+                            <div class="col-xs-6">
+                                {{bienImmo.dateDeMiseADisposition}}
+                            </div>
+                        </div>
+                        <!--end row-->
+
+                        <!--++++++++ Classe Standard du bien immobilier : ++++++++++++++++++-->
+                        <div class="row ">
+                            <div class="col-xs-6">
+                                Classe Standard du bien immobilier :
+                            </div>
+                            <div class="col-xs-6">
+                                {{bienImmo.classeStandard.idClasseStandard}}: {{bienImmo.classeStandard.libelle}}= 
+                                {{bienImmo.classeStandard.typeDeBien}}, {{bienImmo.classeStandard.usageDuBien}}
+                            </div>
+                        </div>
+                        <!--end row-->
+
+                        <!--++++++++ Proprietaire du bien : ++++++++++++++++++-->
+                        <div class="row ">
+                            <div class="col-xs-6">
+                               Proprietaire du bien :
+                            </div>
+                            <div class="col-xs-6">
+                                {{bienImmo.proprietaire.nom | uppercase }} {{bienImmo.proprietaire.prenom}}; n° tel : {{bienImmo.proprietaire.telephonePrive}}
+                            </div>
+                        </div>
+                        <!--end row-->
+
+                    </div>
+
+                </div>
+                <!--end row vertical align-->
+            </div>
+            <!--end div col-xs-10-->
+        </div>
+        <!--end body-->
+
+        <!--===================================-->
+        <!--===== footer du panneau ===========-->
+        <!--===================================-->
+        <div class="panel-footer">
+
+            <button class="btn btn-primary"  (click)="acquerirBienImmo(bienImmo.idBienImmobilier)">
+                {{'Choisir ce bien' | translate}} 
+            </button>
+            ||
+            <button class="btn btn-primary" (click)="retourVersListeBien()" >
+                Retour vers la liste des biens 
+            </button>
+
+        </div>
+    </div>
+
+    <br>
+
+</div>
