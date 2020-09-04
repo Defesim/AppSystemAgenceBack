@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-// Import des modeles
-import { Acquisition } from 'src/app/modèles/Acquisition'
-import { BienImmobilier } from 'src/app/modèles/BienImmobilier'
-import { AgentImmobilier } from 'src/app/modèles/AgentImmobilier'
-import { Client } from 'src/app/modèles/Client'
 
 // Import des services
 import { BiensImmobiliersService } from 'src/app/services/biens-immobiliers.service';

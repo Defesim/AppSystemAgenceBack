@@ -77,7 +77,8 @@
         "DateSoumission":"File submission date :",
         "DateDisposition":"Date of provision of the property :",
         "Proprietaire":"Property's owner :",
-        "Bouton":"Add/Edit"
+        "Bouton":"Add/Edit",
+        "ClasseStandard":"Standard class :"
     },
     "AjoutModifClient":{
         "Titre":"Adding/Editing a client",

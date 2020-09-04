@@ -77,7 +77,8 @@
         "DateSoumission":"Date de soumission du dossier :",
         "DateDisposition":"Date de mise à disposition du bien :",
         "Proprietaire":"Propriétaire du bien :",
-        "Bouton":"Ajout/Modification"
+        "Bouton":"Ajout/Modification",
+        "ClasseStandard": "Classe standard du bien :"
     },
     "AjoutModifClient":{
         "Titre":"Ajout/Modification d'un client",

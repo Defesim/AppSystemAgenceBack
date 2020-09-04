@@ -11,8 +11,7 @@ import { Observable } from 'rxjs';
 export class AdressesService {
 
   private WS_REST_BASE_URL = "http://localhost:8080/gestion-agence-immo/ws-rest/adresse";
-
-
+  
   constructor(private httpClient: HttpClient) { }
 
 

@@ -25,14 +25,14 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "visites")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-				property = "idViste")
+				property = "idVisite")
 public class Visite implements Serializable {
 	
 	/*--------------- PROPRIETES ---------------*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_visite")
-	private Long idViste;
+	private Long idVisite;
 	
 	@Column(name = "date_visite")
 	private Date dateVisite; 
@@ -76,12 +76,12 @@ public class Visite implements Serializable {
 
 	/*--------------- GETTER / SETTER ---------------*/
 	
-	public Long getIdViste() {
-		return idViste;
+	public Long getIdVisite() {
+		return idVisite;
 	}
 
-	public void setIdViste(Long idViste) {
-		this.idViste = idViste;
+	public void setIdVisite(Long idViste) {
+		this.idVisite = idViste;
 	}
 
 	public Date getDateVisite() {
