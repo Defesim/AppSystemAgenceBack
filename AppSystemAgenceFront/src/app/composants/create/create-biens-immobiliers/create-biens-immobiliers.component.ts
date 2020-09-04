@@ -7,6 +7,7 @@ import { Proprietaire } from 'src/app/modèles/Proprietaire';
 import { NgModel } from '@angular/forms';
 import { ClasseStandard } from 'src/app/modèles/ClasseStandard'
 import { ClassesStandardsService } from 'src/app/services/classes-standards.service'
+import { ModeOffre } from 'src/app/modèles/ModeOffre';
 
 @Component({
   selector: 'app-create-biens-immobiliers',
@@ -16,44 +17,49 @@ import { ClassesStandardsService } from 'src/app/services/classes-standards.serv
 export class CreateBiensImmobiliersComponent implements OnInit {
 
 
-  bienImmo: BienImmobilier ;
+  bienImmo: BienImmobilier;
   proprietaires = [];
-  proprietaire : Proprietaire;
+  proprietaire: Proprietaire;
   classesStandards = [];
-  classeStandard : ClasseStandard;
+  classeStandard: ClasseStandard;
+  modeOffre: ModeOffre;
 
-  constructor(private biensImmoService:BiensImmobiliersService, 
-    private router:Router,
+  constructor(private biensImmoService: BiensImmobiliersService,
+    private router: Router,
     private activatedRouter: ActivatedRoute,
-    private proprietaireService : ProprietairesService,
-    private classesStandardService : ClassesStandardsService) {
-      this.findAllPrioprietaires();
-      this.findAllClassesStandards();
-   
+    private proprietaireService: ProprietairesService,
+    private classesStandardService: ClassesStandardsService) {
+    this.findAllPrioprietaires();
+    this.findAllClassesStandards();
+
   }//end ctor
 
   ngOnInit(): void {
-    
+
     // recup du param de l'id de l'url ( ref : route 'editBien/:id' de  app-routing.module.ts)
-    this.activatedRouter.paramMap.subscribe((paramsMap)=> {
+    this.activatedRouter.paramMap.subscribe((paramsMap) => {
 
       const idBien = +paramsMap.get("id");
 
       this.findBienImmoById(idBien);
 
+      this.modeOffre = {
+        bienImmobilier: null, typeModeOffre: null, idModeOffre: null
+      }
+      
 
     })
   }//end ngOnInit 
 
-  findAllPrioprietaires(){
+  findAllPrioprietaires() {
     this.proprietaireService.getAllProprietaireFromWsRest()
-                            .subscribe(data => this.proprietaires = data)
+      .subscribe(data => this.proprietaires = data)
   }
 
 
-  findAllClassesStandards(){
+  findAllClassesStandards() {
     this.classesStandardService.getAllClasseStandardFromWsRest()
-                                .subscribe(data => this.classesStandards = data )
+      .subscribe(data => this.classesStandards = data)
   }
 
   /**
@@ -63,32 +69,32 @@ export class CreateBiensImmobiliersComponent implements OnInit {
    * 
    * @param idEmploye 
    */
-  findBienImmoById(idBien: number){
+  findBienImmoById(idBien: number) {
 
-    if(idBien == 0){
+    if (idBien == 0) {
 
-      this.bienImmo =  {
-        idBienImmobilier : null,
-        dateDeMiseADisposition :  null,
-        dateDeSoumission : null,
-        revenuCadastral : null,
-        statut : null,
-        adresse : null,
-        classeStandard : null,
+      this.bienImmo = {
+        idBienImmobilier: null,
+        dateDeMiseADisposition: null,
+        dateDeSoumission: null,
+        revenuCadastral: null,
+        statut: null,
+        adresse: null,
+        classeStandard: null,
         proprietaire: null,
-        acquisition:null,
-        modeOffre:null
+        acquisition: null,
+        modeOffre: null
       };
 
       this.bienImmo.proprietaire = {
         adresse: null,
         email: null,
-        id_personne : null,
-        listeDesBiensDuProprio : null,
-        nom : null,
-        prenom :null,
-        telephonePrive : null,
-        telephonePro : null
+        id_personne: null,
+        listeDesBiensDuProprio: null,
+        nom: null,
+        prenom: null,
+        telephonePrive: null,
+        telephonePro: null
       };
 
       this.bienImmo.classeStandard = {
@@ -102,7 +108,7 @@ export class CreateBiensImmobiliersComponent implements OnInit {
         usageDuBien: null
       }
 
-    }else{
+    } else {
 
       this.biensImmoService.getBienImmoByIdFromWsRest(idBien).subscribe(
 
@@ -115,32 +121,32 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
   }//end findBienImmoById
 
-  saveOrUpdateBienImmo(){
+  saveOrUpdateBienImmo() {
 
     console.log(this.bienImmo.proprietaire.id_personne)
 
     /**
      * Récupération ID et proprio
      */
-    this.proprietaireService.getProprietaireByIdFromWsRest(this.bienImmo.proprietaire.id_personne).subscribe(  
-       (proprietaireRetrouve)  =>  {this.bienImmo.proprietaire = proprietaireRetrouve;}
-      );
+    this.proprietaireService.getProprietaireByIdFromWsRest(this.bienImmo.proprietaire.id_personne).subscribe(
+      (proprietaireRetrouve) => { this.bienImmo.proprietaire = proprietaireRetrouve; }
+    );
 
     this.classesStandardService.getClasseStdByIdFromWsRest(this.bienImmo.classeStandard.idClasseStandard).subscribe(
       (classeStandardaRetrouver) => { this.bienImmo.classeStandard = classeStandardaRetrouver; }
     )
-    
- 
+
+
     // test de l'id du bienImmo (AJOUT ou MODIF)
-    if(this.bienImmo.idBienImmobilier == null){
-      
+    if (this.bienImmo.idBienImmobilier == null) {
+
 
       // this.bien
       // => le bien n'a pas encore d'id <=> ajout
       this.biensImmoService.ajouterBienImmoViaWsRest(this.bienImmo).subscribe(
       );
 
-    }else{
+    } else {
       console.log(this.bienImmo.revenuCadastral);
       // => modification
       this.biensImmoService.modifierBienImmoViaWsRest(this.bienImmo).subscribe();
@@ -149,17 +155,17 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
     //if (this.bienImmo.classeStandard == null) {
 
-       //redirection vers list
+    //redirection vers list
     this.router.navigate(['/listBiens']);
 
-      /*
-      
-    }else{
+    /*
+    
+  }else{
 
-      this.router.navigate(['classesStandard/listeBiens', this.bienImmo.classeStandard.idClasseStandard])
+    this.router.navigate(['classesStandard/listeBiens', this.bienImmo.classeStandard.idClasseStandard])
 
-    }
-   */
+  }
+ */
 
   }//end saveOrUpdateBienImmo
 
