@@ -7,6 +7,10 @@ import { AcquisitionsService } from 'src/app/services/acquisitions.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AgentsService } from 'src/app/services/agents.service';
 import { ClientsService } from 'src/app/services/clients.service';
+import { Acquisition } from 'src/app/modèles/Acquisition';
+import { Client } from 'src/app/modèles/Client';
+import { AgentImmobilier } from 'src/app/modèles/AgentImmobilier';
+import { BienImmobilier } from 'src/app/modèles/BienImmobilier';
 
 @Component({
   selector: 'app-create-acquisition',
