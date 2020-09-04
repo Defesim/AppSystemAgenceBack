@@ -49,7 +49,6 @@ export class CreateBiensImmobiliersComponent implements OnInit {
       this.modeOffre = {
         bienImmobilier: null, typeModeOffre: null, idModeOffre: null
       }
-      
 
     })
   }//end ngOnInit 
@@ -69,7 +68,7 @@ export class CreateBiensImmobiliersComponent implements OnInit {
    * Permet de  :
    *          -> cas id = 0 : (Ajout) init un objet vide pour l'ajout
    *          -> cad id > 0 : (Modif) appel du service pour la reucp des infos du bien à mod
-   * 
+   *  
    * @param idEmploye 
    */
   findBienImmoById(idBien: number) {
@@ -86,8 +85,9 @@ export class CreateBiensImmobiliersComponent implements OnInit {
         classeStandard: null,
         proprietaire: null,
         acquisition: null,
-        modeOffre: null
-      };
+        modeOffre: null,
+        listeImages: []
+      }; 
 
       this.bienImmo.proprietaire = {
         adresse: null,
@@ -126,7 +126,7 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
   saveOrUpdateBienImmo() {
 
-    console.log(this.bienImmo.proprietaire.id_personne)
+    console.log("Proprio id : " + this.bienImmo.proprietaire.id_personne)
 
     /**
      * Récupération ID et proprio
@@ -138,6 +138,8 @@ export class CreateBiensImmobiliersComponent implements OnInit {
     this.classesStandardService.getClasseStdByIdFromWsRest(this.bienImmo.classeStandard.idClasseStandard).subscribe(
       (classeStandardaRetrouver) => { this.bienImmo.classeStandard = classeStandardaRetrouver; }
     )
+
+    this.bienImmo.listeImages= this.images;
 
 
     // test de l'id du bienImmo (AJOUT ou MODIF)
@@ -157,7 +159,7 @@ export class CreateBiensImmobiliersComponent implements OnInit {
     }
 
     //if (this.bienImmo.classeStandard == null) {
-
+ 
     //redirection vers list
     this.router.navigate(['/listBiens']);
 
@@ -179,12 +181,15 @@ export class CreateBiensImmobiliersComponent implements OnInit {
   }
 
   onChange(evt: any) {
+    console.log("evt: any :" + evt)
     const files = evt.target.files;
     if (files.length) {
+      console.log("files.length :" + files.length)
       for (var i = 0; i < files.length; i++) {
         const reader = new FileReader();
         reader.onload = this.handleReaderLoader.bind(this);
         reader.readAsBinaryString(files[i]);
+        console.log("reader:" + reader)
       }
     }
   }

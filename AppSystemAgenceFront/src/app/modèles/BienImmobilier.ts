@@ -3,6 +3,7 @@ import{ClasseStandard} from './ClasseStandard';
 import { Proprietaire } from "./Proprietaire";
 import {ModeOffre} from "./ModeOffre";
 import {Acquisition} from "./Acquisition";
+import { Image } from './Image'
 
 
 export class BienImmobilier{
@@ -19,5 +20,6 @@ export class BienImmobilier{
     proprietaire:Proprietaire;
     modeOffre: ModeOffre;
     acquisition: Acquisition;
+    listeImages: Array<Image>;
 
 }

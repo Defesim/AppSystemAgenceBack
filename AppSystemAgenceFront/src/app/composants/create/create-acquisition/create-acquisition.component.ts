@@ -83,7 +83,8 @@ export class CreateAcquisitionComponent implements OnInit {
         modeOffre:null,
         proprietaire:null,
         revenuCadastral:null,
-        statut:null
+        statut:null,
+        listeImages: []
       }
      
     })
@@ -109,7 +110,8 @@ export class CreateAcquisitionComponent implements OnInit {
         classeStandard : null,
         proprietaire: null,
         acquisition:null,
-        modeOffre:null
+        modeOffre:null,
+        listeImages: []
       };
 
       this.bienImmobilier.acquisition = {

@@ -80,7 +80,8 @@ export class CreateVisiteComponent implements OnInit {
         statut: null,
         proprietaire:null,
         acquisition:null,
-        modeOffre:null
+        modeOffre:null,
+        listeImages: []
       };
 
       this.visite.agentImmobilier = {
