@@ -30,7 +30,7 @@ import com.intiformation.appAgenceImmo.service.IAcquisitionService;
  * @author hannahlevardon
  *
  */
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 @RestController // déclaration de la classe comme WS Rest
 @RequestMapping("/acquisition") // URL du WS REST 
 public class AcquistionWebService {

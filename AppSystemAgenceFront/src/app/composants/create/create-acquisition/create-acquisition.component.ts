@@ -138,16 +138,16 @@ export class CreateAcquisitionComponent implements OnInit {
 
     
     this.cleintService.getClientByIdFromWsRest(this.acquisition.client.id_personne).subscribe(
-      (clientRetrouve) => {this.client = clientRetrouve}
+      (clientRetrouve) => {this.acquisition.client = clientRetrouve}
     );
 
     this.agentService.getAgentImmobilierByIdFromWsRest(this.acquisition.agentImmobilier.id_personne).subscribe(
-      (agentRetrouve) => { this.agentImmobilier = agentRetrouve}
+      (agentRetrouve) => { this.acquisition.agentImmobilier = agentRetrouve}
     );
 
-    console.log(this.client.id_personne);
+    console.log(this.acquisition.client.id_personne);
 
-    console.log(this.agentImmobilier.id_personne);
+    console.log(this.acquisition.agentImmobilier.id_personne);
 
     this.acquisitionService.ajouterAcquisitionViaWsRest(this.acquisition).subscribe();
     

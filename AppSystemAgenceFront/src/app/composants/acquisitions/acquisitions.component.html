@@ -1,0 +1,106 @@
+<div class="container-fluid" style="margin-left: 20px;margin-right: 20px;">
+    HELLLOOOOOO
+    <br><br>
+
+    <div class="panel panel-primary" *ngFor="let acqui of acquisitions">
+
+        <!--===================================-->
+        <!--===== Header du panneau ===========-->
+        <!--===================================-->
+        <div class="panel-heading">
+            <h3 class="panel-title">{{acqui.idAcquisition}}</h3>
+        </div>
+
+        <!--===================================-->
+        <!--===== body du panneau =============-->
+        <!--===================================-->
+        <div class="panel-body">
+            <div class="col-xs-10">
+                <div class="row vertical-align">
+
+                    <!--++++++++ details de l''acquisition' ++++++++++++++++-->
+                    <div class="col-xs-8">
+
+                        <!--++++++++ Fonction ++++++++++++++++-->
+                        <div class="row">
+                            <div class="col-xs-12 font-title">
+                                <h4> {{'Acquisition.Type' | translate}}</h4>
+                               
+                            </div>
+                            <div class="col-xs-6">
+                                {{acqui.typeAcquisition}}
+                            </div>
+                        </div>
+
+                        <!--++++++++ Fonction ++++++++++++++++-->
+                        <div class="row">
+                            <div class="col-xs-12 font-title">
+                                <h4> {{'Acquisition.Prix' | translate}}</h4>
+                               
+                            </div>
+                            <div class="col-xs-6">
+                                {{acqui.prixAchat}} €
+                            </div>
+                        </div>
+
+                        <!--++++++++ Details Client ++++++++++++++++++-->
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <h4> {{'Acquisition.DetailsClient' | translate}}</h4>
+                               
+                            </div>
+                            <div class="col-xs-6">
+                                Identité:
+                                {{acqui.bienImmobilier.acquisition.agentImmobilier.acquisition.client.nom}}
+                                {{acqui.bienImmobilier.acquisition.agentImmobilier.acquisition.client.prenom}}
+
+                            </div>
+                            <div class="col-xs-6">
+                                Numéro de téléphone:
+                                {{acqui.bienImmobilier.acquisition.agentImmobilier.acquisition.client.telephonePrive}}
+
+                            </div>
+
+                        </div>
+                        <!--end row-->
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <h4>{{'Acquisition.DetailsBienImmobilier' | translate}}</h4>
+                                
+                            </div>
+                            <div class="col-xs-6">
+                                Id:
+                                {{acqui.bienImmobilier.idBienImmobilier}}
+                            </div>
+                            <div class="col-xs-6">
+                                Classe standard:
+
+                                {{acqui.bienImmobilier.classeStandard.libelle}}
+                            </div>
+                            <div class="col-xs-6">
+                                Propriétaire:
+                                
+                                {{acqui.bienImmobilier.proprietaire.id_personne}}
+                                {{acqui.bienImmobilier.proprietaire.nom}}
+                                {{acqui.bienImmobilier.proprietaire.prenom}}
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                    <!--end row vertical align-->
+                </div>
+                <!--end div col-xs-10-->
+            </div>
+            <!--end body-->
+
+
+
+        </div>
+
+        <br>
+
+    </div>

@@ -23,6 +23,8 @@ import { BienImmoParClasseStandardComponent } from './composants/classes-standar
 import { PageAccueilComponent } from './composants/accueil/page-accueil/page-accueil.component';
 import { BienImmobilierDetailsComponent } from './composants/bien-immobilier-details/bien-immobilier-details.component';
 import { CreateAcquisitionComponent } from './composants/create/create-acquisition/create-acquisition.component';
+import { Acquisition } from './modèles/Acquisition';
+import { AcquisitionsComponent } from './composants/acquisitions/acquisitions.component';
 
 
 const routes: Routes = [
@@ -67,7 +69,8 @@ const routes: Routes = [
   { path: "classesStandard/listeBiens/:id", component: BienImmoParClasseStandardComponent },
  
   // route pour la gestion des acquisitions
-  {path: "acquisition/:idBien", component : CreateAcquisitionComponent}
+  {path: "acquisition/:idBien", component : CreateAcquisitionComponent},
+  {path: "acquisitions", component: AcquisitionsComponent }
   
 ];
 

@@ -11,7 +11,8 @@
         "visites": "Mes visites",
         "rechercheBien": "Rechercher un bien",
         "clients": "Mes clients",
-        "connection": "Se connecter"
+        "connection": "Se connecter",
+        "contrats": "Contrats"
     },
     "Footer":{
         "AboutUs": "A propos",
@@ -101,5 +102,13 @@
         "Bien":"Bien immobilier :",
         "Date":"Date de la visite :",
         "Bouton":"Ajout/Modification"
+    },
+
+    "Acquisition":{
+        "Type": "Type d'acquisition",
+        "DetailsClient": "Détails sur le client",
+        "DetailsBienImmobilier" : "Détails sur le bien Immobilier",
+        "Prix": "Montant"
+
     }
 }
