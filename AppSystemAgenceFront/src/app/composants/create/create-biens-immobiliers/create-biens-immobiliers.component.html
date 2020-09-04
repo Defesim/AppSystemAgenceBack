@@ -5,7 +5,7 @@
 
         <!-- ++++++ En-tete du panel +++++-->
         <div class="panel-heading">
-            <h3 class="panel-title">{{'AjoutModifBienImmobilier.Titre' | translate}}</h3> 
+            <h3 class="panel-title">{{'AjoutModifBienImmobilier.Titre' | translate}}</h3>
         </div>
 
 
@@ -47,28 +47,106 @@
                 <label for="tdProprietaire">{{'AjoutModifBienImmobilier.Proprietaire' | translate}}</label>
 
                 <select class="form-control" [(ngModel)]="bienImmo.proprietaire.id_personne" name="proprietaire">
-                                     
-                    <option *ngFor="let proprietaire of proprietaires"  [value]="proprietaire.id_personne" >
+
+                    <option *ngFor="let proprietaire of proprietaires" [value]="proprietaire.id_personne">
                         {{proprietaire.nom}} {{proprietaire.prenom}} {{proprietaire.id_personne}}
                     </option>
 
                 </select>
             </div>
 
-             <!-- Select pour la classe standard  -->
+            <!-- Select pour la classe standard  -->
 
-             <div class="form-group">
+            <div class="form-group">
                 <label for="tdClasseStandard">{{'AjoutModifBienImmobilier.ClasseStandard' | translate}}</label>
 
-                <select class="form-control" [(ngModel)]="bienImmo.classeStandard.idClasseStandard" name="classeStandard">
-                                     
-                    <option *ngFor="let classeStandard of classesStandards"  [value]="classeStandard.idClasseStandard" >
-                        {{classeStandard.idClasseStandard}}: {{classeStandard.libelle}} = {{classeStandard.typeDeBien}}, 
-                        {{classeStandard.usageDuBien}},  {{classeStandard.description}}, {{classeStandard.prixMaximum}}, 
+                <select class="form-control" [(ngModel)]="bienImmo.classeStandard.idClasseStandard"
+                    name="classeStandard">
+
+                    <option *ngFor="let classeStandard of classesStandards" [value]="classeStandard.idClasseStandard">
+                        {{classeStandard.idClasseStandard}}: {{classeStandard.libelle}} = {{classeStandard.typeDeBien}},
+                        {{classeStandard.usageDuBien}}, {{classeStandard.description}}, {{classeStandard.prixMaximum}},
 
                     </option>
 
                 </select>
+            </div>
+
+            <!-- select pour le mode d'offre-->
+            <div class="form-group">
+                <label for="tdmodeOffre">{{'AjoutModifBienImmobilier.ModeOffre' | translate}}</label>
+
+                <select id="tdmodeOffre" class="form-control" [(ngModel)]="modeOffre.typeModeOffre"
+                    name="typeModeOffre">
+
+                    <option value="achat" label="Achat"></option>
+                    <option value="location" label="Location"></option>
+                </select>
+            </div>
+
+
+            <div *ngIf="modeOffre.typeModeOffre == 'achat' ">
+
+                <br>
+                <div class="form-group">
+                    <label for="tbprix">Prix d'acaht du bien : </label>
+                    <input type="text" id="tbprix" class="form-control" placeholder="saisir la valeur du bien"
+                        [(ngModel)]="modeOffre.prixAchatDemande" name="prixAchatDemande">
+                </div>
+
+                <div class="form-group">
+                    <label for="tbmeuble">Avec Terrain ? </label>
+
+                    <select id="tbmeuble" class="form-control" [(ngModel)]="modeOffre.meuble" name="meuble">
+
+                        <option value="true" label="Achat sauf terrain"></option>
+                        <option value="false" label="Achat avec terrain"></option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div *ngIf="modeOffre.typeModeOffre == 'location' ">
+
+                <br>
+                <div class="form-group">
+                    <label for="tbcaution">Caution Locative : </label>
+                    <input type="text" id="tbcaution" class="form-control" placeholder="saisir la valeur de la caution"
+                        [(ngModel)]="modeOffre.cautionLocative" name="cautionLocative">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="tbloyer">Loyer Mensuel : </label>
+                    <input type="text" id="tbloyer" class="form-control" placeholder="saisir la valeur du loyer"
+                        [(ngModel)]="modeOffre.loyerMensuel" name="loyerMensuel">
+                </div>
+
+                <div class="form-group">
+                    <label for="tbcharges">Charges mensuelles : </label>
+                    <input type="text" id="tbcharges" class="form-control" placeholder="saisir le montant des charges"
+                        [(ngModel)]="modeOffre.chargesMensuelles" name="chargesMensuelles">
+                </div>
+
+                <div class="form-group">
+                    <label for="tbbail">Charges mensuelles : </label>
+                    <input type="text" id="tbbail" class="form-control" placeholder="saisir le type de bail"
+                        [(ngModel)]="modeOffre.typeBail" name="typeBail">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="tbmeuble">Est-il meublé :</label>
+
+                    <select id="tbmeuble" class="form-control" [(ngModel)]="modeOffre.meuble" name="meuble">
+
+                        <option value="true" label="Meublé"></option>
+                        <option value="false" label="Non meublé"></option>
+                    </select>
+                </div>
+
+
             </div>
 
 
