@@ -151,7 +151,7 @@ export class CreateAcquisitionComponent implements OnInit {
 
     this.acquisitionService.ajouterAcquisitionViaWsRest(this.acquisition).subscribe();
     
-    console.log(this.acquisition.idAcquisition)
+    this.router.navigate(['/listBiens']);
 
     
 

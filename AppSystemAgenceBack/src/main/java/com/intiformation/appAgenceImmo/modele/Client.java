@@ -47,8 +47,7 @@ public class Client extends Personne{
 	 * Association entre acquisition et client
 	 * One acquisition to One client
 	 */
-	@OneToOne
-	@JoinColumn(name = "acquisition_id", referencedColumnName = "id_acquisition")
+	@OneToOne (cascade= CascadeType.ALL, mappedBy="client")
 	private Acquisition acquisition;
 
 	

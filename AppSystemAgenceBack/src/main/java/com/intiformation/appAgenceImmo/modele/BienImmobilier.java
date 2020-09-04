@@ -86,8 +86,7 @@ public class BienImmobilier implements Serializable {
 	 * Permet de faire le lien entre l'agent responsable du contrat d'acquisition,
 	 * le client acheteur/locataire et le bien immobilier acquis/loué
 	 */
-	@OneToOne
-	@JoinColumn(name = "acquisition_id", referencedColumnName = "id_acquisition")
+	@OneToOne (cascade= CascadeType.ALL, mappedBy="bienImmobilier")
 	private Acquisition acquisition;
 	
 	/**
