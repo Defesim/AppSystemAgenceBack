@@ -8,6 +8,8 @@ import { NgModel } from '@angular/forms';
 import { ClasseStandard } from 'src/app/modèles/ClasseStandard'
 import { ClassesStandardsService } from 'src/app/services/classes-standards.service'
 import { ModeOffre } from 'src/app/modèles/ModeOffre';
+import { Image } from 'src/app/modèles/Image'
+
 
 @Component({
   selector: 'app-create-biens-immobiliers',
@@ -23,6 +25,7 @@ export class CreateBiensImmobiliersComponent implements OnInit {
   classesStandards = [];
   classeStandard: ClasseStandard;
   modeOffre: ModeOffre;
+  images: Array<Image> = new Array<Image>();
 
   constructor(private biensImmoService: BiensImmobiliersService,
     private router: Router,
@@ -168,5 +171,22 @@ export class CreateBiensImmobiliersComponent implements OnInit {
  */
 
   }//end saveOrUpdateBienImmo
+
+  handleReaderLoader(e: any) {
+    let img = btoa(e.target.result);
+    let imag: Image = { id: 0, image: img };
+    this.images.push(imag);
+  }
+
+  onChange(evt: any) {
+    const files = evt.target.files;
+    if (files.length) {
+      for (var i = 0; i < files.length; i++) {
+        const reader = new FileReader();
+        reader.onload = this.handleReaderLoader.bind(this);
+        reader.readAsBinaryString(files[i]);
+      }
+    }
+  }
 
 }//end classe

@@ -72,6 +72,15 @@
                 </select>
             </div>
 
+            <!-- Select pour l'image  -->
+            <div class="form-groupe">
+                <label for="idPhoto">Image</label>
+                <div>
+                    <input type="file" class="form-control" id="idPhoto" (change)="onChange($event)" accept=".png, .jpg, .jpeg" multiple/>
+                </div>
+            </div>
+            <br/>
+
             <!-- select pour le mode d'offre-->
             <div class="form-group">
                 <label for="tdmodeOffre">{{'AjoutModifBienImmobilier.ModeOffre' | translate}}</label>
