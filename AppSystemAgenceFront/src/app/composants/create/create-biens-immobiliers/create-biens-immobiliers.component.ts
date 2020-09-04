@@ -125,6 +125,11 @@ export class CreateBiensImmobiliersComponent implements OnInit {
     this.proprietaireService.getProprietaireByIdFromWsRest(this.bienImmo.proprietaire.id_personne).subscribe(  
        (proprietaireRetrouve)  =>  {this.bienImmo.proprietaire = proprietaireRetrouve;}
       );
+
+    this.classesStandardService.getClasseStdByIdFromWsRest(this.bienImmo.classeStandard.idClasseStandard).subscribe(
+      (classeStandardaRetrouver) => { this.bienImmo.classeStandard = classeStandardaRetrouver; }
+    )
+    
  
     // test de l'id du bienImmo (AJOUT ou MODIF)
     if(this.bienImmo.idBienImmobilier == null){
@@ -142,17 +147,19 @@ export class CreateBiensImmobiliersComponent implements OnInit {
 
     }
 
-    if (this.bienImmo.classeStandard == null) {
+    //if (this.bienImmo.classeStandard == null) {
 
        //redirection vers list
-      this.router.navigate(['/listBiens']);
+    this.router.navigate(['/listBiens']);
+
+      /*
       
     }else{
 
       this.router.navigate(['classesStandard/listeBiens', this.bienImmo.classeStandard.idClasseStandard])
 
     }
-   
+   */
 
   }//end saveOrUpdateBienImmo
 
