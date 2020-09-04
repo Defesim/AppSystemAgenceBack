@@ -8,4 +8,6 @@ export class ModeOffre{
     typeModeOffre:string;
     bienImmobilier:BienImmobilier;
 
+    constructor(){}
+
 }

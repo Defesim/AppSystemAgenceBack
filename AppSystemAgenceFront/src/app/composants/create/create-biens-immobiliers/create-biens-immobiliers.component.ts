@@ -5,8 +5,10 @@ import { BienImmobilier } from 'src/app/modèles/BienImmobilier';
 import { ProprietairesService } from 'src/app/services/proprietaires.service';
 import { Proprietaire } from 'src/app/modèles/Proprietaire';
 import { NgModel } from '@angular/forms';
-import { ClasseStandard } from 'src/app/modèles/ClasseStandard'
+import { ClasseStandard } from 'src/app/modèles/ClasseStandard';
 import { ClassesStandardsService } from 'src/app/services/classes-standards.service'
+import {ModeOffre} from 'src/app/modèles/ModeOffre';
+
 
 @Component({
   selector: 'app-create-biens-immobiliers',
@@ -21,6 +23,9 @@ export class CreateBiensImmobiliersComponent implements OnInit {
   proprietaire : Proprietaire;
   classesStandards = [];
   classeStandard : ClasseStandard;
+
+  modeOffre: ModeOffre;
+
 
   constructor(private biensImmoService:BiensImmobiliersService, 
     private router:Router,
@@ -40,6 +45,10 @@ export class CreateBiensImmobiliersComponent implements OnInit {
       const idBien = +paramsMap.get("id");
 
       this.findBienImmoById(idBien);
+
+      this.modeOffre = {
+        bienImmobilier:null,typeModeOffre:null,idModeOffre:null
+      }
 
 
     })
@@ -101,6 +110,8 @@ export class CreateBiensImmobiliersComponent implements OnInit {
         typeDeBien: null,
         usageDuBien: null
       }
+
+ 
 
     }else{
 

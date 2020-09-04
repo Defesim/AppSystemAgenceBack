@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BiensImmobiliersService } from 'src/app/services/biens-immobiliers.service';
 import { BienImmobilier } from 'src/app/modèles/BienImmobilier';
-import { Proprietaire } from 'src/app/modèles/Proprietaire'
+import { Proprietaire } from 'src/app/modèles/Proprietaire';
 import { ProprietairesService } from 'src/app/services/proprietaires.service'
 
 @Component({

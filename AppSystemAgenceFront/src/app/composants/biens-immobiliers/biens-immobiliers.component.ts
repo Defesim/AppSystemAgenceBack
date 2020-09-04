@@ -16,9 +16,19 @@ export class BiensImmobiliersComponent implements OnInit {
 
   //var de stockage de tous les biens immo
   biensImmobiliers =[];
+  isAddAdressChecked:boolean;
+  adresse:Adresse;
 
   constructor(private biensImmoService: BiensImmobiliersService, private route:Router) {
     this.findAllBiensImmo();
+    this.isAddAdressChecked = false;
+
+    this.adresse = {
+      codePostal:null,
+      idAdresse:null,
+      rue:null,
+      ville:null
+    }
 
    }//end ctor
 
@@ -59,11 +69,21 @@ export class BiensImmobiliersComponent implements OnInit {
   }//end detailsBienImmo
  
 
-  attribuerAdresse(pIdBienImmobilier){
-    console.log("bonjour on est dans attribution d'adresse !!" + pIdBienImmobilier);
+  attribuerAdresse(pBien:BienImmobilier){
+    this.isAddAdressChecked = !(this.isAddAdressChecked);
+  }
 
-    this.route.navigate(['adresses/edit',0]);
+  formAdressAttrib(pBien: BienImmobilier){
+
+    this.isAddAdressChecked = !(this.isAddAdressChecked);
+    console.log(this.adresse);
+
+    pBien.adresse = this.adresse;
+
+    this.biensImmoService.modifierBienImmoViaWsRest(pBien).subscribe();
     
+    this.findAllBiensImmo();
+
   }
 
 }//end class
