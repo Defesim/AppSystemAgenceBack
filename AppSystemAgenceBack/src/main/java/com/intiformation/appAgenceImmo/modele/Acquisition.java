@@ -48,15 +48,16 @@ public class Acquisition implements Serializable{
 	 * Association entre acquisition et bien immobilier
 	 * One acquisition to One bien immobilier
 	 */
-	@OneToOne (cascade= CascadeType.ALL, mappedBy="acquisition")
+	@OneToOne
+	@JoinColumn(name = "bienImmo_id", referencedColumnName = "id_bien_immobilier")
 	private BienImmobilier bienImmobilier; 
 	
 	/**
 	 * Association entre acquisition et agent immobilier
 	 * One acquisition to One agent immobilier
 	 */
-	
-	@OneToOne (cascade= CascadeType.ALL, mappedBy="acquisition")
+	@OneToOne
+	@JoinColumn(name = "agent_id", referencedColumnName = "personne_id")
 	private AgentImmobilier agentImmobilier; 
 	
 	
@@ -64,7 +65,8 @@ public class Acquisition implements Serializable{
 	 * Association entre acquisition et client
 	 * One acquisition to One client
 	 */
-	@OneToOne (cascade= CascadeType.ALL, mappedBy="acquisition")
+	@OneToOne
+	@JoinColumn(name = "cliend_id", referencedColumnName = "personne_id")
 	private Client client; 
 	
 	

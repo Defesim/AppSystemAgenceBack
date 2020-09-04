@@ -37,8 +37,7 @@ public class AgentImmobilier extends Personne {
 	 * Association entre acquisition et agent immobilier
 	 * One acquisition to One agent immobilier
 	 */
-	@OneToOne
-	@JoinColumn(name = "acquisition_id", referencedColumnName = "id_acquisition")
+	@OneToOne (cascade= CascadeType.ALL, mappedBy="agentImmobilier")
 	private Acquisition acquisition;
 	
 	

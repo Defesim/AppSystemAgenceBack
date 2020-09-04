@@ -12,6 +12,6 @@ export class Acquisition{
     prixAchat:number;
     bienImmobilier:BienImmobilier;
     agentImmobilier: AgentImmobilier;
-    client:Client;
+    client: Client;
 
-}
+} 
