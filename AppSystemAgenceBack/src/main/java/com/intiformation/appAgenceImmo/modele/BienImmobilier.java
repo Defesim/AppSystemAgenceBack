@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,9 +19,13 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
@@ -65,7 +70,9 @@ public class BienImmobilier implements Serializable {
 	private Adresse adresse;
 
 
-	@ManyToOne
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ClasseStandard.class)
+	@Fetch(value = FetchMode.JOIN)
 	@JoinColumn(name = "classe_standard_id", referencedColumnName = "id_classe_standard")
 	private ClasseStandard classeStandard;
 
