@@ -69,7 +69,7 @@ public class ClasseStandard implements Serializable{
 	 * Association entre classe standard et client:
 	 * Many clients pour many classes standards
 	 */
-	@ManyToMany (cascade= CascadeType.ALL)
+	@ManyToMany //(cascade= CascadeType.ALL)
 	@JoinTable (name="classe_standard_client_assos",
 			joinColumns=@JoinColumn(name="classe_standard_id"),
 			inverseJoinColumns= @JoinColumn(name="personne_id"))
@@ -80,7 +80,7 @@ public class ClasseStandard implements Serializable{
 	 * Association entre classe standard et bien immobilier
 	 * One classe standard pour Many biens immobiliers
 	 */
-	@OneToMany (cascade=CascadeType.ALL, mappedBy="classeStandard") 
+	@OneToMany (mappedBy="classeStandard") /* cascade=CascadeType.ALL */ 
 	private List<BienImmobilier> biensImmobiliers;
 	
 
