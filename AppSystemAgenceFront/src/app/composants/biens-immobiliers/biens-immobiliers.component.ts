@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {BiensImmobiliersService} from 'src/app/services/biens-immobiliers.service';
-import {BienImmobilier} from 'src/app/modèles/BienImmobilier';
-import {Adresse} from 'src/app/modèles/Adresse';
+import { BiensImmobiliersService } from 'src/app/services/biens-immobiliers.service';
+import { BienImmobilier } from 'src/app/modèles/BienImmobilier';
+import { Adresse } from 'src/app/modèles/Adresse';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AdressesService } from 'src/app/services/adresses.service';
 
 
 
@@ -15,26 +16,37 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class BiensImmobiliersComponent implements OnInit {
 
   //var de stockage de tous les biens immo
-  biensImmobiliers =[];
+  biensImmobiliers = [];
+  isAddAdressChecked: boolean;
+  adresse: Adresse;
 
-  constructor(private biensImmoService: BiensImmobiliersService, private route:Router) {
+  constructor(private biensImmoService: BiensImmobiliersService, private route: Router, private adresseService: AdressesService) {
     this.findAllBiensImmo();
+ 
+    this.isAddAdressChecked = false;
 
-   }//end ctor
+    this.adresse = {
+      codePostal: null,
+      idAdresse: null,
+      rue: null,
+      ville: null
+    }
+
+  }//end ctor
 
   ngOnInit(): void {
   }//end ngOnInit
 
 
-  findAllBiensImmo(){
+  findAllBiensImmo() {
     this.biensImmoService.getAllBienImmoFromWsRest()
-                         .subscribe(data=> this.biensImmobiliers = data);
+      .subscribe(data => this.biensImmobiliers = data);
   }//end findAllBiensImmo
 
 
-  deleteBienImmo(bienImmobilier:BienImmobilier){
+  deleteBienImmo(bienImmobilier: BienImmobilier) {
 
-    this.biensImmoService.supprimerBienImmoViaWsRest(bienImmobilier).subscribe( ()=>{
+    this.biensImmoService.supprimerBienImmoViaWsRest(bienImmobilier).subscribe(() => {
 
       this.findAllBiensImmo();
     });
@@ -42,7 +54,7 @@ export class BiensImmobiliersComponent implements OnInit {
   }//end deleteBienImmo
 
 
-  editBienImmo(idBienImmobilier :number){
+  editBienImmo(idBienImmobilier: number) {
 
     this.route.navigate(['listBiens/edit', idBienImmobilier]);
 
@@ -51,19 +63,31 @@ export class BiensImmobiliersComponent implements OnInit {
   /**
    * Méthode pour renvoyer le bien immobilier vers une nouvelle page html avec les détails associés
    */
-  detailsBienImmo(IdbienImmobilier: number){
+  detailsBienImmo(IdbienImmobilier: number) {
 
-    
+
     this.route.navigate(['bienImmo', IdbienImmobilier]);
 
   }//end detailsBienImmo
- 
 
-  attribuerAdresse(pIdBienImmobilier){
-    console.log("bonjour on est dans attribution d'adresse !!" + pIdBienImmobilier);
+  attribuerAdresse(pBien: BienImmobilier) {
+    this.isAddAdressChecked = !(this.isAddAdressChecked);
+  }
 
-    this.route.navigate(['adresses/edit',0]);
-    
+  formAdressAttrib(pBien: BienImmobilier) {
+
+    this.isAddAdressChecked = !(this.isAddAdressChecked);
+    console.log(this.adresse);
+
+    this.adresseService.ajouterAdresseViaWsRest(this.adresse).subscribe();
+
+    pBien.adresse = this.adresse;
+    console.log(pBien.adresse);
+
+    this.biensImmoService.modifierBienImmoViaWsRest(pBien).subscribe();
+
+    this.findAllBiensImmo();
+
   }
 
 }//end class

@@ -4,12 +4,12 @@
             class="glyphicon glyphicon-plus"></span>{{'BienImmobilier.Ajout' | translate}}</a>
     <br><br>
 
-    <div class="panel panel-primary" *ngFor="let bien of biensImmobiliers" >
+    <div class="panel panel-primary" *ngFor="let bien of biensImmobiliers">
 
         <!--===================================-->
         <!--===== Header du panneau ===========-->
         <!--===================================-->
-        <div class="panel-heading"  *ngIf="bien.acquisition == null">
+        <div class="panel-heading" *ngIf="bien.acquisition == null">
             <h3 class="panel-title">Statut: {{bien.statut}}</h3>
             <h3 class="panel-title">Id: {{bien.idBienImmobilier}}</h3>
         </div>
@@ -35,8 +35,8 @@
                         </div>
 
                         <!-- Sinon boutton pour ajouter l'adresse-->
-                        <a class="add-adress-link" *ngIf="bien.adresse == null"
-                            (click)="attribuerAdresse(bien.idBienImmobilier)">
+                        <a class="add-adress-link" *ngIf="(bien.adresse == null)&&(!isAddAdressChecked)"
+                            (click)="attribuerAdresse(bien)">
 
                             <div class="add-adress">
                                 <span class="glyphicon glyphicon-plus"></span> <br>
@@ -44,6 +44,38 @@
                             </div>
 
                         </a>
+
+                        <form *ngIf="(isAddAdressChecked)&&(bien.adresse == null)" (ngSubmit)="formAdressAttrib(bien)">
+
+                            <!-- champ texte (input) poiur l'adresse -->
+                            <div class="form-group">
+                                <label for="tbrue">Rue : </label>
+                                <input type="text" id="tbrue" class="form-control" placeholder="saisir la rue"
+                                    [(ngModel)]="adresse.rue" name="rue">
+                            </div>
+
+                            <!-- champ texte (input) poiur le codePostal -->
+                            <div class="form-group">
+                                <div style="float:left;width: 40%;">
+                                    <label for="tbcp">CodePostal :</label>
+                                    <input type="text" id="tbcp" class="form-control"
+                                        placeholder="saisir le code postal" [(ngModel)]="adresse.codePostal"
+                                        name="codePostal">
+                                </div>
+                                <div style="float: right;width:40%">
+                                    <label for="tbville">Ville :</label>
+                                    <input type="text" id="tbville" class="form-control" placeholder="saisir la ville"
+                                        [(ngModel)]="adresse.ville" name="ville">
+                                </div>
+                                <br>
+                            </div>
+
+                            <br><br>
+
+                            <button type="submit" class="btn btn-warning">Ajouter Adresse</button>
+
+
+                        </form>
                     </div>
 
                     <!--++++++++ details de l'employe ++++++++++++++++-->
@@ -52,7 +84,7 @@
                         <!--++++++++ Fonction ++++++++++++++++-->
                         <div class="row">
                             <div class="col-xs-6 font-title">
-                                {{'BienImmobilier.RevenuCadastral' | translate}} 
+                                {{'BienImmobilier.RevenuCadastral' | translate}}
                             </div>
                             <div class="col-xs-6">
                                 {{bien.revenuCadastral}}€
